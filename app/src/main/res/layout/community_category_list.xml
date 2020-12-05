@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_memo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/communityList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/llback"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/white_round_border"
+
+            android:elevation="20dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_profile"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginleft="15dp"
+                        android:background="@drawable/im_sample_profile"
+                        android:foreground="@drawable/fg_rounded">
+
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/tv_writer"
+                        android:layout_width="65dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:ellipsize="end"
+                        android:maxLength="15"
+                        android:text="제목"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_contents"
+                    android:layout_width="341dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="내용"
+                    android:textSize="25dp" />
+
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="219dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="right" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
