@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,26 +16,32 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.hackathonapplication.MainActivity;
 import com.example.hackathonapplication.R;
 
-public class HealthFragment extends Fragment {
+public class HealthTestResultFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
-    private Button todayTestBtn;
-    private FragmentManager fragmentManager;
-    private FragmentTransaction transaction;
+    private Button healthTestResultBackBtn;
+    private Button healthTestReturnBtn;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        viewGroup = (ViewGroup) inflater.inflate(R.layout.health_main_fragment, container, false);
+        viewGroup = (ViewGroup) inflater.inflate(R.layout.health_today_test_result_fragment, container, false);
         context = container.getContext();
 
-        todayTestBtn = viewGroup.findViewById(R.id.todayTestBtn);
-        todayTestBtn.setOnClickListener(new Button.OnClickListener() {
+        healthTestResultBackBtn = viewGroup.findViewById(R.id.healthTestResultBackBtn);
+        healthTestResultBackBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view){
                 ((MainActivity)getActivity()).replaceFragment( new HealthTestFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
             }
         });
 
+        healthTestReturnBtn = viewGroup.findViewById(R.id.healthTestReturnBtn);
+        healthTestReturnBtn.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                ((MainActivity)getActivity()).replaceFragment( new HealthFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+            }
+        });
 
         return viewGroup;
     }

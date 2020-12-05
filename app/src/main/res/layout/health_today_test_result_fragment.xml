@@ -133,7 +133,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="380dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight= "50dp"
 
@@ -147,14 +147,15 @@
         />
 
     <Button
+        android:id="@+id/healthTestReturnBtn"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="480dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight= "50dp"
 
-        android:text="측정끝내기"
-        android:textSize="25sp"
+        android:text="건강 페이지로 돌아가기"
+        android:textSize="20sp"
 
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/white_round_border"
