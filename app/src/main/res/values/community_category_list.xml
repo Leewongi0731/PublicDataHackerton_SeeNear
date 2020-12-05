@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="community_category_list">
+        <item>트로트</item>
+        <item>등산</item>
+        <item>식물</item>
+        <item>낚시</item>
+        <item>운동</item>
+    </string-array>
+
+</resources>
+

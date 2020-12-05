@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hackathonapplication.MainActivity;
 import com.example.hackathonapplication.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -30,6 +32,7 @@ public class CommunityMainFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private PostAdapter adapter;
     private ImageButton categoryButton;
+    private FloatingActionButton writePostButton;
     //
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
@@ -60,23 +63,20 @@ public class CommunityMainFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
 
-        categoryButton = (ImageButton) viewGroup.findViewById(R.id.ib_categoryButton);
-        categoryButton.setOnClickListener(v -> onClick(v));
-//        categoryButton.setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View v) {
-//                replaceFragment(new CommunityCategoryFragment());
-//            }
-//        });
+        categoryButton = viewGroup.findViewById(R.id.ib_categoryButton);
+        writePostButton = viewGroup.findViewById(R.id.fab_writeButton);
+        categoryButton.setOnClickListener(v->onClick(v));
+        writePostButton.setOnClickListener(v->onClick(v));
 
     }
 
     private void onClick(View v) {
         switch (v.getId()) {
-            case (R.id.ib_categoryButton):
+            case R.id.ib_categoryButton:
                 replaceFragment(new CommunityCategoryFragment());
                 break;
+            case R.id.fab_writeButton:
+                replaceFragment(new CommunityWriteFragment());
         }
 
     }
