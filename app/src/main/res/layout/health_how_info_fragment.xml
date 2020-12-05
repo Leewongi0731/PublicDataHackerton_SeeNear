@@ -1,6 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
-</LinearLayout>
+    <Button
+        android:id="@+id/healthInfoBackBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_back_key"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/healthInfoMainTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="좌우 찍기 하는 방법 소개"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        app:layout_constraintLeft_toRightOf="@id/healthInfoBackBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+    <VideoView
+        android:id="@+id/healthInfoVideo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        android:gravity="center"
+        android:textSize="20sp"
+
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="20dp"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/healthInfoVideo"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:text="좌우 찍기"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:layout_marginTop="25dp"
+            android:text="1. 오른발을"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:layout_marginTop="15dp"
+            android:text="2. 오른쪽으로"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:layout_marginTop="15dp"
+            android:text="3. 찍어버린다"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

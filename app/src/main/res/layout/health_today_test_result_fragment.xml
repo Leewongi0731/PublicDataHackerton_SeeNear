@@ -1,6 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
-</LinearLayout>
+    <Button
+        android:id="@+id/healthTestResultBackBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_back_key"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/healthTestResultMainTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="오늘의 운동측정 결과"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        app:layout_constraintLeft_toRightOf="@id/healthTestResultBackBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/healthTestResultTitle1"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+
+        android:text="윗몸일으키기"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/healthTestResultImageView1"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+
+        android:text="20회"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+
+        android:layout_marginTop="120dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_test_score_4"
+        />
+
+
+    <TextView
+        android:id="@+id/healthTestResultTitle2"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+
+        android:text="팔굽혀펴기"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+
+        android:layout_marginLeft= "50dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf ="@+id/healthTestResultTitle1"
+        android:elevation="20dp"
+        />
+    <ImageView
+        android:id="@+id/healthTestResultImageView2"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+
+        android:text="5회"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/healthTestResultImageView1"
+        android:src="@drawable/ic_test_score_3"
+        />
+
+    <TextView
+        android:id="@+id/healthTestResultTitle3"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+
+        android:text="스쿼트"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+
+        android:layout_marginLeft= "50dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf ="@+id/healthTestResultTitle2"
+        android:elevation="20dp"
+        />
+    <ImageView
+        android:id="@+id/healthTestResultImageView3"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+
+        android:text="8회"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/healthTestResultImageView2"
+        android:src="@drawable/ic_test_score_1"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight= "50dp"
+
+        android:text="점수 50점 획득!"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textColor="@color/black"
+
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/white_round_border"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="550dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight= "50dp"
+
+        android:text="측정끝내기"
+        android:textSize="25sp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/white_round_border"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
