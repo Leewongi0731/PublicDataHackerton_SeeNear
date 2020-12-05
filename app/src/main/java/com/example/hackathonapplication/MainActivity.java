@@ -6,11 +6,20 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.example.hackathonapplication.community.CommunityFragment;
 import com.example.hackathonapplication.edu.EduFragment;
+import com.example.hackathonapplication.health.HealthFragment;
+import com.example.hackathonapplication.job.JobFragment;
+import com.example.hackathonapplication.mypage.MyPageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     private FragmentMain fragmentMain;
+    private HealthFragment healthFragment;
     private EduFragment eduFragment;
+    private JobFragment jobFragment;
+    private CommunityFragment communityFragment;
+    private MyPageFragment myPageFragment;
     private FragmentManager fragmentManager;
     private BottomNavigationView bottomNavigationView;
     private FragmentTransaction transaction;
@@ -27,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 transaction = fragmentManager.beginTransaction();
                 switch (menuItem.getItemId()) {
                     case R.id.health_button: {
-                        //transaction.replace(R.id.frameLayout, healthFragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frameLayout, healthFragment).commitAllowingStateLoss();
                         return true;
                     }
                     case R.id.edu_button: {
@@ -35,15 +44,15 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                     case R.id.job_button: {
-                        //transaction.replace(R.id.frameLayout, jobFragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frameLayout, jobFragment).commitAllowingStateLoss();
                         return true;
                     }
                     case R.id.community_button: {
-                        //transaction.replace(R.id.frameLayout, communityFragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frameLayout, communityFragment).commitAllowingStateLoss();
                         return true;
                     }
                     case R.id.mypage_button: {
-                        //transaction.replace(R.id.frameLayout, mypageFragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frameLayout, myPageFragment).commitAllowingStateLoss();
                         return true;
                     }
                 }
@@ -54,7 +63,11 @@ public class MainActivity extends AppCompatActivity {
     private void initLayout() {
         fragmentManager = getSupportFragmentManager();
         fragmentMain = new FragmentMain();
+        healthFragment = new HealthFragment();
         eduFragment = new EduFragment();
+        jobFragment = new JobFragment();
+        communityFragment = new CommunityFragment();
+        myPageFragment = new MyPageFragment();
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragmentMain).commitAllowingStateLoss();
