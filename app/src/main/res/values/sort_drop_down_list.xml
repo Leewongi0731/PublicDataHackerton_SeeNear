@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sort_drop_down_list">
+        <item>모집기간순</item>
+        <item>교육기간순</item>
+        <item>이름순</item>
+    </string-array>
+</resources>
