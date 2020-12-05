@@ -33,10 +33,12 @@
 
                 <FrameLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    >
 
                     <ImageButton
-                        android:layout_width="150dp"
+                        android:layout_width="120dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/im_sample_category1"
                         android:gravity="center"
@@ -54,10 +56,11 @@
 
                 <FrameLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp">
 
                     <ImageButton
-                        android:layout_width="150dp"
+                        android:layout_width="120dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/im_sample_category2"
                         android:gravity="center"
@@ -75,10 +78,11 @@
 
                 <FrameLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp">
 
                     <ImageButton
-                        android:layout_width="150dp"
+                        android:layout_width="120dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/im_sample_category3"
                         android:gravity="center"
@@ -96,10 +100,11 @@
 
                 <FrameLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp">
 
                     <ImageButton
-                        android:layout_width="150dp"
+                        android:layout_width="120dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/im_sample_category4"
                         android:gravity="center"
@@ -117,10 +122,11 @@
 
                 <FrameLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp">
 
                     <ImageButton
-                        android:layout_width="150dp"
+                        android:layout_width="120dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/im_sample_category5"
                         android:gravity="center"
@@ -155,7 +161,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_post"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="450dp"
         android:horizontalSpacing="10dp"
         android:paddingBottom="10dp"
         android:paddingTop="20dp"

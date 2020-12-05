@@ -14,11 +14,11 @@
         <LinearLayout
             android:id="@+id/ll_back"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="150dp"
 
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/white_round_border"
 
@@ -42,9 +42,9 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:layout_marginTop="15dp"
-                        android:layout_marginLeft="15dp"
                         android:background="@drawable/im_sample_profile"
                         android:foreground="@drawable/fg_rounded">
 
@@ -63,13 +63,17 @@
 
                     <TextView
                         android:id="@+id/tv_date"
-                        android:layout_width="219dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="24dp"
+                        android:layout_marginRight="10dp"
                         android:layout_gravity="right">
 
                     </TextView>
 
                 </LinearLayout>
+
+
+                />
 
                 <TextView
                     android:id="@+id/tv_contents"
@@ -80,9 +84,37 @@
                     android:maxLines="1"
                     android:text="내용"
                     android:textSize="25dp" />
-
-                />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/ic_post_heart"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="공감"></TextView>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/ic_comment"
+                    ></ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="댓글">
+                </TextView>
+            </LinearLayout>
+
 
 
         </LinearLayout>
