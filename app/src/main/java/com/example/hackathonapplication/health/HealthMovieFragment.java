@@ -64,8 +64,6 @@ public class HealthMovieFragment extends Fragment {
                 healthInfoVideo.start();
             }
         });
-
-
         return viewGroup;
     }
 
@@ -85,5 +83,5 @@ public class HealthMovieFragment extends Fragment {
         //
         if(healthInfoVideo!=null) healthInfoVideo.stopPlayback();
     }
-     */
+    */
 }
