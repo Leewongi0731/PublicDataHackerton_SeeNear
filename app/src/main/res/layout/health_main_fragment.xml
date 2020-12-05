@@ -8,7 +8,7 @@
     <Button
         android:id="@+id/todayTestBtn"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="80dp"
 
         android:text="오늘의 운동측정 시작하기"
         android:textSize="20sp"
@@ -26,7 +26,7 @@
     <LinearLayout
         android:id="@+id/healthCardLayout"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="200dp"
 
         android:layout_marginTop="15dp"
         android:layout_marginLeft="30dp"

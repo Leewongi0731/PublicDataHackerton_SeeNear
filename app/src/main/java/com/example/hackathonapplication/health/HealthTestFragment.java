@@ -15,20 +15,17 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.hackathonapplication.R;
 
-public class HealthTestFragment  extends Fragment {
+public class HealthTestFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private Button todayTestBtn;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
-    private HealthTestFragment healthTestFragment;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.health_main_fragment, container, false);
         context = container.getContext();
-
 
         return viewGroup;
     }
