@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.hackathonapplication.community.CommunityFragment;
+import com.example.hackathonapplication.community.CommunityMainFragment;
 import com.example.hackathonapplication.edu.EduFragment;
 import com.example.hackathonapplication.health.HealthFragment;
 import com.example.hackathonapplication.job.JobFragment;
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private HealthFragment healthFragment;
     private EduFragment eduFragment;
     private JobFragment jobFragment;
-    private CommunityFragment communityFragment;
+    private CommunityMainFragment communityFragment;
     private MyPageFragment myPageFragment;
     private FragmentManager fragmentManager;
     private BottomNavigationView bottomNavigationView;
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         healthFragment = new HealthFragment();
         eduFragment = new EduFragment();
         jobFragment = new JobFragment();
-        communityFragment = new CommunityFragment();
+        communityFragment = new CommunityMainFragment();
         myPageFragment = new MyPageFragment();
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
         transaction = fragmentManager.beginTransaction();
