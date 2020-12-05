@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/ll_memo"
+    android:id="@+id/ll_post"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/communityList"
+        android:id="@+id/postList"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/llback"
+            android:id="@+id/ll_back"
             android:layout_width="match_parent"
             android:layout_height="130dp"
 
@@ -44,7 +44,7 @@
                         android:layout_marginBottom="5dp"
                         android:layout_marginRight="15dp"
                         android:layout_marginTop="15dp"
-                        android:layout_marginleft="15dp"
+                        android:layout_marginLeft="15dp"
                         android:background="@drawable/im_sample_profile"
                         android:foreground="@drawable/fg_rounded">
 
@@ -57,9 +57,18 @@
                         android:layout_margin="10dp"
                         android:ellipsize="end"
                         android:maxLength="15"
-                        android:text="제목"
+                        android:text="작성자"
                         android:textSize="20dp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="219dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="right">
+
+                    </TextView>
+
                 </LinearLayout>
 
                 <TextView
@@ -72,13 +81,7 @@
                     android:text="내용"
                     android:textSize="25dp" />
 
-
-                <TextView
-                    android:id="@+id/tv_date"
-                    android:layout_width="219dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="right" />
-
+                />
             </LinearLayout>
 
 
