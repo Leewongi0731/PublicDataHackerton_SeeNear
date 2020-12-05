@@ -10,34 +10,40 @@ import android.widget.TextView;
 
 import com.example.hackathonapplication.R;
 
+import java.util.ArrayList;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     private Context context;
+    private ArrayList<Post> postDataset;
 
-    public PostAdapter(Context context) {
+    public PostAdapter(Context context,ArrayList<Post> postDataset) {
         this.context = context;
+        this.postDataset = postDataset;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.community_category_list, parent, false);
-        return new PostAdapter.ViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.community_category_list, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) { // 임시데이터
+        Post data = postDataset.get(position);
+
         holder.iv_profile.setImageResource(R.drawable.im_sample_profile);
-        holder.tv_writer.setText("김노인");
-        holder.tv_contents.setText("나훈아 개짱짱맨;;");
-        holder.tv_date.setText("2020-12-05");
+        holder.tv_writer.setText(data.getWriter());
+        holder.tv_contents.setText(data.getContents());
+        holder.tv_date.setText(data.getDate());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return postDataset.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
