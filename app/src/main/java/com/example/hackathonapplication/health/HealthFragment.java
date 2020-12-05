@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,21 +14,31 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hackathonapplication.MainActivity;
 import com.example.hackathonapplication.R;
+import com.example.hackathonapplication.data.MVDataset;
+import com.example.hackathonapplication.edu.EduFragmentRecyclerViewAdapter;
+
+import java.util.ArrayList;
 
 public class HealthFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private Button todayTestBtn;
-    private FragmentManager fragmentManager;
-    private FragmentTransaction transaction;
+    private ArrayList<MVDataset> mvDataset;
+    private RecyclerView.LayoutManager healthLayoutManager;
+    private RecyclerView healthMVRecyclerView;
+    private HealthFragmentRecyclerViewAdapter healthAdapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.health_main_fragment, container, false);
         context = container.getContext();
+
+        initLayout();
 
         todayTestBtn = viewGroup.findViewById(R.id.todayTestBtn);
         todayTestBtn.setOnClickListener(new Button.OnClickListener() {
@@ -37,7 +48,22 @@ public class HealthFragment extends Fragment {
             }
         });
 
-
         return viewGroup;
+    }
+
+    private void initLayout() {
+        mvDataset = new ArrayList<>();
+        mvDataset.add( new MVDataset( "윗몸일으키기", "윗몸을 힘껏 일으킨다", R.drawable.health_example1) );
+        mvDataset.add( new MVDataset( "자고싶다", "언제쯤 잘 수 있을까", R.drawable.health_example2 ) );
+        mvDataset.add( new MVDataset( "안될꺼야", "아마 못자겠지", R.drawable.health_example1 ) );
+        mvDataset.add( new MVDataset( "엎어져 잠자기", "엎어져 자면 건강에 좋다.", R.drawable.health_example2 ) );
+
+        healthMVRecyclerView = viewGroup.findViewById(R.id.healthMVRecyclerView);
+
+        healthLayoutManager = new LinearLayoutManager(context);
+        healthMVRecyclerView.setLayoutManager(healthLayoutManager);
+
+        healthAdapter = new HealthFragmentRecyclerViewAdapter(context, mvDataset, getActivity());
+        healthMVRecyclerView.setAdapter(healthAdapter);
     }
 }

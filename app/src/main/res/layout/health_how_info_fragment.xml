@@ -33,14 +33,14 @@
     <VideoView
         android:id="@+id/healthInfoVideo"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="220dp"
 
         android:gravity="center"
         android:textSize="20sp"
 
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:elevation="20dp"
