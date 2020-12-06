@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
 
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/white_round_border"
 
@@ -38,6 +38,7 @@
                     >
 
                     <ImageButton
+                        android:id="@+id/ib_categoryButton"
                         android:layout_width="120dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/im_sample_category1"
@@ -175,5 +176,16 @@
         app:layout_constraintTop_toBottomOf="@id/communityCategory"
         app:layout_constraintVertical_weight="9" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_writeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#0000FF"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_create_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

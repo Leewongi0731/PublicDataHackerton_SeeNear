@@ -9,20 +9,16 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/postList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:id="@+id/ll_back"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
 
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
             android:background="@drawable/white_round_border"
-
-            android:elevation="20dp"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -33,7 +29,7 @@
 
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -43,7 +39,6 @@
                         android:layout_height="50dp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:layout_marginTop="15dp"
                         android:background="@drawable/im_sample_profile"
                         android:foreground="@drawable/fg_rounded">
@@ -54,7 +49,7 @@
                         android:id="@+id/tv_writer"
                         android:layout_width="65dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_margin="15dp"
                         android:ellipsize="end"
                         android:maxLength="15"
                         android:text="작성자"
@@ -64,8 +59,9 @@
                     <TextView
                         android:id="@+id/tv_date"
                         android:layout_width="wrap_content"
+                        android:layout_marginTop="15dp"
                         android:layout_height="24dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="180dp"
                         android:layout_gravity="right">
 
                     </TextView>
@@ -115,9 +111,17 @@
                 </TextView>
             </LinearLayout>
 
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:layout_height="2dp"
+                android:background="#999999"/>
 
         </LinearLayout>
+
+
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>
