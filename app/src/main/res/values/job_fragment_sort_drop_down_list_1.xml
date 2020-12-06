@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="job_fragment_sort_drop_down_list_1">
+        <item>접수기간순</item>
+        <item>이름순</item>
+        <item>모집인원순</item>
+    </string-array>
+</resources>
