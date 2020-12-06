@@ -6,7 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.hackathonapplication.R;
 
@@ -20,7 +23,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CommunityPostFragment extends Fragment {
+public class CommunityCommentFragment extends Fragment {
 
     private ViewGroup viewGroup;
     private Context context;
@@ -31,12 +34,17 @@ public class CommunityPostFragment extends Fragment {
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
     private ImageButton backButton;
-    private Button writeCommentButton;
+    private Button pushCommentButton;
+    private ImageView imageViewProfile;
+    private TextView textViewWriter;
+    private TextView textViewContents;
+    private TextView textViewDate;
+    private EditText editTextComment;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        viewGroup = (ViewGroup) inflater.inflate(R.layout.community_post_fragment, container, false);
+        viewGroup = (ViewGroup) inflater.inflate(R.layout.community_comment_fragment, container, false);
         context = container.getContext();
 
         initView();
@@ -46,12 +54,12 @@ public class CommunityPostFragment extends Fragment {
 
     private void initView() {
         dataSet = new ArrayList<>();
-        dataSet.add(new Comment("백노인", "김노인", "아직", "맞아요 ㅇㅈ", "2시간 전","3"));
-        dataSet.add(new Comment("박노인", "김노인", "아직", "나도 좋아해", "2시간 전","3"));
-        dataSet.add(new Comment("서노인", "김노인", "아직", "감자팝니다", "2시간 전","3"));
-        dataSet.add(new Comment("홍노인", "김노인", "아직", "나훈아쩔어", "2시간 전","3"));
+        dataSet.add(new Comment("이미지", "백노인", "아직", "맞아요 ㅇㅈ", "2시간 전","3"));
+        dataSet.add(new Comment("이미지", "박노인", "아직", "나도 좋아해", "2시간 전","3"));
+        dataSet.add(new Comment("이미지", "서노인", "아직", "감자팝니다", "2시간 전","3"));
+        dataSet.add(new Comment("이미지", "홍노인", "아직", "나훈아쩔어", "2시간 전","3"));
 
-        recyclerView = (RecyclerView) viewGroup.findViewById(R.id.rv_post);
+        recyclerView = viewGroup.findViewById(R.id.rv_comment);
         adapter = new CommentAdapter(context, dataSet);
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
@@ -59,9 +67,21 @@ public class CommunityPostFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         backButton = viewGroup.findViewById(R.id.ib_back);
-        writeCommentButton = viewGroup.findViewById(R.id.btn_pushComment);
+        pushCommentButton = viewGroup.findViewById(R.id.btn_pushComment);
+        editTextComment = viewGroup.findViewById(R.id.et_comment);
         backButton.setOnClickListener(v -> onClick(v));
-        writeCommentButton.setOnClickListener(v->onClick(v));
+        pushCommentButton.setOnClickListener(v->onClick(v));
+
+        //임시데이터
+        imageViewProfile = viewGroup.findViewById(R.id.iv_profile);
+        textViewWriter = viewGroup.findViewById(R.id.tv_writer);
+        textViewContents = viewGroup.findViewById(R.id.tv_contents);
+        textViewDate = viewGroup.findViewById(R.id.tv_date);
+
+        imageViewProfile.setImageResource(R.drawable.im_sample_profile);
+        textViewContents.setText("나훈아쩔어");
+        textViewWriter.setText("김노인");
+        textViewDate.setText("2시간 전");
 
     }
 
@@ -72,6 +92,7 @@ public class CommunityPostFragment extends Fragment {
                 break;
             case R.id.btn_pushComment:
                 //댓글입력버튼을 누르면 어댑터 갱신하고 뷰 초기화
+                editTextComment.setText("");
 
         }
 

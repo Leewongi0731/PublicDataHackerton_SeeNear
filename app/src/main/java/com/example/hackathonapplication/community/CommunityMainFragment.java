@@ -43,6 +43,7 @@ public class CommunityMainFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.community_main_fragment, container, false);
         context = container.getContext();
+        fragmentManager = getFragmentManager();
 
         initView();
 
@@ -57,7 +58,7 @@ public class CommunityMainFragment extends Fragment {
         dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
 
         recyclerView = (RecyclerView) viewGroup.findViewById(R.id.rv_post);
-        adapter = new PostAdapter(context, dataSet);
+        adapter = new PostAdapter(context, dataSet,fragmentManager);
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -81,7 +82,7 @@ public class CommunityMainFragment extends Fragment {
 
     }
 
-    private void replaceFragment(Fragment fragment) {
+    public void replaceFragment(Fragment fragment) {
         fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();               // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.

@@ -37,6 +37,7 @@ public class CommunityCategoryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.community_category_fragment, container, false);
         context = container.getContext();
+        fragmentManager = getFragmentManager();
 
         initView();
 
@@ -51,7 +52,7 @@ public class CommunityCategoryFragment extends Fragment {
         dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
 
         recyclerView = (RecyclerView) viewGroup.findViewById(R.id.rv_post);
-        adapter = new PostAdapter(context, dataSet);
+        adapter = new PostAdapter(context, dataSet,fragmentManager);
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
