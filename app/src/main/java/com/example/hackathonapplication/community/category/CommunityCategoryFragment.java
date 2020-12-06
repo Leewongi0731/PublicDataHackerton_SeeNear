@@ -49,11 +49,11 @@ public class CommunityCategoryFragment extends Fragment {
     }
 
     private void initView() {
+
         dataSet = new ArrayList<>();
-        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
-        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
-        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
-        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
+        dataSet.add(new Post("김노인", "로그인구현후", "로그인구현후", "뱃지구현후", "언제쯤다되냐","2시간 전","3","3"));
+        dataSet.add(new Post("김노인", "로그인구현후", "로그인구현후", "뱃지구현후", "언제쯤다되냐","2시간 전","3","3"));
+
 
         recyclerView = (RecyclerView) viewGroup.findViewById(R.id.rv_post);
         adapter = new PostAdapter(context, dataSet,fragmentManager);

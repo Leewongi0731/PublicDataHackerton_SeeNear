@@ -7,10 +7,8 @@ public class BoardDB {
         public static final String LOCATION = "location";
         public static final String WRITEREMAIL = "writeremail";
         public static final String CATEGORY = "category";
-        public static final String TITLE = "title";
         public static final String CONTENTS = "contents";
         public static final String POSTDATE = "postdate";
-        public static final String MODIFYDATE = "modifydate";
         public static final String LIKE = "like";
         public static final String COMMENT = "comment";
 
@@ -21,10 +19,8 @@ public class BoardDB {
                         + LOCATION        + " text not null, "
                         + WRITEREMAIL     + " text not null, "
                         + CATEGORY        + " text not null, "
-                        + TITLE           + " text not null, "
                         + CONTENTS        + " text not null, "
                         + POSTDATE        + " text not null, "
-                        + MODIFYDATE      + " text not null, "
                         + LIKE            + " integer not null, "
                         + COMMENT         + " integer not null);";
 

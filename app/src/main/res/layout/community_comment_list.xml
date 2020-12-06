@@ -101,6 +101,14 @@
                     android:layout_marginTop="5dp"
                     android:text="공감"></TextView>
 
+                <TextView
+                    android:id="@+id/tv_commentLikeCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="0"></TextView>
+
             </LinearLayout>
 
             <View

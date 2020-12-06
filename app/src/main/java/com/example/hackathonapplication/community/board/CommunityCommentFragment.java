@@ -44,11 +44,16 @@ public class CommunityCommentFragment extends Fragment {
     private TextView textViewDate;
     private EditText editTextComment;
 
+    private String id;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.community_comment_fragment, container, false);
         context = container.getContext();
+        if(getArguments() != null){
+            id = getArguments().getString("position"); // 전달한 key 값
+        }
 
         initView();
 
