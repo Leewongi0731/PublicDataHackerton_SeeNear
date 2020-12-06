@@ -10,7 +10,11 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/postList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="5dp"
+        android:layout_margin="4dp"
+        app:cardUseCompatPadding="true">
 
 
         <LinearLayout
@@ -102,14 +106,6 @@
                     android:text="공감"></TextView>
 
             </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="7dp"
-                android:layout_marginTop="7dp"
-                android:background="#999999" />
 
         </LinearLayout>
 
