@@ -1,4 +1,4 @@
-package com.example.hackathonapplication.community;
+package com.example.hackathonapplication.community.main;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,11 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-
-import com.example.hackathonapplication.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,22 +15,32 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CommunityCategoryFragment extends Fragment {
+import com.example.hackathonapplication.R;
+import com.example.hackathonapplication.community.category.CommunityCategoryFragment;
+import com.example.hackathonapplication.community.board.Post;
+import com.example.hackathonapplication.community.board.PostAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+
+public class CommunityMainFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private ArrayList<Post> dataSet;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private PostAdapter adapter;
-    private ImageButton backButton;
+    private ImageButton categoryButton;
+    private FloatingActionButton writePostButton;
+    //
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
-    private FloatingActionButton writePostButton;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        viewGroup = (ViewGroup) inflater.inflate(R.layout.community_category_fragment, container, false);
+        viewGroup = (ViewGroup) inflater.inflate(R.layout.community_main_fragment, container, false);
         context = container.getContext();
         fragmentManager = getFragmentManager();
 
@@ -58,17 +63,17 @@ public class CommunityCategoryFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
 
-        backButton = viewGroup.findViewById(R.id.ib_back);
+        categoryButton = viewGroup.findViewById(R.id.ib_categoryButton);
         writePostButton = viewGroup.findViewById(R.id.fab_writeButton);
-        backButton.setOnClickListener(v -> onClick(v));
+        categoryButton.setOnClickListener(v->onClick(v));
         writePostButton.setOnClickListener(v->onClick(v));
 
     }
 
     private void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ib_back:
-                replaceFragment(new CommunityMainFragment());
+            case R.id.ib_categoryButton:
+                replaceFragment(new CommunityCategoryFragment());
                 break;
             case R.id.fab_writeButton:
                 replaceFragment(new CommunityWriteFragment());
@@ -76,7 +81,7 @@ public class CommunityCategoryFragment extends Fragment {
 
     }
 
-    private void replaceFragment(Fragment fragment) {
+    public void replaceFragment(Fragment fragment) {
         fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();               // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.

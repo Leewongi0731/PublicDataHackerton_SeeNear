@@ -1,4 +1,4 @@
-package com.example.hackathonapplication.community;
+package com.example.hackathonapplication.community.board;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hackathonapplication.R;
+import com.example.hackathonapplication.community.board.Comment;
+import com.example.hackathonapplication.community.board.CommentAdapter;
+import com.example.hackathonapplication.community.main.CommunityMainFragment;
 
 import java.util.ArrayList;
 

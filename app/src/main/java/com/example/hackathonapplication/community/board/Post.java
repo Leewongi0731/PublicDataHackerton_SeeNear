@@ -1,4 +1,4 @@
-package com.example.hackathonapplication.community;
+package com.example.hackathonapplication.community.board;
 
 public class Post {
 
