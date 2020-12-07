@@ -51,7 +51,7 @@ public class CustomerDbOpenHelper {
         sqLiteDatabase.close();
     }
 
-    public long insertColumn(String email, Integer age, Integer height, String gender, String location, String nickname, String medallist, String medaltitle) {
+    public long insertRow(String email, Integer age, Integer height, String gender, String location, String nickname, String medallist, String medaltitle) {
         ContentValues values = new ContentValues();
         values.put(CustomerDB.CreateDB.EMAIL, email);
         values.put(CustomerDB.CreateDB.AGE, age);
@@ -64,25 +64,30 @@ public class CustomerDbOpenHelper {
         return sqLiteDatabase.insert(CustomerDB.CreateDB._TABLENAME, null, values);
     }
 
-    public Cursor selectColumns() {
+    public Cursor selectAllRows() {
         Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + CustomerDB.CreateDB._TABLENAME + ";", null);
         return cursor;
     }
 
-    public Cursor sortColumn(String sort) {
+    public Cursor selectRow(String column, String value) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM '" + CustomerDB.CreateDB._TABLENAME + "' WHERE " + column + " = '" + value +  "';", null);
+        return cursor;
+    }
+
+    public Cursor orderByColumn(String sort) {
         Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + CustomerDB.CreateDB._TABLENAME + " ORDER BY " + sort + ";", null);
         return cursor;
     }
 
-    public void updateColumn(String email, Integer age, Integer height, String gender, String location, String nickname, String medallist, String medaltitle) {
+    public void updateRow(String email, Integer age, Integer height, String gender, String location, String nickname, String medallist, String medaltitle) {
         sqLiteDatabase.execSQL("UPDATE customer SET age = '" + age + "', height = '" + height + "', gender = '" + gender + "', location = '" + location + "', nickname = '" + nickname + "', medallist = '" + medallist + "', medaltitle = '" + medaltitle + "'  WHERE email = '" + email + "';");
     }
 
-    public void deleteAllColumns() {
+    public void deleteAllRows() {
         sqLiteDatabase.delete(CustomerDB.CreateDB._TABLENAME, null, null);
     }
 
-    public void deleteColumn(String email) {
+    public void deleteRow(String email) {
         sqLiteDatabase.execSQL("DELETE FROM '" + CustomerDB.CreateDB._TABLENAME + "' WHERE email = '" + email + "';");
     }
 }
