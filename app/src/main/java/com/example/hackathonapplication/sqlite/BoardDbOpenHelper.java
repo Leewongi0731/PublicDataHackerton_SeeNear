@@ -51,7 +51,7 @@ public class BoardDbOpenHelper {
         sqLiteDatabase.close();
     }
 
-    public long insertColumn(String location, String writeremail, String category, String title, String contents, String postdate, String modifydate, Integer like, Integer comment) {
+    public long insertRow(String location, String writeremail, String category, String title, String contents, String postdate, String modifydate, Integer like, Integer comment) {
         ContentValues values = new ContentValues();
         values.put(BoardDB.CreateDB.LOCATION, location);
         values.put(BoardDB.CreateDB.WRITEREMAIL, writeremail);
@@ -66,21 +66,26 @@ public class BoardDbOpenHelper {
         return sqLiteDatabase.insert(BoardDB.CreateDB._TABLENAME, null, values);
     }
 
-    public Cursor sortColumn(String sort) {
+    public Cursor orderByColumn(String sort) {
         Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + BoardDB.CreateDB._TABLENAME + " ORDER BY " + sort + ";", null);
         return cursor;
     }
 
-    public Cursor selectColumns() {
+    public Cursor selectRow(String column, String value) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM '" + BoardDB.CreateDB._TABLENAME + "' WHERE " + column + " = '" + value +  "';", null);
+        return cursor;
+    }
+
+    public Cursor selectAllRows() {
         Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + BoardDB.CreateDB._TABLENAME + ";", null);
         return cursor;
     }
 
-    public void deleteAllColumns() {
+    public void deleteAllRows() {
         sqLiteDatabase.delete(BoardDB.CreateDB._TABLENAME, null, null);
     }
 
-    public void deleteColumn(Integer id) {
+    public void deleteRow(Integer id) {
         sqLiteDatabase.execSQL("DELETE FROM '" + BoardDB.CreateDB._TABLENAME + "' WHERE _id = '" + id + "';");
     }
 }
