@@ -1,4 +1,4 @@
-package com.example.hackathonapplication.community;
+package com.example.hackathonapplication.community.category;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.example.hackathonapplication.R;
+import com.example.hackathonapplication.community.board.Post;
+import com.example.hackathonapplication.community.board.PostAdapter;
+import com.example.hackathonapplication.community.main.CommunityMainFragment;
+import com.example.hackathonapplication.community.main.CommunityWriteFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -45,13 +49,13 @@ public class CommunityCategoryFragment extends Fragment {
     }
 
     private void initView() {
-        dataSet = new ArrayList<>();
-        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
-        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
-        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
-        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
 
-        recyclerView = (RecyclerView) viewGroup.findViewById(R.id.rv_post);
+        dataSet = new ArrayList<>();
+        dataSet.add(new Post("김노인", "로그인구현후", "로그인구현후", "뱃지구현후", "언제쯤다되냐","2시간 전","3","3"));
+        dataSet.add(new Post("김노인", "로그인구현후", "로그인구현후", "뱃지구현후", "언제쯤다되냐","2시간 전","3","3"));
+
+
+        recyclerView = viewGroup.findViewById(R.id.rv_post);
         adapter = new PostAdapter(context, dataSet,fragmentManager);
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);

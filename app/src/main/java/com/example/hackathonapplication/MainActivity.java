@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.hackathonapplication.community.CommunityMainFragment;
+import com.example.hackathonapplication.community.main.CommunityMainFragment;
 import com.example.hackathonapplication.edu.EduFragment;
 import com.example.hackathonapplication.health.HealthFragment;
 import com.example.hackathonapplication.job.JobFragment;

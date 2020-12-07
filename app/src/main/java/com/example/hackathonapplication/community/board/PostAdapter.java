@@ -1,7 +1,7 @@
-package com.example.hackathonapplication.community;
+package com.example.hackathonapplication.community.board;
 
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,13 +46,26 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         holder.tv_writer.setText(data.getWriter());
         holder.tv_contents.setText(data.getContents());
         holder.tv_date.setText(data.getDate());
+        holder.tv_like.setText(data.getLike());
+        holder.tv_comment.setText(data.getComment());
 
-        holder.ll_post.setOnClickListener(new View.OnClickListener() {
+
+        holder.ll_post.setOnClickListener(new View.OnClickListener() { //여기서 선택된 번호 넘겨주기 - 이거 내부메서드라 안되면 db로 검색해서 하는수밖에
                                               @Override
                                               public void onClick(View v) {
-                                                  replaceFragment(new CommunityCommentFragment());
+
+                                                  Bundle bundle = new Bundle();
+                                                  //bundle.putString("position", Integer.toString(position));
+                                                  bundle.putString("id", data.getId());
+                                                  CommunityCommentFragment ccf = new CommunityCommentFragment();
+                                                  ccf.setArguments(bundle);
+                                                  //position 대신 data.getId();
+                                                  replaceFragment(ccf);
+
                                               }
                                           }
+
+
         );
     }
 
@@ -67,6 +80,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private TextView tv_writer;
         private TextView tv_contents;
         private TextView tv_date;
+        private TextView tv_like;
+        private TextView tv_comment;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -76,6 +91,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tv_writer = itemView.findViewById(R.id.tv_writer);
             tv_contents = itemView.findViewById(R.id.tv_contents);
             tv_date = itemView.findViewById(R.id.tv_date);
+            tv_like = itemView.findViewById(R.id.tv_postLikeCount);
+            tv_comment = itemView.findViewById(R.id.tv_commentCount);
         }
 
     }

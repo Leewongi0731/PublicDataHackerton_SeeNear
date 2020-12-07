@@ -51,16 +51,14 @@ public class BoardDbOpenHelper {
         sqLiteDatabase.close();
     }
 
-    public long insertColumn(String location, String writeremail, String category, String title, String contents, String postdate, String modifydate, Integer like, Integer comment) {
+    public long insertColumn(String location, String writeremail, String category, String contents, String postdate, Integer like, Integer comment) {
         ContentValues values = new ContentValues();
         values.put(BoardDB.CreateDB.LOCATION, location);
         values.put(BoardDB.CreateDB.WRITEREMAIL, writeremail);
         values.put(BoardDB.CreateDB.CATEGORY, category);
-        values.put(BoardDB.CreateDB.TITLE, title);
         values.put(BoardDB.CreateDB.LOCATION, location);
         values.put(BoardDB.CreateDB.CONTENTS, contents);
         values.put(BoardDB.CreateDB.POSTDATE, postdate);
-        values.put(BoardDB.CreateDB.MODIFYDATE, modifydate);
         values.put(BoardDB.CreateDB.LIKE, like);
         values.put(BoardDB.CreateDB.COMMENT, comment);
         return sqLiteDatabase.insert(BoardDB.CreateDB._TABLENAME, null, values);
@@ -71,8 +69,18 @@ public class BoardDbOpenHelper {
         return cursor;
     }
 
+    public Cursor sortColumnDesc(String sort) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + BoardDB.CreateDB._TABLENAME + " ORDER BY " + sort + " DESC;", null);
+        return cursor;
+    }
+
     public Cursor selectColumns() {
         Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + BoardDB.CreateDB._TABLENAME + ";", null);
+        return cursor;
+    }
+
+    public Cursor searchColumns(String columnName, String search) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + BoardDB.CreateDB._TABLENAME + " WHERE " + columnName + " = " + search + ";", null);
         return cursor;
     }
 
