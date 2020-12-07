@@ -141,7 +141,7 @@ public class CommunityMainFragment extends Fragment {
             like = cursor.getString(cursor.getColumnIndex("like"));
             comment = cursor.getString(cursor.getColumnIndex("comment"));
 
-            dataSet.add(new Post(id,"로그인구현후?","로그인구현후","뱃지구현후",contents,date,like,comment));
+            dataSet.add(new Post(id,"로그인구현후","이경배","뱃지구현후",contents,date,like,comment));
         }
 
         dbOpenHelper.close();

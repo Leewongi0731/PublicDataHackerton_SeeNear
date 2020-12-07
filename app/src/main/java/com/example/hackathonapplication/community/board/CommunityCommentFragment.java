@@ -120,7 +120,7 @@ public class CommunityCommentFragment extends Fragment {
             like = cursor.getString(cursor.getColumnIndex("like"));
             comments = cursor.getString(cursor.getColumnIndex("comment"));
 
-            post = new Post(id, "로그인구현후?", "로그인구현후", "뱃지구현후", contents, date, like, comments);
+            post = new Post(id, "로그인구현후?", "이경배", "뱃지구현후", contents, date, like, comments);
         }
         dbOpenHelper.close();
         textViewContents.setText(post.getContents());
@@ -158,7 +158,7 @@ public class CommunityCommentFragment extends Fragment {
             c_like = cursor.getString(cursor.getColumnIndex("like"));
             c_date = cursor.getString(cursor.getColumnIndex("commentdate"));
 
-            commentdataSet.add(new Comment(c_id,"임시사진", "작성자", "뱃지", c_contents, c_date, c_like));
+            commentdataSet.add(new Comment(c_id,"임시사진", "이경배", "뱃지", c_contents, c_date, c_like));
         }
         dbOpenHelper.close();
     }
@@ -190,7 +190,7 @@ public class CommunityCommentFragment extends Fragment {
             c_like = cursor.getString(cursor.getColumnIndex("like"));
             c_date = cursor.getString(cursor.getColumnIndex("commentdate"));
 
-            commentdataSet.add(new Comment(c_id,"임시사진", "작성자", "뱃지", c_contents, c_date, c_like));
+            commentdataSet.add(new Comment(c_id,"임시사진", "이경배", "뱃지", c_contents, c_date, c_like));
         }
         dbOpenHelper.close();
 

@@ -87,17 +87,12 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
                 switch (item.getItemId()) {
                     case 1001: //삭제
-                        data = commentDataset.get(getAdapterPosition()); //이거 추가. 신의한수? ㅇㅇ
+                        data = commentDataset.get(getAdapterPosition());                            //adapter로 뿌려질 데이터셋도 같이 관리해줘야한다. 뿌려진 곳에서 위치를 연동해 그 데이터를 삭제
                         CommentDbOpenHelper dbOpenHelper = new CommentDbOpenHelper(context);
                         dbOpenHelper.open();
                         dbOpenHelper.deleteColumn(Integer.valueOf(data.getId()));
                         dbOpenHelper.close();
-                        //데이터셋도 비워야되는가 싶어서 이렇게 해봄 근데 안됨 -> 맞아 데이터셋 비워야되는거
-                        commentDataset.remove(getAdapterPosition()); //이게 설마 비밀라인??
-//                        recyclerView.invalidate();
-//                        recyclerView.getAdapter().notifyDataSetChanged();
-//                        adapter.notifyItemRemoved(getAdapterPosition());
-//                        adapter.notifyDataSetChanged();
+                        commentDataset.remove(getAdapterPosition());                                //데이터셋에서도 지워줘야 화면에서 갱신됨. 안그러면 데이터는 지워도 화면에서 안지워짐
                         notifyDataSetChanged();
                         break;
                 }
