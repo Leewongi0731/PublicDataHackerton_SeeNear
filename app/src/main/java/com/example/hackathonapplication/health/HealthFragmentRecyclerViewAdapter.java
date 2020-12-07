@@ -92,7 +92,7 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
 
         for( int i = 0 ; i<MVDataset.size() ; i++ ){
             MVDataset mvDataset = MVDataset.get(i);
-            dbOpenHelper.insertColumn( mvDataset.getExercise(), mvDataset.getVideoPath(), mvDataset.getContent());
+            dbOpenHelper.insertRow( mvDataset.getExercise(), mvDataset.getVideoPath(), mvDataset.getContent());
         }
     }
 }
