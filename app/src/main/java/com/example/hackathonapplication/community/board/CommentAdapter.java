@@ -37,7 +37,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         holder.iv_profile.setImageResource(R.drawable.im_sample_profile);
         holder.tv_writer.setText(data.getWriter());
         holder.tv_contents.setText(data.getContents());
-        holder.tv_date.setText(data.getDate());
+        holder.tv_date.setText(data.getCommentdate());
     }
 
     @Override

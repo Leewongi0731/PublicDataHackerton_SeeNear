@@ -17,6 +17,7 @@ import com.example.hackathonapplication.community.board.Comment;
 import com.example.hackathonapplication.community.board.CommentAdapter;
 import com.example.hackathonapplication.community.main.CommunityMainFragment;
 import com.example.hackathonapplication.sqlite.BoardDbOpenHelper;
+import com.example.hackathonapplication.sqlite.CommentDbOpenHelper;
 
 import java.util.ArrayList;
 
@@ -33,6 +34,7 @@ public class CommunityCommentFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private ArrayList<Comment> commentdataSet;
+    private Comment comment;
     private Post post;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -49,12 +51,19 @@ public class CommunityCommentFragment extends Fragment {
     private TextView textViewPostLike;
     private TextView textViewCommentLike;
     private TextView textViewCommentCount;
-
+    //[게시글데이터]
     private String id;
     private String like;
-    private String comment;
+    private String comments;
     private String contents;
     private String date;
+    private String badge;
+    //[댓글데이터]
+    private String c_writer;
+    private String c_badge;
+    private String c_contents;
+    private String c_date;
+    private String c_like;
 
     @Nullable
     @Override
@@ -70,15 +79,11 @@ public class CommunityCommentFragment extends Fragment {
     }
 
     private void initView() {
-        //[댓글화면]
-        commentdataSet = new ArrayList<>();                                                         //임시댓글 리사이클러뷰
-        commentdataSet.add(new Comment("이미지", "백노인", "아직", "맞아요 ㅇㅈ", "2시간 전", "3"));
-        commentdataSet.add(new Comment("이미지", "백노인", "아직", "맞아요 ㅇㅈ", "2시간 전", "3"));
-        commentdataSet.add(new Comment("이미지", "백노인", "아직", "맞아요 ㅇㅈ", "2시간 전", "3"));
-        commentdataSet.add(new Comment("이미지", "백노인", "아직", "맞아요 ㅇㅈ", "2시간 전", "3"));
 
+        //[댓글화면]
+        setCommentDataSet();
         recyclerView = viewGroup.findViewById(R.id.rv_comment);
-        adapter = new CommentAdapter(context, commentdataSet);
+        adapter = new CommentAdapter(context, commentdataSet); //여기서 adapter에 데이터셋 넘겨주니까 여기서 아예 DB에서 게시글 id별 댓글넣은거 찾아서 넣어야할듯
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -110,9 +115,9 @@ public class CommunityCommentFragment extends Fragment {
             contents = cursor.getString(cursor.getColumnIndex("contents"));
             date = cursor.getString(cursor.getColumnIndex("postdate"));
             like = cursor.getString(cursor.getColumnIndex("like"));
-            comment = cursor.getString(cursor.getColumnIndex("comment"));
+            comments = cursor.getString(cursor.getColumnIndex("comment"));
 
-            post = new Post(id, "로그인구현후?", "로그인구현후", "뱃지구현후", contents, date, like, comment);
+            post = new Post(id, "로그인구현후?", "로그인구현후", "뱃지구현후", contents, date, like, comments);
         }
         dbOpenHelper.close();
         textViewContents.setText(post.getContents());
@@ -134,6 +139,27 @@ public class CommunityCommentFragment extends Fragment {
 
         }
 
+    }
+
+    private void setCommentDataSet() {
+        commentdataSet = new ArrayList<>();
+        CommentDbOpenHelper dbOpenHelper = new CommentDbOpenHelper(context);
+        dbOpenHelper.open();
+//        dbOpenHelper.insertColumn("sample@gmail.com",id,"맞아요 ㅇㅈ","2020.12.07",3);  //샘플데이터. 첫실행시(로그인화면)
+//        dbOpenHelper.insertColumn("sample@gmail.com",id,"맞아요 ㅇㅈ","2020.12.07",3);
+//        dbOpenHelper.insertColumn("sample@gmail.com",id,"맞아요 ㅇㅈ","2020.12.07",3);
+
+
+        Cursor cursor = dbOpenHelper.searchColumnsDesc("boardkey", id,"commentdate");
+        while (cursor.moveToNext()) {
+
+            c_contents = cursor.getString(cursor.getColumnIndex("contents"));
+            c_like = cursor.getString(cursor.getColumnIndex("like"));
+            c_date = cursor.getString(cursor.getColumnIndex("commentdate"));
+
+            commentdataSet.add(new Comment("임시사진", "작성자", "뱃지", c_contents, c_date, c_like));
+        }
+        dbOpenHelper.close();
     }
 
     private void replaceFragment(Fragment fragment) {

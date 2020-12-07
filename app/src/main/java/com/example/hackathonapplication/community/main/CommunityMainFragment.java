@@ -37,11 +37,6 @@ public class CommunityMainFragment extends Fragment {
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
 
-//    private Integer index;
-
-//    private String location;
-//    private String writeremail;
-//    private String category;
     private String id;
     private String like;
     private String comment;

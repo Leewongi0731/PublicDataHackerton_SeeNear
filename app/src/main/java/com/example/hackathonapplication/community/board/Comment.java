@@ -5,15 +5,15 @@ public class Comment {
     private String writer;
     private String badge;
     private String contents;
-    private String date;
+    private String commentdate;
     private String like;
 
-    public Comment(String profile, String writer, String badge, String contents, String date, String like) {
+    public Comment(String profile, String writer, String badge, String contents, String commentdate, String like) {
         this.profile = profile;
         this.writer = writer;
         this.badge = badge;
         this.contents = contents;
-        this.date = date;
+        this.commentdate = commentdate;
         this.like = like;
     }
 
@@ -49,12 +49,12 @@ public class Comment {
         this.contents = contents;
     }
 
-    public String getDate() {
-        return date;
+    public String getCommentdate() {
+        return commentdate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setCommentdate(String commentdate) {
+        this.commentdate = commentdate;
     }
 
     public String getLike() {

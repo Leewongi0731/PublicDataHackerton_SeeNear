@@ -7,7 +7,7 @@ public class CommentDB {
         public static final String WRITEREMAIL = "writeremail";
         public static final String BOARDKEY = "boardkey";
         public static final String CONTENTS = "contents";
-        public static final String POSTDATE = "postdate";
+        public static final String COMMENTDATE = "commentdate";
         public static final String LIKE = "like";
 
         public static final String _TABLENAME = "comment";
@@ -17,7 +17,7 @@ public class CommentDB {
                         + WRITEREMAIL       + " text not null, "
                         + BOARDKEY          + " text not null, "
                         + CONTENTS          + " text not null, "
-                        + POSTDATE          + " text not null, "
+                        + COMMENTDATE          + " text not null, "
                         + LIKE              + " integer not null);";
 
     }
