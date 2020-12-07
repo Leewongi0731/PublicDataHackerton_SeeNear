@@ -51,28 +51,33 @@ public class MedalDbOpenHelper {
         sqLiteDatabase.close();
     }
 
-    public long insertColumn(String title, String imagepath) {
+    public long insertRow(String title, String imagepath) {
         ContentValues values = new ContentValues();
         values.put(MedalDB.CreateDB.TITLE, title);
         values.put(MedalDB.CreateDB.IMAGEPATH, imagepath);
         return sqLiteDatabase.insert(MedalDB.CreateDB._TABLENAME, null, values);
     }
 
-    public Cursor sortColumn(String sort) {
-        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + MedalDB.CreateDB._TABLENAME + " ORDER BY " + sort + ";", null);
-        return cursor;
-    }
-
-    public Cursor selectColumns() {
+    public Cursor selectAllRows() {
         Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + MedalDB.CreateDB._TABLENAME + ";", null);
         return cursor;
     }
 
-    public void deleteAllColumns() {
+    public Cursor selectRow(String column, String value) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM '" + MedalDB.CreateDB._TABLENAME + "' WHERE " + column + " = '" + value +  "';", null);
+        return cursor;
+    }
+
+    public Cursor orderByColumn(String sort) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + MedalDB.CreateDB._TABLENAME + " ORDER BY " + sort + ";", null);
+        return cursor;
+    }
+
+    public void deleteAllRows() {
         sqLiteDatabase.delete(MedalDB.CreateDB._TABLENAME, null, null);
     }
 
-    public void deleteColumn(String title) {
+    public void deleteRow(String title) {
         sqLiteDatabase.execSQL("DELETE FROM '" + MedalDB.CreateDB._TABLENAME + "' WHERE title = '" + title + "';");
     }
 }

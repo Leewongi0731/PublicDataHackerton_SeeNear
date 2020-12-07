@@ -28,9 +28,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_baseline_create_24" />
-                            <entry key="sourceFile" value="D:\GithubDesktop\HackathonApplication" />
+                            <entry key="outputName" value="ic_health_silver" />
+                            <entry key="sourceFile" value="D:\trophy_rename\ic_health_silver.svg" />
                           </map>
                         </option>
                       </PersistentState>

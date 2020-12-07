@@ -51,7 +51,7 @@ public class ExercisePrescriptionDbOpenHelper {
         sqLiteDatabase.close();
     }
 
-    public long insertColumn(String prescription, String videopath, String contents) {
+    public long insertRow(String prescription, String videopath, String contents) {
         ContentValues values = new ContentValues();
         values.put(ExercisePrescriptionDB.CreateDB.PRESCRIPTION, prescription);
         values.put(ExercisePrescriptionDB.CreateDB.VIDEOPATH, videopath);
@@ -59,21 +59,26 @@ public class ExercisePrescriptionDbOpenHelper {
         return sqLiteDatabase.insert(ExercisePrescriptionDB.CreateDB._TABLENAME, null, values);
     }
 
-    public Cursor sortColumn(String sort) {
-        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + ExercisePrescriptionDB.CreateDB._TABLENAME + " ORDER BY " + sort + ";", null);
-        return cursor;
-    }
-
-    public Cursor selectColumns() {
+    public Cursor selectAllRows() {
         Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + ExercisePrescriptionDB.CreateDB._TABLENAME + ";", null);
         return cursor;
     }
 
-    public void deleteAllColumns() {
+    public Cursor selectRow(String column, String value) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM '" + ExercisePrescriptionDB.CreateDB._TABLENAME + "' WHERE " + column + " = '" + value +  "';", null);
+        return cursor;
+    }
+
+    public Cursor orderByColumn(String sort) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + ExercisePrescriptionDB.CreateDB._TABLENAME + " ORDER BY " + sort + ";", null);
+        return cursor;
+    }
+
+    public void deleteAllRows() {
         sqLiteDatabase.delete(ExercisePrescriptionDB.CreateDB._TABLENAME, null, null);
     }
 
-    public void deleteColumn(String prescription) {
+    public void deleteRow(String prescription) {
         sqLiteDatabase.execSQL("DELETE FROM '" + ExercisePrescriptionDB.CreateDB._TABLENAME + "' WHERE prescription = '" + prescription + "';");
     }
 }
