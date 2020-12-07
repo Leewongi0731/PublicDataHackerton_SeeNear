@@ -55,7 +55,7 @@ public class CommunityCategoryFragment extends Fragment {
         dataSet.add(new Post("김노인", "로그인구현후", "로그인구현후", "뱃지구현후", "언제쯤다되냐","2시간 전","3","3"));
 
 
-        recyclerView = (RecyclerView) viewGroup.findViewById(R.id.rv_post);
+        recyclerView = viewGroup.findViewById(R.id.rv_post);
         adapter = new PostAdapter(context, dataSet,fragmentManager);
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);

@@ -79,6 +79,11 @@ public class BoardDbOpenHelper {
         return cursor;
     }
 
+    public Cursor searchColumns(String columnName, String search) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + BoardDB.CreateDB._TABLENAME + " WHERE " + columnName + " = " + search + ";", null);
+        return cursor;
+    }
+
     public void deleteAllColumns() {
         sqLiteDatabase.delete(BoardDB.CreateDB._TABLENAME, null, null);
     }

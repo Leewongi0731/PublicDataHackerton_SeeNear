@@ -67,7 +67,7 @@ public class CommunityMainFragment extends Fragment {
         dbOpenHelper.open();
         dbOpenHelper.create();
 
-        //한번만 추가돼야하는데 안그럼 계속 늘어날텐데... 맞음 ㅋㅋㅋㅋㅋㅋ
+        //한번만 추가돼야하는데 안그럼 계속 늘어남
 //        dbOpenHelper.insertColumn("강남구","sample@gmail.com","등산","오늘 산을 갔다","2시간 전",5,3);
 //        dbOpenHelper.insertColumn("송파구","sample2@gmail.com","꽃","꽃 이쁘죠?","2시간 전",12,2);
 
@@ -84,12 +84,7 @@ public class CommunityMainFragment extends Fragment {
         }
 
         dbOpenHelper.close();
-        //
 
-//        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
-//        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
-//        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
-//        dataSet.add(new Post("김노인", "김노인", "아직", "나훈아쩔어", "2시간 전"));
 
         recyclerView = viewGroup.findViewById(R.id.rv_post);
         adapter = new PostAdapter(context, dataSet,fragmentManager);
