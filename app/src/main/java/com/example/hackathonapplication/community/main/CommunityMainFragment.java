@@ -58,7 +58,6 @@ public class CommunityMainFragment extends Fragment {
         fragmentManager = getFragmentManager();
 
         initView();
-
         return viewGroup;
     }
 
