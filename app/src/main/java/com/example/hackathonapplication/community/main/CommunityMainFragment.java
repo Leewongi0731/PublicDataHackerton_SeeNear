@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hackathonapplication.R;
+import com.example.hackathonapplication.community.board.CommunityCommentFragment;
 import com.example.hackathonapplication.community.category.CommunityCategoryFragment;
 import com.example.hackathonapplication.community.board.Post;
 import com.example.hackathonapplication.community.board.PostAdapter;
@@ -32,10 +33,16 @@ public class CommunityMainFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private PostAdapter adapter;
-    private ImageButton categoryButton;
     private FloatingActionButton writePostButton;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
+    private CommunityCategoryFragment ccf;
+
+    private ImageButton categoryButtonTrot;
+    private ImageButton categoryButtonHiking;
+    private ImageButton categoryButtonFishing;
+    private ImageButton categoryButtonPlant;
+    private ImageButton categoryButtonExercise;
 
     private String id;
     private String like;
@@ -56,15 +63,75 @@ public class CommunityMainFragment extends Fragment {
     }
 
     private void initView() {
+
+
+        setDataSet();
+        recyclerView = viewGroup.findViewById(R.id.rv_post);
+        adapter = new PostAdapter(context, dataSet,fragmentManager);
+        layoutManager = new LinearLayoutManager(context);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+
+        ccf = new CommunityCategoryFragment();
+
+        categoryButtonTrot = viewGroup.findViewById(R.id.ib_categoryButton_trot);
+        categoryButtonHiking = viewGroup.findViewById(R.id.ib_categoryButton_hiking);
+        categoryButtonPlant= viewGroup.findViewById(R.id.ib_categoryButton_plant);
+        categoryButtonExercise = viewGroup.findViewById(R.id.ib_categoryButton_exercise);
+        categoryButtonFishing = viewGroup.findViewById(R.id.ib_categoryButton_fishing);
+        writePostButton = viewGroup.findViewById(R.id.fab_writeButton);
+        categoryButtonTrot.setOnClickListener(v->onClick(v));
+        categoryButtonHiking.setOnClickListener(v->onClick(v));
+        categoryButtonPlant.setOnClickListener(v->onClick(v));
+        categoryButtonExercise.setOnClickListener(v->onClick(v));
+        categoryButtonFishing.setOnClickListener(v->onClick(v));
+        writePostButton.setOnClickListener(v->onClick(v));
+
+    }
+
+
+
+    private void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ib_categoryButton_trot:
+                replaceBundleFragment(ccf,"트로트");
+                break;
+            case R.id.ib_categoryButton_hiking:
+                replaceBundleFragment(ccf,"등산");
+                break;
+            case R.id.ib_categoryButton_plant:
+                replaceBundleFragment(ccf,"식물");
+                break;
+            case R.id.ib_categoryButton_exercise:
+                replaceBundleFragment(ccf,"운동");
+                break;
+            case R.id.ib_categoryButton_fishing:
+                replaceBundleFragment(ccf,"낚시");
+                break;
+            case R.id.fab_writeButton:
+                replaceFragment(new CommunityWriteFragment());
+                break;
+        }
+
+    }
+
+    public void replaceFragment(Fragment fragment) {
+        fragmentManager = getFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();
+
+    }
+
+    public void setDataSet() {
         dataSet = new ArrayList<>();
-        //
         BoardDbOpenHelper dbOpenHelper = new BoardDbOpenHelper(context);
         dbOpenHelper.open();
         dbOpenHelper.create();
 
-        //한번만 추가돼야하는데 안그럼 계속 늘어남
+        //샘플데이터 - 첫 실행만 구현/ 로그인 화면시
 //        dbOpenHelper.insertColumn("강남구","sample@gmail.com","등산","오늘 산을 갔다","2시간 전",5,3);
-//        dbOpenHelper.insertColumn("송파구","sample2@gmail.com","꽃","꽃 이쁘죠?","2시간 전",12,2);
+//       dbOpenHelper.insertColumn("송파구","sample2@gmail.com","식물","꽃 이쁘죠?","2시간 전",12,2);
 
         Cursor cursor = dbOpenHelper.sortColumnDesc("postdate");
         while(cursor.moveToNext()) {
@@ -79,39 +146,13 @@ public class CommunityMainFragment extends Fragment {
         }
 
         dbOpenHelper.close();
-
-
-        recyclerView = viewGroup.findViewById(R.id.rv_post);
-        adapter = new PostAdapter(context, dataSet,fragmentManager);
-        layoutManager = new LinearLayoutManager(context);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
-
-        categoryButton = viewGroup.findViewById(R.id.ib_categoryButton);
-        writePostButton = viewGroup.findViewById(R.id.fab_writeButton);
-        categoryButton.setOnClickListener(v->onClick(v));
-        writePostButton.setOnClickListener(v->onClick(v));
-
     }
 
-
-
-    private void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.ib_categoryButton:
-                replaceFragment(new CommunityCategoryFragment());
-                break;
-            case R.id.fab_writeButton:
-                replaceFragment(new CommunityWriteFragment());
-        }
-
+    public void replaceBundleFragment(CommunityCategoryFragment ccf,String categoryname) {
+        Bundle bundle = new Bundle();
+        bundle.putString("categoryname", categoryname);
+        ccf.setArguments(bundle);
+        replaceFragment(ccf);
     }
 
-    public void replaceFragment(Fragment fragment) {
-        fragmentManager = getFragmentManager();
-        transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();               // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
-
-    }
 }

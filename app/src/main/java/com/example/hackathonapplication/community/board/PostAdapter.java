@@ -55,16 +55,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                                               public void onClick(View v) {
 
                                                   Bundle bundle = new Bundle();
-                                                  //bundle.putString("position", Integer.toString(position));
                                                   bundle.putString("id", data.getId());
                                                   CommunityCommentFragment ccf = new CommunityCommentFragment();
                                                   ccf.setArguments(bundle);
-                                                  //position 대신 data.getId();
                                                   replaceFragment(ccf);
 
                                               }
                                           }
-
 
         );
     }

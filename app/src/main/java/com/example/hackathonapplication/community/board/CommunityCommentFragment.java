@@ -34,7 +34,6 @@ public class CommunityCommentFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private ArrayList<Comment> commentdataSet;
-    private Comment comment;
     private Post post;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -123,7 +122,7 @@ public class CommunityCommentFragment extends Fragment {
         textViewContents.setText(post.getContents());
         textViewWriter.setText("로그인구현후");
         textViewDate.setText(post.getDate());
-        //textViewPostLike.setText(post.getLike()); //좋아요개수, 댓글개수 연동 오류. nullPointer
+        //textViewPostLike.setText(post.getLike());                                                 //좋아요개수, 댓글개수 연동 오류. nullPointer
         //textViewCommentCount.setText(post.getComment());
 
     }
