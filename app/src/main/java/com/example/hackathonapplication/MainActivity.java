@@ -35,25 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private FragmentTransaction transaction;
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
-
-    private Integer currentState = 0;
-
-    private TextView textViewAttend;
-    private TextView textViewHealth;
-    private TextView textViewEdu;
-    private TextView textViewCommunity;
-
-    private ImageView imageViewTrophyAttend;
-    private ImageView imageViewTrophyHealth;
-    private ImageView imageViewTrophyEdu;
-    private ImageView imageViewTrophyCommunity;
-
-    private LinearLayout linearLayoutAttend;
-    private LinearLayout linearLayoutHealth;
-    private LinearLayout linearLayoutEdu;
-    private LinearLayout linearLayoutCommunity;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        imageViewTrophyAttend.setOnClickListener(this.click);
     }
     private void initLayout() {
         fragmentManager = getSupportFragmentManager();
@@ -103,37 +82,9 @@ public class MainActivity extends AppCompatActivity {
         myPageFragment = new MyPageFragment();
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        textViewAttend = findViewById(R.id.textViewAttend);
-        textViewHealth = findViewById(R.id.textViewHealth);
-        textViewEdu = findViewById(R.id.textViewEdu);
-        textViewCommunity = findViewById(R.id.textViewCommunity);
-
-        imageViewTrophyAttend = findViewById(R.id.imageViewTrophyAttend);
-        imageViewTrophyHealth = findViewById(R.id.imageViewTrophyHealth);
-        imageViewTrophyEdu = findViewById(R.id.imageViewTrophyEdu);
-        imageViewTrophyCommunity = findViewById(R.id.imageViewTrophyCommunity);
-
-        linearLayoutAttend = findViewById(R.id.linearLayoutAttend);
-        linearLayoutHealth = findViewById(R.id.linearLayoutHealth);
-        linearLayoutEdu = findViewById(R.id.linearLayoutEdu);
-        linearLayoutCommunity = findViewById(R.id.linearLayoutCommunity);
-
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragmentMain).commit();
     }
-
-    View.OnClickListener click = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.imageViewTrophyAttend:
-                    Toast.makeText(getApplicationContext(), "myProfile", Toast.LENGTH_SHORT).show();
-                    // 프로필 변경
-                    break;
-            }
-        }
-    };
-
 
     public void replaceFragment(Fragment fragment) {
         fragmentManager = getSupportFragmentManager();
