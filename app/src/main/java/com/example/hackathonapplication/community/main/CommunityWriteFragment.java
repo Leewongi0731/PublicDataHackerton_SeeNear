@@ -71,7 +71,7 @@ public class CommunityWriteFragment extends Fragment {
             case R.id.ib_back:
                 replaceFragment(new CommunityMainFragment());
                 break;
-            case R.id.btn_finish:                                                               //저장하고 전송
+            case R.id.btn_finish:                                                                   //저장하고 전송
                 writePost();
                 replaceBundleFragment(new CommunityMainFragment(), categoryName);
                 break;
@@ -81,7 +81,7 @@ public class CommunityWriteFragment extends Fragment {
     private void replaceFragment(Fragment fragment) {
         fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();               // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
+        transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();                  // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
     }
 
     public void writePost() {

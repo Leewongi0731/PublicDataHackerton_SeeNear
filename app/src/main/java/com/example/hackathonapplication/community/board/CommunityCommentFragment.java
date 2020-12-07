@@ -17,9 +17,12 @@ import com.example.hackathonapplication.community.board.Comment;
 import com.example.hackathonapplication.community.board.CommentAdapter;
 import com.example.hackathonapplication.community.main.CommunityMainFragment;
 import com.example.hackathonapplication.sqlite.BoardDbOpenHelper;
+import com.example.hackathonapplication.sqlite.CommentDB;
 import com.example.hackathonapplication.sqlite.CommentDbOpenHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -63,6 +66,7 @@ public class CommunityCommentFragment extends Fragment {
     private String c_contents;
     private String c_date;
     private String c_like;
+    private String c_id;
 
     @Nullable
     @Override
@@ -70,7 +74,7 @@ public class CommunityCommentFragment extends Fragment {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.community_comment_fragment, container, false);
         context = container.getContext();
         if (getArguments() != null) {
-            id = getArguments().getString("id"); // 전달한 key 값
+            id = getArguments().getString("id");                                               // 전달한 key 값
         }
         initView();
 
@@ -82,7 +86,7 @@ public class CommunityCommentFragment extends Fragment {
         //[댓글화면]
         setCommentDataSet();
         recyclerView = viewGroup.findViewById(R.id.rv_comment);
-        adapter = new CommentAdapter(context, commentdataSet); //여기서 adapter에 데이터셋 넘겨주니까 여기서 아예 DB에서 게시글 id별 댓글넣은거 찾아서 넣어야할듯
+        adapter = new CommentAdapter(context, commentdataSet);                                      //여기서 adapter에 데이터셋 넘겨주니까 여기서 아예 DB에서 게시글 id별 댓글넣은거 찾아서 넣어야
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -133,7 +137,8 @@ public class CommunityCommentFragment extends Fragment {
                 replaceFragment(new CommunityMainFragment());
                 break;
             case R.id.btn_pushComment:
-                //댓글입력버튼을 누르면 어댑터 갱신하고 뷰 초기화
+                writeComment();
+                adapter.notifyDataSetChanged();
                 editTextComment.setText("");
 
         }
@@ -144,19 +149,16 @@ public class CommunityCommentFragment extends Fragment {
         commentdataSet = new ArrayList<>();
         CommentDbOpenHelper dbOpenHelper = new CommentDbOpenHelper(context);
         dbOpenHelper.open();
-//        dbOpenHelper.insertColumn("sample@gmail.com",id,"맞아요 ㅇㅈ","2020.12.07",3);  //샘플데이터. 첫실행시(로그인화면)
-//        dbOpenHelper.insertColumn("sample@gmail.com",id,"맞아요 ㅇㅈ","2020.12.07",3);
-//        dbOpenHelper.insertColumn("sample@gmail.com",id,"맞아요 ㅇㅈ","2020.12.07",3);
-
 
         Cursor cursor = dbOpenHelper.searchColumnsDesc("boardkey", id,"commentdate");
         while (cursor.moveToNext()) {
 
+            c_id = cursor.getString(cursor.getColumnIndex("_id"));
             c_contents = cursor.getString(cursor.getColumnIndex("contents"));
             c_like = cursor.getString(cursor.getColumnIndex("like"));
             c_date = cursor.getString(cursor.getColumnIndex("commentdate"));
 
-            commentdataSet.add(new Comment("임시사진", "작성자", "뱃지", c_contents, c_date, c_like));
+            commentdataSet.add(new Comment(c_id,"임시사진", "작성자", "뱃지", c_contents, c_date, c_like));
         }
         dbOpenHelper.close();
     }
@@ -165,6 +167,36 @@ public class CommunityCommentFragment extends Fragment {
         fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();
+    }
+
+    public void writeComment() {
+        CommentDbOpenHelper dbOpenHelper = new CommentDbOpenHelper(context);
+        dbOpenHelper.open();
+
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat sdfNow = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        String commentdate = sdfNow.format(date);
+
+        dbOpenHelper.insertColumn( "sample@gmail.com", id, editTextComment.getText().toString(), commentdate, 0);
+
+        //추가하고 나서 commentdataSet 갱신
+        commentdataSet.clear();
+        Cursor cursor = dbOpenHelper.searchColumnsDesc("boardkey", id,"commentdate");
+        while (cursor.moveToNext()) {
+
+            c_id = cursor.getString(cursor.getColumnIndex("_id"));
+            c_contents = cursor.getString(cursor.getColumnIndex("contents"));
+            c_like = cursor.getString(cursor.getColumnIndex("like"));
+            c_date = cursor.getString(cursor.getColumnIndex("commentdate"));
+
+            commentdataSet.add(new Comment(c_id,"임시사진", "작성자", "뱃지", c_contents, c_date, c_like));
+        }
+        dbOpenHelper.close();
+
+
+
+
     }
 
 }

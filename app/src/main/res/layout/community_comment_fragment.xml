@@ -180,7 +180,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_comment"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="270dp"
         android:horizontalSpacing="10dp"
         android:paddingBottom="10dp"
         android:paddingTop="0dp"

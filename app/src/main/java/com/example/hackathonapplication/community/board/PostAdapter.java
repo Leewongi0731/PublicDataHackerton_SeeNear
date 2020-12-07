@@ -50,16 +50,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         holder.tv_comment.setText(data.getComment());
 
 
-        holder.ll_post.setOnClickListener(new View.OnClickListener() { //여기서 선택된 번호 넘겨주기 - 이거 내부메서드라 안되면 db로 검색해서 하는수밖에
+        holder.ll_post.setOnClickListener(new View.OnClickListener() {
                                               @Override
                                               public void onClick(View v) {
-
                                                   Bundle bundle = new Bundle();
                                                   bundle.putString("id", data.getId());
                                                   CommunityCommentFragment ccf = new CommunityCommentFragment();
                                                   ccf.setArguments(bundle);
                                                   replaceFragment(ccf);
-
                                               }
                                           }
 
