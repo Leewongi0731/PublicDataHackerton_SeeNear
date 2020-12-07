@@ -3,6 +3,7 @@ package com.example.hackathonapplication.health;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hackathonapplication.MainActivity;
 import com.example.hackathonapplication.R;
 import com.example.hackathonapplication.data.MVDataset;
+import com.example.hackathonapplication.sqlite.ExercisePrescriptionDbOpenHelper;
 
 import java.util.ArrayList;
 
@@ -28,6 +30,7 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
         this.context = context;
         this.MVDataset = MVDataset;
         this.activity = activity;
+        insertDB( this.MVDataset );
     }
 
     @NonNull
@@ -46,11 +49,16 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
         holder.healthMVTitle.setText(dataSet.getExercise());
         holder.healthMVContent.setText(dataSet.getContent());
 
-
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) activity).replaceFragment( new HealthMovieFragment() );
+                // frame간 parameter전달
+                Bundle args = new Bundle();
+                args.putString("videoPath", dataSet.getVideoPath()); // key value를 Bundle에 담아서 파라미터로 전송
+
+                HealthMovieFragment healthMovieFragment = new HealthMovieFragment();
+                healthMovieFragment.setArguments(args);
+                ((MainActivity) activity).replaceFragment( healthMovieFragment );
             }
         };
         holder.layout.setOnClickListener(clickListener);
@@ -74,6 +82,17 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
             healthMVThumbnailImageView = view.findViewById(R.id.healthMVThumbnailImageView);
             healthMVTitle = view.findViewById(R.id.healthMVTitle);
             healthMVContent = view.findViewById(R.id.healthMVContent);
+        }
+    }
+
+    public void insertDB( ArrayList<MVDataset> MVDataset ){
+        ExercisePrescriptionDbOpenHelper dbOpenHelper = new ExercisePrescriptionDbOpenHelper(context);
+        dbOpenHelper.open();
+        dbOpenHelper.create();
+
+        for( int i = 0 ; i<MVDataset.size() ; i++ ){
+            MVDataset mvDataset = MVDataset.get(i);
+            dbOpenHelper.insertColumn( mvDataset.getExercise(), mvDataset.getVideoPath(), mvDataset.getContent());
         }
     }
 }

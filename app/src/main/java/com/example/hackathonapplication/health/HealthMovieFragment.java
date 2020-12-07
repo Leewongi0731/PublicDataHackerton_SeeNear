@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
@@ -28,9 +29,17 @@ public class HealthMovieFragment extends Fragment {
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
     private VideoView healthInfoVideo;
+
+    String messageReceived="";
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        String videoPath = "";
+        Bundle bundle=getArguments();
+        if(bundle !=null) {
+            videoPath = bundle.getString("videoPath");
+        }
+
         viewGroup = (ViewGroup) inflater.inflate(R.layout.health_how_info_fragment, container, false);
         context = container.getContext();
 
@@ -43,10 +52,9 @@ public class HealthMovieFragment extends Fragment {
         });
 
 
-
         // 비디오 링크걸기
         healthInfoVideo = viewGroup.findViewById(R.id.healthInfoVideo);
-        Uri videoUri= Uri.parse("http://nfa.kspo.or.kr/common/site/www/front/movie_zip/313/313.mp4");
+        Uri videoUri= Uri.parse( videoPath );
 
         //비디오뷰의 재생, 일시정지 등을 할 수 있는 '컨트롤바'를 붙여주는 작업
         healthInfoVideo.setMediaController(new MediaController( context ));

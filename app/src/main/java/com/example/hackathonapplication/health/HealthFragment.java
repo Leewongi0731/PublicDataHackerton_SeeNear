@@ -53,10 +53,10 @@ public class HealthFragment extends Fragment {
 
     private void initLayout() {
         mvDataset = new ArrayList<>();
-        mvDataset.add( new MVDataset( "윗몸일으키기", "윗몸을 힘껏 일으킨다", R.drawable.health_example1) );
-        mvDataset.add( new MVDataset( "자고싶다", "언제쯤 잘 수 있을까", R.drawable.health_example2 ) );
-        mvDataset.add( new MVDataset( "안될꺼야", "아마 못자겠지", R.drawable.health_example1 ) );
-        mvDataset.add( new MVDataset( "엎어져 잠자기", "엎어져 자면 건강에 좋다.", R.drawable.health_example2 ) );
+        mvDataset.add( new MVDataset( "어깨 스트레칭", "윗몸을 힘껏 일으킨다", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/266/266.mp4" ,R.drawable.health_example1) );
+        mvDataset.add( new MVDataset( "발바닥 치기", "언제쯤 잘 수 있을까", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/350/350.mp4", R.drawable.health_example2 ) );
+        mvDataset.add( new MVDataset( "몸통 비틀기", "아마 못자겠지", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/278/278.mp4", R.drawable.health_example1 ) );
+        mvDataset.add( new MVDataset( "종아리 스트레칭", "엎어져 자면 건강에 좋다.", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/277/277.mp4", R.drawable.health_example2 ) );
 
         healthMVRecyclerView = viewGroup.findViewById(R.id.healthMVRecyclerView);
 
