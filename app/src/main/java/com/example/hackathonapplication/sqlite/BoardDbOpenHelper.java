@@ -71,8 +71,18 @@ public class BoardDbOpenHelper {
         return cursor;
     }
 
+    public Cursor sortColumnDesc(String sort) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + BoardDB.CreateDB._TABLENAME + " ORDER BY " + sort + " DESC;", null);
+        return cursor;
+    }
+
     public Cursor selectRow(String column, String value) {
         Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM '" + BoardDB.CreateDB._TABLENAME + "' WHERE " + column + " = '" + value +  "';", null);
+        return cursor;
+    }
+
+    public Cursor searchColumns(String columnName, String search) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + BoardDB.CreateDB._TABLENAME + " WHERE " + columnName + " = " + search + ";", null);
         return cursor;
     }
 
