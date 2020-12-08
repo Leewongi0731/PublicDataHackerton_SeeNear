@@ -59,6 +59,7 @@ public class CommunityCategoryFragment extends Fragment {
             categoryName = getArguments().getString("categoryname"); // 전달한 key 값
         }
         fragmentManager = getFragmentManager();
+
         initView();
 
         return viewGroup;

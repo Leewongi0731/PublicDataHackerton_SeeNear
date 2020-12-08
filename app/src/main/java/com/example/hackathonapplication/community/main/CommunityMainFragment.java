@@ -56,8 +56,8 @@ public class CommunityMainFragment extends Fragment {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.community_main_fragment, container, false);
         context = container.getContext();
         fragmentManager = getFragmentManager();
-
         initView();
+
         return viewGroup;
     }
 
@@ -89,8 +89,6 @@ public class CommunityMainFragment extends Fragment {
 
     }
 
-
-
     private void onClick(View v) {
         switch (v.getId()) {
             case R.id.ib_categoryButton_trot:
@@ -109,17 +107,17 @@ public class CommunityMainFragment extends Fragment {
                 replaceBundleFragment(ccf,"낚시");
                 break;
             case R.id.fab_writeButton:
-                replaceFragment(new CommunityWriteFragment());
+                replaceFragment(new CommunityWriteFragment(),"2");
                 break;
         }
 
     }
 
-    public void replaceFragment(Fragment fragment) {
+    public void replaceFragment(Fragment fragment,String backstack) {
         fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment);
-        transaction.addToBackStack(null);
+        transaction.addToBackStack(backstack);
         transaction.commit();
     }
 
@@ -148,7 +146,7 @@ public class CommunityMainFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putString("categoryname", categoryname);
         ccf.setArguments(bundle);
-        replaceFragment(ccf);
+        replaceFragment(ccf,"1");
     }
 
 }

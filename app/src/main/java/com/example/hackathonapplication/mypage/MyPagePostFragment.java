@@ -36,7 +36,6 @@ public class MyPagePostFragment extends Fragment {
     private PostAdapter adapter;
     private ImageButton backButton;
     private FragmentManager fragmentManager;
-    private FloatingActionButton writePostButton;
 
     private String id;
     private String like;
@@ -67,9 +66,7 @@ public class MyPagePostFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         backButton = viewGroup.findViewById(R.id.ib_back);
-        writePostButton = viewGroup.findViewById(R.id.fab_writeButton);
         backButton.setOnClickListener(v -> onClick(v));
-        writePostButton.setOnClickListener(v->onClick(v));
 
     }
 

@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private FragmentTransaction transaction;
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,60 +42,44 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
     }
 
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         transaction = fragmentManager.beginTransaction();
 
-        String fragmentTag = "";
         if(fragmentManager.getBackStackEntryCount() > 0) {
-            fragmentTag = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
+            fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1);
         }
-        boolean isSame;
 
         switch (menuItem.getItemId()) {
             case R.id.health_button: {
-                isSame = fragmentTag.equals("Health");
-                if(!isSame) {
-                    transaction.addToBackStack("Health");
-                    transaction.replace(R.id.frameLayout, healthFragment);
-                    transaction.commit();
-                }
+                transaction.addToBackStack("Health");
+                transaction.replace(R.id.frameLayout, healthFragment);
+                transaction.commit();
                 return true;
             }
             case R.id.edu_button: {
-                isSame = fragmentTag.equals("Edu");
-                if(!isSame) {
-                    transaction.addToBackStack("Edu");
-                    transaction.replace(R.id.frameLayout, eduFragment);
-                    transaction.commit();
-                }
+                transaction.addToBackStack("Edu");
+                transaction.replace(R.id.frameLayout, eduFragment);
+                transaction.commit();
                 return true;
             }
             case R.id.job_button: {
-                isSame = fragmentTag.equals("Job");
-                if(!isSame) {
-                    transaction.addToBackStack("Job");
-                    transaction.replace(R.id.frameLayout, jobFragment);
-                    transaction.commit();
-                }
+                transaction.addToBackStack("Job");
+                transaction.replace(R.id.frameLayout, jobFragment);
+                transaction.commit();
                 return true;
             }
             case R.id.community_button: {
-                isSame = fragmentTag.equals("Community");
-                if(!isSame) {
-                    transaction.addToBackStack("Community");
-                    transaction.replace(R.id.frameLayout, communityFragment);
-                    transaction.commit();
-                }
+                transaction.addToBackStack("Community");
+                transaction.replace(R.id.frameLayout, communityFragment);
+                transaction.commit();
                 return true;
             }
             case R.id.mypage_button: {
-                isSame = fragmentTag.equals("MyPage");
-                if(!isSame) {
-                    transaction.addToBackStack("MyPage");
-                    transaction.replace(R.id.frameLayout, myPageFragment);
-                    transaction.commit();
-                }
+                transaction.addToBackStack("MyPage");
+                transaction.replace(R.id.frameLayout, myPageFragment);
+                transaction.commit();
                 return true;
             }
         }
@@ -126,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         long tempTime = System.currentTimeMillis();
         long intervalTime = tempTime - backPressedTime;
 
-        if(fragmentManager.getBackStackEntryCount() > 0) {
+        if (fragmentManager.getBackStackEntryCount() > 0) {
             fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         } else {
             if (intervalTime >= 0 && intervalTime <= FINISH_INTERVAL_TIME) {        // 2초 이내에 뒤로가기 버튼 클릭 시 종료
