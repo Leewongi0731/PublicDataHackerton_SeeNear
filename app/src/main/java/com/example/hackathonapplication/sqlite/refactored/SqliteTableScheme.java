@@ -102,4 +102,31 @@ public class SqliteTableScheme {
         }
     }
 
+
+    /**
+     * Medal Table
+     *
+     */
+    public static class MedalScheme implements BaseColumns, Scheme {
+        public static final String TABLE_NAME = "Medal";
+        public static final String PRESCRIPTION = "prescription";
+        public static final String VIDEOPATH = "videopath";
+        public static final String CONTENTS = "contents";
+
+        @Override
+        public String createTableIfNotExistQuery() {
+            return "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
+                    + _ID               + " integer primary key autoincrement, "
+                    + PRESCRIPTION + " text not null, "
+                    + VIDEOPATH + " text not null, "
+                    + CONTENTS          + " text not null);";
+        }
+
+        @Override
+        public String dropTableIfExistQuery() {
+            return "DROP TABLE IF EXISTS " + TABLE_NAME;
+        }
+    }
+
+
 }
