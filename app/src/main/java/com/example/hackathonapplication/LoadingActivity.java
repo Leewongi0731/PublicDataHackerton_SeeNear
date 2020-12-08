@@ -1,16 +1,13 @@
 package com.example.hackathonapplication;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.hackathonapplication.data.MVDataset;
 import com.example.hackathonapplication.sqlite.BoardDbOpenHelper;
 import com.example.hackathonapplication.sqlite.CommentDbOpenHelper;
 import com.example.hackathonapplication.sqlite.CustomerDbOpenHelper;
@@ -35,6 +32,7 @@ public class LoadingActivity extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(LoadingActivity.this, MainActivity.class);
                 startActivity( intent );
+                finish();
             }
         },1500);
     }
