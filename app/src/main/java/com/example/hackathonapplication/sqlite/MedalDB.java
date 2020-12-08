@@ -12,6 +12,5 @@ public class MedalDB {
                 "create table if not exists " + _TABLENAME + "("
                         + TITLE      + " text not null, "
                         + IMAGEPATH + " text not null);";
-
     }
 }

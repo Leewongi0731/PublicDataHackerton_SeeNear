@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.hackathonapplication.model.entity.Customer;
+import com.example.hackathonapplication.model.entity.Exercise;
 
 public class ExerciseRepository {
     Context context;
@@ -38,21 +39,24 @@ public class ExerciseRepository {
         return database.insert(scheme.TABLE_NAME, null, values);
     }
 
-    public Customer findByPrescription(String prescription) {
+    public Exercise findByPrescription(String prescription) {
         Cursor c = database.rawQuery(
                 " SELECT * " +
                         " FROM " + scheme.TABLE_NAME +
                         " WHERE " + scheme.PRESCRIPTION + " = " + prescription,
                 null);
 
-        Customer result = null;
+        Exercise result = null;
         while (c.moveToNext()) {
             // todo conver model here
+            String videopath = c.getString(c.getColumnIndex("videopath"));
+            String contents = c.getString(c.getColumnIndex("contents"));
+
+            result = new Exercise( prescription, videopath, contents );
         }
 
         c.close();
 
         return result;
     }
-
 }
