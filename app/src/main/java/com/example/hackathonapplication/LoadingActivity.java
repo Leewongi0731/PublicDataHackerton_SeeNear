@@ -18,7 +18,9 @@ import com.example.hackathonapplication.sqlite.ExercisePrescriptionDbOpenHelper;
 import com.example.hackathonapplication.sqlite.MedalDbOpenHelper;
 
 public class LoadingActivity extends AppCompatActivity {
-    static String LOGIN_USER_EMAIL = "test@gmail.com";
+    static public final String LOGIN_USER_EMAIL = "test@gmail.com";
+
+
     private ImageView loadingImageView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
