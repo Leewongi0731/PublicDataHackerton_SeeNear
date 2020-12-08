@@ -1,21 +1,22 @@
 package com.example.hackathonapplication;
 
 import android.content.Intent;
-import android.media.Image;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.hackathonapplication.data.MVDataset;
 import com.example.hackathonapplication.sqlite.BoardDbOpenHelper;
 import com.example.hackathonapplication.sqlite.CommentDbOpenHelper;
 import com.example.hackathonapplication.sqlite.CustomerDbOpenHelper;
 import com.example.hackathonapplication.sqlite.ExercisePrescriptionDbOpenHelper;
 import com.example.hackathonapplication.sqlite.MedalDbOpenHelper;
+import com.example.hackathonapplication.sqlite.refactored.CommentRepository;
+import com.example.hackathonapplication.sqlite.refactored.CustomerRepository;
+import com.example.hackathonapplication.sqlite.refactored.SqliteTableScheme;
 
 public class LoadingActivity extends AppCompatActivity {
     static public final String LOGIN_USER_EMAIL = "test@gmail.com";
@@ -51,15 +52,16 @@ public class LoadingActivity extends AppCompatActivity {
 
 
     private void initializCustomerDb(){
-        CustomerDbOpenHelper dbOpenHelper = new CustomerDbOpenHelper(getApplicationContext());
-        dbOpenHelper.open();
-        dbOpenHelper.create();
+        CustomerRepository customerRepository = new CustomerRepository(getApplicationContext());
+        customerRepository.connect();
 
-        dbOpenHelper.insertRow("test@gmail.com", 65, 165, "남", "강남구", "이경배", "출석 은, 건강 동, 교육 은, 커뮤니티 금", "커뮤니티 금");
-        dbOpenHelper.insertRow("sample1@gmail.com", 65, 176, "남", "강남구", "김원주", "출석 은, 건강 동, 교육 은, 커뮤니티 금", "커뮤니티 금");
-        dbOpenHelper.insertRow("sample2@gmail.com", 63, 165, "여", "강남구", "이영주", "출석 은, 건강 동, 교육 은, 커뮤니티 금", "커뮤니티 금");
-        dbOpenHelper.insertRow("sample3@gmail.com", 77, 163, "남", "서대문구", "백원배", "출석 은, 건강 동, 교육 은, 커뮤니티 금", "커뮤니티 금");
-        dbOpenHelper.insertRow("sample4@gmail.com", 75, 158, "여", "서대문구", "이춘자", "출석 은, 건강 동, 교육 은, 커뮤니티 금", "커뮤니티 금");
+        customerRepository.insert("test@gmail.com", 65, 165, "남", "강남구", "이경배", "출석 은, 건강 동, 교육 은, 커뮤니티 금", "커뮤니티 금");
+        customerRepository.insert("sample1@gmail.com", 65, 176, "남", "강남구", "김원주", "출석 은, 건강 동, 교육 은, 커뮤니티 금", "커뮤니티 금");
+        customerRepository.insert("sample2@gmail.com", 63, 165, "여", "강남구", "이영주", "출석 은, 건강 동, 교육 은, 커뮤니티 금", "커뮤니티 금");
+        customerRepository.insert("sample3@gmail.com", 77, 163, "남", "서대문구", "백원배", "출석 은, 건강 동, 교육 은, 커뮤니티 금", "커뮤니티 금");
+        customerRepository.insert("sample4@gmail.com", 75, 158, "여", "서대문구", "이춘자", "출석 은, 건강 동, 교육 은, 커뮤니티 금", "커뮤니티 금");
+
+        customerRepository.close();
     }
 
     private void initializMedalDb(){
@@ -101,11 +103,12 @@ public class LoadingActivity extends AppCompatActivity {
     }
 
     private void initializCommentDb() {
-        CommentDbOpenHelper dbOpenHelper = new CommentDbOpenHelper(getApplicationContext());
-        dbOpenHelper.open();
-        dbOpenHelper.create();
+        CommentRepository commentRepository = new CommentRepository(getApplicationContext());
+        commentRepository.connect();
 
-  //      dbOpenHelper.insertRow("test@gamil.com", "1", "와정말 이뻐요", "2020.12.03.16.30.15", 3);
-  //      dbOpenHelper.insertRow("test@gamil.com", "1", "감자팝니다~", "2020.12.04.26.29.41", 2);
+        commentRepository.insert("test@gamil.com", "1", "와정말 이뻐요", "2020.12.03.16.30.15", 3);
+        commentRepository.insert("test@gamil.com", "1", "감자팝니다~", "2020.12.04.26.29.41", 2);
+
+        commentRepository.close();
     }
 }

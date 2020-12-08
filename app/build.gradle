@@ -30,6 +30,7 @@ android {
 
 repositories{
     maven {url "https://jitpack.io"}
+    mavenCentral()
 }
 
 dependencies {
@@ -41,4 +42,16 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    //jackson
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.8'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.8.8'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.8'
 }
