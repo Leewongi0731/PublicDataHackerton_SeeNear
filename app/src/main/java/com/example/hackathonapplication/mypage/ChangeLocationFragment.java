@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.hackathonapplication.MainActivity;
 import com.example.hackathonapplication.R;
@@ -25,11 +26,14 @@ public class ChangeLocationFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private List<Button> btnList;
+    private FragmentManager fragmentManager;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.mypage_change_location, container, false);
         context = container.getContext();
+
+        fragmentManager = getActivity().getSupportFragmentManager();
 
         setBtnClick();
 
@@ -45,7 +49,8 @@ public class ChangeLocationFragment extends Fragment {
 
             updateDB( selectLocation );
 
-            ((MainActivity)getActivity()).replaceFragment( new MyPageFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+            //((MainActivity)getActivity()).replaceFragment( new MyPageFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+            fragmentManager.popBackStackImmediate();
         }
     };
 

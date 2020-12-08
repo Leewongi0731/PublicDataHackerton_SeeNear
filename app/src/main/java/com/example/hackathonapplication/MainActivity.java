@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private FragmentTransaction transaction;
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
-    private boolean isPop = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,35 +44,57 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         transaction = fragmentManager.beginTransaction();
+
+        String fragmentTag = "";
+        if(fragmentManager.getBackStackEntryCount() > 0) {
+            fragmentTag = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
+        }
+        boolean isSame;
+
         switch (menuItem.getItemId()) {
             case R.id.health_button: {
-                transaction.replace(R.id.frameLayout, healthFragment);
-                if(!isPop) transaction.addToBackStack("Health");
-                transaction.commit();
+                isSame = fragmentTag.equals("Health");
+                if(!isSame) {
+                    transaction.addToBackStack("Health");
+                    transaction.replace(R.id.frameLayout, healthFragment);
+                    transaction.commit();
+                }
                 return true;
             }
             case R.id.edu_button: {
-                transaction.replace(R.id.frameLayout, eduFragment);
-                if(!isPop) transaction.addToBackStack("Edu");
-                transaction.commit();
+                isSame = fragmentTag.equals("Edu");
+                if(!isSame) {
+                    transaction.addToBackStack("Edu");
+                    transaction.replace(R.id.frameLayout, eduFragment);
+                    transaction.commit();
+                }
                 return true;
             }
             case R.id.job_button: {
-                transaction.replace(R.id.frameLayout, jobFragment);
-                if(!isPop) transaction.addToBackStack("Job");
-                transaction.commit();
+                isSame = fragmentTag.equals("Job");
+                if(!isSame) {
+                    transaction.addToBackStack("Job");
+                    transaction.replace(R.id.frameLayout, jobFragment);
+                    transaction.commit();
+                }
                 return true;
             }
             case R.id.community_button: {
-                transaction.replace(R.id.frameLayout, communityFragment);
-                if(!isPop) transaction.addToBackStack("Community");
-                transaction.commit();
+                isSame = fragmentTag.equals("Community");
+                if(!isSame) {
+                    transaction.addToBackStack("Community");
+                    transaction.replace(R.id.frameLayout, communityFragment);
+                    transaction.commit();
+                }
                 return true;
             }
             case R.id.mypage_button: {
-                transaction.replace(R.id.frameLayout, myPageFragment);
-                if(!isPop) transaction.addToBackStack("MyPage");
-                transaction.commit();
+                isSame = fragmentTag.equals("MyPage");
+                if(!isSame) {
+                    transaction.addToBackStack("MyPage");
+                    transaction.replace(R.id.frameLayout, myPageFragment);
+                    transaction.commit();
+                }
                 return true;
             }
         }
@@ -106,29 +127,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         long intervalTime = tempTime - backPressedTime;
 
         if(fragmentManager.getBackStackEntryCount() > 0) {
-            fragmentManager.popBackStackImmediate();                // 프래그먼트 스택에 프래그먼트가 있다면 pop
-            if(fragmentManager.getBackStackEntryCount() > 0) {      // 최상단 프래그먼트 pop, isPop : pop 하자마자 push 를 막기 위함
-                isPop = true;
-                String fragmentTag = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
-                switch(fragmentTag) {
-                    case "Health":
-                        bottomNavigationView.setSelectedItemId(R.id.health_button);
-                        break;
-                    case "Edu":
-                        bottomNavigationView.setSelectedItemId(R.id.edu_button);
-                        break;
-                    case "Job":
-                        bottomNavigationView.setSelectedItemId(R.id.job_button);
-                        break;
-                    case "Community":
-                        bottomNavigationView.setSelectedItemId(R.id.community_button);
-                        break;
-                    case "MyPage":
-                        bottomNavigationView.setSelectedItemId(R.id.mypage_button);
-                        break;
-                }
-                isPop = false;
-            }
+            fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         } else {
             if (intervalTime >= 0 && intervalTime <= FINISH_INTERVAL_TIME) {        // 2초 이내에 뒤로가기 버튼 클릭 시 종료
                 super.onBackPressed();

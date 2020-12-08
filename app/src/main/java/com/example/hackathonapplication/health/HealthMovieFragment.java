@@ -43,11 +43,14 @@ public class HealthMovieFragment extends Fragment {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.health_how_info_fragment, container, false);
         context = container.getContext();
 
+        fragmentManager = getActivity().getSupportFragmentManager();
+
         healthInfoBackBtn = viewGroup.findViewById(R.id.healthInfoBackBtn);
         healthInfoBackBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view){
-                ((MainActivity)getActivity()).replaceFragment( new HealthFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+                //((MainActivity)getActivity()).replaceFragment( new HealthFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+                fragmentManager.popBackStackImmediate();
             }
         });
 

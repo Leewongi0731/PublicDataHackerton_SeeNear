@@ -12,6 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hackathonapplication.MainActivity;
@@ -26,6 +29,9 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
     private ArrayList<MVDataset> MVDataset;
     private HealthFragment healthFragment;
     private Activity activity;
+
+    private FragmentManager fragmentManager;
+    private FragmentTransaction transaction;
     public HealthFragmentRecyclerViewAdapter(Context context, ArrayList<MVDataset> MVDataset, Activity activity) {
         this.context = context;
         this.MVDataset = MVDataset;
@@ -38,6 +44,10 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.health_recycler_view_item, parent, false);
         HealthFragmentRecyclerViewAdapter.ViewHolder vh = new HealthFragmentRecyclerViewAdapter.ViewHolder(view);
+
+        fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+
         return vh;
     }
 
@@ -58,7 +68,10 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
 
                 HealthMovieFragment healthMovieFragment = new HealthMovieFragment();
                 healthMovieFragment.setArguments(args);
-                ((MainActivity) activity).replaceFragment( healthMovieFragment );
+                //((MainActivity) activity).replaceFragment( healthMovieFragment );
+                transaction.replace(R.id.frameLayout, new HealthMovieFragment());
+                transaction.addToBackStack("HealthMovie");
+                transaction.commit();
             }
         };
         holder.layout.setOnClickListener(clickListener);

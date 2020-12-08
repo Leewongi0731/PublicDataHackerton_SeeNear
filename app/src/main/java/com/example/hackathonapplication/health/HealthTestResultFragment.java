@@ -21,17 +21,21 @@ public class HealthTestResultFragment extends Fragment {
     private Context context;
     private Button healthTestResultBackBtn;
     private Button healthTestReturnBtn;
+    private FragmentManager fragmentManager;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.health_today_test_result_fragment, container, false);
         context = container.getContext();
 
+        fragmentManager = getActivity().getSupportFragmentManager();
+
         healthTestResultBackBtn = viewGroup.findViewById(R.id.healthTestResultBackBtn);
         healthTestResultBackBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view){
-                ((MainActivity)getActivity()).replaceFragment( new HealthTestFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+                //((MainActivity)getActivity()).replaceFragment( new HealthTestFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+                fragmentManager.popBackStackImmediate();
             }
         });
 
@@ -39,7 +43,8 @@ public class HealthTestResultFragment extends Fragment {
         healthTestReturnBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view){
-                ((MainActivity)getActivity()).replaceFragment( new HealthFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+                //((MainActivity)getActivity()).replaceFragment( new HealthFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+                fragmentManager.popBackStackImmediate();
             }
         });
 

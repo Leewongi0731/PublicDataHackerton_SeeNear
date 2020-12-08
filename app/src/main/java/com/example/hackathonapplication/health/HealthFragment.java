@@ -32,6 +32,9 @@ public class HealthFragment extends Fragment {
     private RecyclerView.LayoutManager healthLayoutManager;
     private RecyclerView healthMVRecyclerView;
     private HealthFragmentRecyclerViewAdapter healthAdapter;
+
+    private FragmentManager fragmentManager;
+    private FragmentTransaction transaction;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,7 +47,10 @@ public class HealthFragment extends Fragment {
         todayTestBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view){
-                ((MainActivity)getActivity()).replaceFragment( new HealthTestFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+                //((MainActivity)getActivity()).replaceFragment( new HealthTestFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
+                transaction.replace(R.id.frameLayout, new HealthTestFragment());
+                transaction.addToBackStack("HealthTest");
+                transaction.commit();
             }
         });
 
@@ -65,5 +71,8 @@ public class HealthFragment extends Fragment {
 
         healthAdapter = new HealthFragmentRecyclerViewAdapter(context, mvDataset, getActivity());
         healthMVRecyclerView.setAdapter(healthAdapter);
+
+        fragmentManager = getActivity().getSupportFragmentManager();
+        transaction = fragmentManager.beginTransaction();
     }
 }
