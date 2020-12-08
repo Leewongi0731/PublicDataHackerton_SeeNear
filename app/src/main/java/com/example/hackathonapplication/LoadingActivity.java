@@ -105,7 +105,7 @@ public class LoadingActivity extends AppCompatActivity {
         dbOpenHelper.open();
         dbOpenHelper.create();
 
-  //      dbOpenHelper.insertRow("test@gamil.com", "1", "와정말 이뻐요", "2020.12.03.16.30.15", 3);
-  //      dbOpenHelper.insertRow("test@gamil.com", "1", "감자팝니다~", "2020.12.04.26.29.41", 2);
+        dbOpenHelper.insertRow("test@gamil.com", "1", "와정말 이뻐요", "2020.12.03.16.30.15", 3);
+        dbOpenHelper.insertRow("test@gamil.com", "1", "감자팝니다~", "2020.12.04.26.29.41", 2);
     }
 }
