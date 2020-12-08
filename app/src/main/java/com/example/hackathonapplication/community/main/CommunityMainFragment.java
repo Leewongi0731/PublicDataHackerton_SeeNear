@@ -118,8 +118,9 @@ public class CommunityMainFragment extends Fragment {
     public void replaceFragment(Fragment fragment) {
         fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();
-
+        transaction.replace(R.id.frameLayout, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     public void setDataSet() {
@@ -127,10 +128,6 @@ public class CommunityMainFragment extends Fragment {
         BoardDbOpenHelper dbOpenHelper = new BoardDbOpenHelper(context);
         dbOpenHelper.open();
         dbOpenHelper.create();
-
-        //샘플데이터 - 첫 실행만 구현/ 로그인 화면시
-//        dbOpenHelper.insertColumn("강남구","sample@gmail.com","등산","오늘 산을 갔다","2시간 전",5,3);
-//       dbOpenHelper.insertColumn("송파구","sample2@gmail.com","식물","꽃 이쁘죠?","2시간 전",12,2);
 
         Cursor cursor = dbOpenHelper.sortColumnDesc("postdate");
         while(cursor.moveToNext()) {

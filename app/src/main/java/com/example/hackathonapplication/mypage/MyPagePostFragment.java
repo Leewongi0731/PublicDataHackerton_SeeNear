@@ -36,9 +36,7 @@ public class MyPagePostFragment extends Fragment {
     private PostAdapter adapter;
     private ImageButton backButton;
     private FragmentManager fragmentManager;
-    private FragmentTransaction transaction;
     private FloatingActionButton writePostButton;
-
 
     private String id;
     private String like;

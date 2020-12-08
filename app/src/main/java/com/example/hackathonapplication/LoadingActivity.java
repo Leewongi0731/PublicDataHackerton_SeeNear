@@ -22,7 +22,6 @@ import com.example.hackathonapplication.sqlite.refactored.SqliteTableScheme;
 public class LoadingActivity extends AppCompatActivity {
     static public final String LOGIN_USER_EMAIL = "test@gmail.com";
 
-
     private ImageView loadingImageView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,15 +101,20 @@ public class LoadingActivity extends AppCompatActivity {
         dbOpenHelper.open();
         dbOpenHelper.create();
 
-    //    dbOpenHelper.insertColumn("강남구", "sample1@gmail.com", "트로트", "오늘의 트로트", "오늘트로트를 신나게 부른다.", "2020.12.03.16.30.15", "2020.12.03.16.30.15", 5, 3);
+        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL, "트로트", "나훈아 좋아해요. 콘서트 가실분 댓글주세요", "20/12/01 14:00", 12, 0);
+        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL, "등산", "무등산 등산하실 분 없나요?", "20/12/02 11:34", 0, 0);
+        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL, "식물", "꽃 좋아하시는분,, 무슨 꽃. 키우세요?", "20/12/03 02:04", 3, 0);
+        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL, "낚시", "요즘.낙시를.못.가서.너무.힘듭니다.", "20/12/04 13:24", 0, 0);
+        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL, "운동", "운동영상 추천해주실분", "20/12/05 11:11", 0, 0);
+        dbOpenHelper.close();
     }
 
     private void initializCommentDb() {
         CommentRepository commentRepository = new CommentRepository(getApplicationContext());
         commentRepository.connect();
 
-        commentRepository.insert("test@gamil.com", "1", "와정말 이뻐요", "2020.12.03.16.30.15", 3);
-        commentRepository.insert("test@gamil.com", "1", "감자팝니다~", "2020.12.04.26.29.41", 2);
+        commentRepository.insert(LOGIN_USER_EMAIL, "1", "와정말 이뻐요", "20/12/05 11:11", 3);
+        commentRepository.insert(LOGIN_USER_EMAIL, "1", "감자팝니다~", "20/12/05 11:11", 2);
 
         commentRepository.close();
     }

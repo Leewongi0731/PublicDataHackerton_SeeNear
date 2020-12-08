@@ -11,7 +11,6 @@ public class BoardDB {
         public static final String POSTDATE = "postdate";
         public static final String LIKE = "like";
         public static final String COMMENT = "comment";
-
         public static final String _TABLENAME = "board";
         public static final String _CREATE_BOARD =
                 "create table if not exists " + _TABLENAME + "("

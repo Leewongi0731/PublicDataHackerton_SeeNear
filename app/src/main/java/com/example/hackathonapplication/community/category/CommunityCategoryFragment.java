@@ -104,7 +104,7 @@ public class CommunityCategoryFragment extends Fragment {
     private void onClick(View v) {
         switch (v.getId()) {
             case R.id.ib_back:
-                replaceFragment(new CommunityMainFragment());
+                fragmentManager.popBackStackImmediate();
                 break;
             case R.id.fab_writeButton:
                 replaceFragment(new CommunityWriteFragment());
@@ -116,8 +116,9 @@ public class CommunityCategoryFragment extends Fragment {
     private void replaceFragment(Fragment fragment) {
         fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();
-
+        transaction.replace(R.id.frameLayout, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     public void setDataSet() {
@@ -134,7 +135,7 @@ public class CommunityCategoryFragment extends Fragment {
             date = cursor.getString(cursor.getColumnIndex("postdate"));
             like = cursor.getString(cursor.getColumnIndex("like"));
             comment = cursor.getString(cursor.getColumnIndex("comment"));
-            dataSet.add(new Post(id,"로그인구현후","로그인구현후","뱃지구현후",contents,date,like,comment));
+            dataSet.add(new Post(id,"로그인구현후","이경배","뱃지구현후",contents,date,like,comment));
         }
 
         dbOpenHelper.close();
