@@ -51,36 +51,45 @@ public class CommentDbOpenHelper {
         sqLiteDatabase.close();
     }
 
-    public long insertRow(String writeremail, String boardkey, String contents, String postdate, Integer like) {
+    public long insertColumn(String writeremail, String boardkey, String contents, String commentdate, Integer like) {
         ContentValues values = new ContentValues();
         values.put(CommentDB.CreateDB.WRITEREMAIL, writeremail);
         values.put(CommentDB.CreateDB.BOARDKEY, boardkey);
         values.put(CommentDB.CreateDB.CONTENTS, contents);
-        values.put(CommentDB.CreateDB.POSTDATE, postdate);
+        values.put(CommentDB.CreateDB.COMMENTDATE, commentdate);
         values.put(CommentDB.CreateDB.LIKE, like);
         return sqLiteDatabase.insert(CommentDB.CreateDB._TABLENAME, null, values);
     }
 
-    public Cursor selectAllRows() {
+    public Cursor sortColumn(String sort) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + CommentDB.CreateDB._TABLENAME + " ORDER BY " + sort + ";", null);
+        return cursor;
+    }
+    public Cursor sortColumnDesc(String sort) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + CommentDB.CreateDB._TABLENAME + " ORDER BY " + sort + " DESC;", null);
+        return cursor;
+    }
+
+    public Cursor searchColumns(String columnName, String search) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + CommentDB.CreateDB._TABLENAME + " WHERE " + columnName + " = " + search + ";", null);
+        return cursor;
+    }
+
+    public Cursor searchColumnsDesc(String columnName, String search,String sort) {
+        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + CommentDB.CreateDB._TABLENAME + " WHERE " + columnName + " = " + search + " ORDER BY " + sort + " DESC;", null);
+        return cursor;
+    }
+
+    public Cursor selectColumns() {
         Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + CommentDB.CreateDB._TABLENAME + ";", null);
         return cursor;
     }
 
-    public Cursor selectRow(String column, String value) {
-        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM '" + CommentDB.CreateDB._TABLENAME + "' WHERE " + column + " = '" + value +  "';", null);
-        return cursor;
-    }
-
-    public Cursor orderByColumn(String sort) {
-        Cursor cursor = sqLiteDatabase.rawQuery( "SELECT * FROM " + CommentDB.CreateDB._TABLENAME + " ORDER BY " + sort + ";", null);
-        return cursor;
-    }
-
-    public void deleteAllRows() {
+    public void deleteAllColumns() {
         sqLiteDatabase.delete(CommentDB.CreateDB._TABLENAME, null, null);
     }
 
-    public void deleteRow(Integer id) {
+    public void deleteColumn(Integer id) {
         sqLiteDatabase.execSQL("DELETE FROM '" + CommentDB.CreateDB._TABLENAME + "' WHERE _id = '" + id + "';");
     }
 }

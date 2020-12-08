@@ -2,7 +2,10 @@ package com.example.hackathonapplication.community.board;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -10,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.hackathonapplication.R;
+import com.example.hackathonapplication.sqlite.BoardDbOpenHelper;
+import com.example.hackathonapplication.sqlite.CommentDbOpenHelper;
 
 import java.util.ArrayList;
 
@@ -24,6 +29,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     private ArrayList<Post> postDataset;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
+
 
     public PostAdapter(Context context,ArrayList<Post> postDataset,FragmentManager fragmentManager) {
         this.context = context;
@@ -49,23 +55,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         holder.tv_like.setText(data.getLike());
         holder.tv_comment.setText(data.getComment());
 
-
-        holder.ll_post.setOnClickListener(new View.OnClickListener() { //여기서 선택된 번호 넘겨주기 - 이거 내부메서드라 안되면 db로 검색해서 하는수밖에
+        holder.setAdapter(this);
+        holder.ll_post.setOnClickListener(new View.OnClickListener() {
                                               @Override
                                               public void onClick(View v) {
-
                                                   Bundle bundle = new Bundle();
-                                                  //bundle.putString("position", Integer.toString(position));
                                                   bundle.putString("id", data.getId());
                                                   CommunityCommentFragment ccf = new CommunityCommentFragment();
                                                   ccf.setArguments(bundle);
-                                                  //position 대신 data.getId();
                                                   replaceFragment(ccf);
-
                                               }
                                           }
-
-
         );
     }
 
@@ -74,7 +74,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         return postDataset.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
         private LinearLayout ll_post;
         private ImageView iv_profile;
         private TextView tv_writer;
@@ -82,6 +82,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private TextView tv_date;
         private TextView tv_like;
         private TextView tv_comment;
+        private PostAdapter adapter;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -93,9 +94,39 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tv_date = itemView.findViewById(R.id.tv_date);
             tv_like = itemView.findViewById(R.id.tv_postLikeCount);
             tv_comment = itemView.findViewById(R.id.tv_commentCount);
+            itemView.setOnCreateContextMenuListener(this);
         }
 
+        public void setAdapter(PostAdapter adapter) {
+            this.adapter = adapter;
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            MenuItem delete = menu.add(Menu.NONE, 1001, 1, "삭제");
+            delete.setOnMenuItemClickListener(onClickMenu);
+        }
+
+        private final MenuItem.OnMenuItemClickListener onClickMenu = new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+
+                switch (item.getItemId()) {
+                    case 1001: //삭제
+                        Post data = postDataset.get(getAdapterPosition());                            //adapter로 뿌려질 데이터셋도 같이 관리해줘야한다. 뿌려진 곳에서 위치를 연동해 그 데이터를 삭제
+                        BoardDbOpenHelper dbOpenHelper = new BoardDbOpenHelper(context);
+                        dbOpenHelper.open();
+                        dbOpenHelper.deleteColumn(Integer.valueOf(data.getId()));
+                        dbOpenHelper.close();
+                        postDataset.remove(getAdapterPosition());                                //데이터셋에서도 지워줘야 화면에서 갱신됨. 안그러면 데이터는 지워도 화면에서 안지워짐
+                        notifyDataSetChanged();
+                        break;
+                }
+                return true;
+            }
+        };
     }
+
 
     public void replaceFragment(Fragment fragment) {
         transaction = fragmentManager.beginTransaction();

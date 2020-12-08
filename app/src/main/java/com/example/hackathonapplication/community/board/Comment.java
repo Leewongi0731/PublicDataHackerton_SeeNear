@@ -1,20 +1,20 @@
 package com.example.hackathonapplication.community.board;
 
 public class Comment {
+    private String id;
     private String profile;
     private String writer;
     private String badge;
     private String contents;
-    private String date;
+    private String commentdate;
     private String like;
 
-    public Comment(String profile, String writer, String badge, String contents, String date, String like) {
-        this.profile = profile;
-        this.writer = writer;
-        this.badge = badge;
-        this.contents = contents;
-        this.date = date;
-        this.like = like;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getProfile() {
@@ -49,12 +49,12 @@ public class Comment {
         this.contents = contents;
     }
 
-    public String getDate() {
-        return date;
+    public String getCommentdate() {
+        return commentdate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setCommentdate(String commentdate) {
+        this.commentdate = commentdate;
     }
 
     public String getLike() {
@@ -62,6 +62,16 @@ public class Comment {
     }
 
     public void setLike(String like) {
+        this.like = like;
+    }
+
+    public Comment(String id, String profile, String writer, String badge, String contents, String commentdate, String like) {
+        this.id = id;
+        this.profile = profile;
+        this.writer = writer;
+        this.badge = badge;
+        this.contents = contents;
+        this.commentdate = commentdate;
         this.like = like;
     }
 }
