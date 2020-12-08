@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:background="@color/healthBackgroundColor">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +29,9 @@
 
             android:text="오늘의 운동측정 시작하기"
             android:textSize="20sp"
-            android:background="@drawable/white_round_border"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/healthColor"
             android:elevation="20dp"
             style="@style/WhiteButton"
             />
@@ -68,7 +70,7 @@
                 android:gravity="center"
                 android:text="신체나이 70세"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="23sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -88,7 +90,7 @@
                     <ImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/ic_smile" />
+                        android:src="@drawable/ic_baseline_health_and_safety_24" />
 
                 </LinearLayout>
 
@@ -110,14 +112,14 @@
                             android:id="@+id/healthAwardImage1"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_smile" />
+                            android:src="@drawable/ic_health_bronze" />
 
                         <TextView
                             android:id="@+id/healthAwardText1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="매일"
+                            android:text="꾸준"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -133,14 +135,14 @@
                             android:id="@+id/healthAwardImage2"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_smile" />
+                            android:src="@drawable/ic_health_silver" />
 
                         <TextView
                             android:id="@+id/healthAwardText2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="매일"
+                            android:text="활력"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -170,6 +172,7 @@
                 android:layout_marginTop="10dp"
 
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:text="김노인에게 좋은 운동 리스트" />
 
             <androidx.recyclerview.widget.RecyclerView

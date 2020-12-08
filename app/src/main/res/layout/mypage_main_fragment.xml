@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/mainColor"
     >
 
     <LinearLayout
@@ -55,15 +56,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="안녕하세요"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="김노인 님"
-                    android:textColor="@color/black"
+                    android:text="이경배 님"
+                    android:textColor="@color/white"
                     android:textSize="30sp" />
 
             </LinearLayout>
@@ -98,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:text="서울특별시 광진구"
+                android:text="서울특별시 강남구"
                 android:textColor="@color/black"
                 android:textSize="25dp" />
         </LinearLayout>
@@ -124,16 +125,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1.5"
+            android:layout_weight="2"
 
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/white_round_border"
             android:elevation="20dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
+                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -141,6 +143,49 @@
                 android:text="받은 훈장"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:weightSum="4">
+
+                <ImageView
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_attend_silver"/>
+
+                <ImageView
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_health_silver"/>
+
+                <ImageView
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_edu_bronze"/>
+
+                <ImageView
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_community_gold"/>
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

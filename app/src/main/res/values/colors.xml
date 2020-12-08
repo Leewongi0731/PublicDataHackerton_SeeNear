@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="mainColor">#231C58</color>
+    <color name="healthColor">#FD8F28</color>
+    <color name="healthBackgroundColor">#19fd8f28</color>
+    <color name="eduColor">#7A6CFC</color>
+    <color name="eduBackgroundColor">#f6f5fe</color>
+    <color name="jobColor">#34F4FE</color>
+    <color name="jobBackgroundColor">#edfeff</color>
+    <color name="communityColor">#FED737</color>
+    <color name="communityLighterColor">#fdedae</color>
+    <color name="communityBackgroundColor">#fffbed</color>
 </resources>

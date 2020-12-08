@@ -46,8 +46,8 @@
                         android:layout_height="wrap_content"
                         android:text="출석"
                         android:textSize="20dp"
-                        android:textColor="@color/black"
-                        android:textStyle="normal"
+                        android:textColor="@color/mainColor"
+                        android:textStyle="bold"
                         android:textAlignment="center"/>
 
                 </LinearLayout>
@@ -66,7 +66,7 @@
                         android:layout_weight="1"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        app:srcCompat="@drawable/ic_attend_bronze" />
+                        app:srcCompat="@drawable/ic_attend_silver" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -92,7 +92,7 @@
                         android:layout_height="wrap_content"
                         android:text="건강"
                         android:textSize="20dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/healthColor"
                         android:textStyle="normal"
                         android:textAlignment="center"/>
 
@@ -112,7 +112,7 @@
                         android:layout_weight="1"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        app:srcCompat="@drawable/ic_health_bronze" />
+                        app:srcCompat="@drawable/ic_health_silver" />
 
                 </LinearLayout>
 
@@ -139,7 +139,7 @@
                         android:layout_height="wrap_content"
                         android:text="교육"
                         android:textSize="20dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/eduColor"
                         android:textStyle="normal"
                         android:textAlignment="center"/>
 
@@ -186,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:text="커뮤니티"
                         android:textSize="20dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/communityColor"
                         android:textStyle="normal"
                         android:textAlignment="center"/>
 
@@ -206,7 +206,7 @@
                         android:layout_weight="1"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        app:srcCompat="@drawable/ic_community_bronze" />
+                        app:srcCompat="@drawable/ic_community_gold" />
 
                 </LinearLayout>
 
@@ -224,7 +224,6 @@
 
             <LinearLayout
                 android:id="@+id/linearLayoutAttend"
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -303,7 +302,7 @@
                     android:layout_marginTop="20dp"
                     style="@android:style/Widget.ProgressBar.Horizontal"
                     android:max="100"
-                    android:progress="30"
+                    android:progress="55"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"

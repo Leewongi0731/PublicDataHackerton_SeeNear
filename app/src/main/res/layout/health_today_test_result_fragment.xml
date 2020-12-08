@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:background="@color/healthBackgroundColor">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,7 +42,9 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="오늘의 운동측정 결과"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/healthColor"
+                    android:textStyle="bold"
+                    android:textSize="24dp"/>
 
             </LinearLayout>
 
@@ -66,20 +68,21 @@
                 android:weightSum="10">
 
                 <TextView
-                    android:layout_weight="7"
+                    android:layout_weight="3"
                     android:id="@+id/healthTestResultTitle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
 
                     android:gravity="center"
                     android:text="윗몸일으키기"
-                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textColor="@color/healthColor"
                     android:textSize="20sp" />
 
                 <ImageView
-                    android:layout_weight="3"
+                    android:layout_weight="7"
                     android:id="@+id/healthTestResultImageView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_test_score_4" />
 
@@ -105,20 +108,21 @@
                 android:weightSum="10">
 
                 <TextView
-                    android:layout_weight="7"
+                    android:layout_weight="3"
                     android:id="@+id/healthTestResultTitle2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
                     android:gravity="center"
                     android:text="팔굽혀펴기"
-                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textColor="@color/healthColor"
                     android:textSize="20sp" />
 
                 <ImageView
-                    android:layout_weight="3"
+                    android:layout_weight="7"
                     android:id="@+id/healthTestResultImageView2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_test_score_3" />
 
@@ -144,20 +148,21 @@
                 android:weightSum="10">
 
                 <TextView
-                    android:layout_weight="7"
+                    android:layout_weight="3"
                     android:id="@+id/healthTestResultTitle3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
                     android:gravity="center"
                     android:text="스쿼트"
-                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textColor="@color/healthColor"
                     android:textSize="20sp" />
 
                 <ImageView
-                    android:layout_weight="3"
+                    android:layout_weight="7"
                     android:id="@+id/healthTestResultImageView3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_test_score_1" />
 
@@ -170,16 +175,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             android:layout_marginRight="50dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:background="@drawable/white_round_border"
                 android:gravity="center"
                 android:text="점수 50점 획득!"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
 
@@ -198,10 +203,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:background="@drawable/white_round_border"
+                android:backgroundTint="@color/healthColor"
                 android:paddingTop="10dp"
 
                 android:paddingBottom="10dp"
+                android:textStyle="bold"
                 android:text="건강 페이지로 돌아가기"
 
                 android:textSize="20sp" />
