@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+
+import com.example.hackathonapplication.LoadingActivity;
 import com.example.hackathonapplication.R;
 import com.example.hackathonapplication.sqlite.BoardDbOpenHelper;
 import java.text.SimpleDateFormat;
@@ -36,9 +38,8 @@ public class CommunityWriteFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.community_write_fragment, container, false);
         context = container.getContext();
-
+        fragmentManager = getFragmentManager();
         initView();
-
         return viewGroup;
     }
 
@@ -69,7 +70,7 @@ public class CommunityWriteFragment extends Fragment {
     private void onClick(View v) {
         switch (v.getId()) {
             case R.id.ib_back:
-                replaceFragment(new CommunityMainFragment());
+                fragmentManager.popBackStackImmediate();
                 break;
             case R.id.btn_finish:                                                                   //저장하고 전송
                 writePost();
@@ -81,7 +82,9 @@ public class CommunityWriteFragment extends Fragment {
     private void replaceFragment(Fragment fragment) {
         fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();                  // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
+        transaction.replace(R.id.frameLayout, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();                  // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
     }
 
     public void writePost() {
@@ -91,10 +94,10 @@ public class CommunityWriteFragment extends Fragment {
 
         long now = System.currentTimeMillis();
         Date date = new Date(now);
-        SimpleDateFormat sdfNow = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        SimpleDateFormat sdfNow = new SimpleDateFormat("yy/MM/dd HH:mm");
         String postdate = sdfNow.format(date);
 
-        dbOpenHelper.insertColumn("강남구", "sample@gmail.com", categoryName, contentsEditText.getText().toString(), postdate, 0, 0);
+        dbOpenHelper.insertColumn("강남구", LoadingActivity.LOGIN_USER_EMAIL, categoryName, contentsEditText.getText().toString(), postdate, 0, 0);
         dbOpenHelper.close();
     }
 

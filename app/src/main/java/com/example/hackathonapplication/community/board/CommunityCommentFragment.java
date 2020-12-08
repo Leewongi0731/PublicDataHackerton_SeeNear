@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.hackathonapplication.LoadingActivity;
 import com.example.hackathonapplication.R;
 import com.example.hackathonapplication.community.board.Comment;
 import com.example.hackathonapplication.community.board.CommentAdapter;
@@ -76,6 +77,7 @@ public class CommunityCommentFragment extends Fragment {
         if (getArguments() != null) {
             id = getArguments().getString("id");                                               // 전달한 key 값
         }
+        fragmentManager = getFragmentManager();
         initView();
 
         return viewGroup;
@@ -120,7 +122,7 @@ public class CommunityCommentFragment extends Fragment {
             like = cursor.getString(cursor.getColumnIndex("like"));
             comments = cursor.getString(cursor.getColumnIndex("comment"));
 
-            post = new Post(id, "로그인구현후?", "이경배", "뱃지구현후", contents, date, like, comments);
+            post = new Post(id, "로그인구현후", "이경배", "뱃지구현후", contents, date, like, comments);
         }
         dbOpenHelper.close();
         textViewContents.setText(post.getContents());
@@ -134,7 +136,7 @@ public class CommunityCommentFragment extends Fragment {
     private void onClick(View v) {
         switch (v.getId()) {
             case R.id.ib_back:
-                replaceFragment(new CommunityMainFragment());
+                fragmentManager.popBackStackImmediate();
                 break;
             case R.id.btn_pushComment:
                 writeComment();
@@ -163,11 +165,6 @@ public class CommunityCommentFragment extends Fragment {
         dbOpenHelper.close();
     }
 
-    private void replaceFragment(Fragment fragment) {
-        fragmentManager = getFragmentManager();
-        transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();
-    }
 
     public void writeComment() {
         CommentDbOpenHelper dbOpenHelper = new CommentDbOpenHelper(context);
@@ -175,10 +172,10 @@ public class CommunityCommentFragment extends Fragment {
 
         long now = System.currentTimeMillis();
         Date date = new Date(now);
-        SimpleDateFormat sdfNow = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        SimpleDateFormat sdfNow = new SimpleDateFormat("yy/MM/dd HH:mm");
         String commentdate = sdfNow.format(date);
 
-        dbOpenHelper.insertColumn( "sample@gmail.com", id, editTextComment.getText().toString(), commentdate, 0);
+        dbOpenHelper.insertColumn(LoadingActivity.LOGIN_USER_EMAIL, id, editTextComment.getText().toString(), commentdate, 0);
 
         //추가하고 나서 commentdataSet 갱신
         commentdataSet.clear();

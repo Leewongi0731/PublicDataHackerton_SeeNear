@@ -127,11 +127,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         };
     }
 
-
     public void replaceFragment(Fragment fragment) {
         transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss();               // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
-
+        transaction.replace(R.id.frameLayout, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();                                                                       // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
     }
 
 }
