@@ -1,6 +1,8 @@
 package com.example.hackathonapplication;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,8 +31,15 @@ public class LoadingActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        initializeDataBase();
-
+        SharedPreferences pref = getSharedPreferences("checkFirst", Activity.MODE_PRIVATE);
+        boolean checkFirst = pref.getBoolean("checkFirst",false);
+        if(checkFirst == false){
+            initializeDataBase();
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putBoolean("checkFirst",true);
+            editor.commit();
+        }
+        
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
