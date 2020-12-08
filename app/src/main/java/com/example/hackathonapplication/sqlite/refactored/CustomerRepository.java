@@ -57,6 +57,15 @@ public class CustomerRepository {
         Customer result = null;
         while (c.moveToNext()) {
             // todo conver model here
+            int age = c.getInt(c.getColumnIndex("age"));
+            int height = c.getInt(c.getColumnIndex("height"));
+            String gender = c.getString(c.getColumnIndex("gender"));
+            String location = c.getString(c.getColumnIndex("location"));
+            String nickname = c.getString(c.getColumnIndex("nickname"));
+            String medallist = c.getString(c.getColumnIndex("medallist"));
+            String medaltitle = c.getString(c.getColumnIndex("medaltitle"));
+
+            result = new Customer( email, age, height, gender, location, nickname, medallist, medaltitle );
         }
 
         c.close();
