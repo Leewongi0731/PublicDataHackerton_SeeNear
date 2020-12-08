@@ -126,7 +126,7 @@ public class CommunityCommentFragment extends Fragment {
         }
         dbOpenHelper.close();
         textViewContents.setText(post.getContents());
-        textViewWriter.setText("로그인구현후");
+        textViewWriter.setText(post.getWriter());
         textViewDate.setText(post.getDate());
         //textViewPostLike.setText(post.getLike());                                                 //좋아요개수, 댓글개수 연동 오류. nullPointer
         //textViewCommentCount.setText(post.getComment());

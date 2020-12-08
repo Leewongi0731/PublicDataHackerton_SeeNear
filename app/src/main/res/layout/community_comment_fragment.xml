@@ -108,6 +108,13 @@
                     android:layout_marginLeft="5dp"
                     android:text="공감"></TextView>
 
+                <TextView
+                    android:id="@+id/tv_postLikeCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="0"></TextView>
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
@@ -121,10 +128,11 @@
                     android:text="댓글"></TextView>
 
                 <TextView
+                    android:id="@+id/tv_commentCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:text="2"></TextView>
+                    android:text="0"></TextView>
             </LinearLayout>
 
             <View
