@@ -16,6 +16,7 @@ import com.example.hackathonapplication.sqlite.ExercisePrescriptionDbOpenHelper;
 import com.example.hackathonapplication.sqlite.MedalDbOpenHelper;
 import com.example.hackathonapplication.sqlite.refactored.CommentRepository;
 import com.example.hackathonapplication.sqlite.refactored.CustomerRepository;
+import com.example.hackathonapplication.sqlite.refactored.ExerciseRepository;
 import com.example.hackathonapplication.sqlite.refactored.SqliteTableScheme;
 
 public class LoadingActivity extends AppCompatActivity {
@@ -44,15 +45,15 @@ public class LoadingActivity extends AppCompatActivity {
 
     private void initializeDataBase(){
         // DB 초기화
-        initializCustomerDb();
+        initializCustomerRepository();
         initializMedalDb();
-        initializExercisePrescriptionDb();
+        initializExerciseRepository();
         initializBoardDb();
         initializCommentDb();
     }
 
 
-    private void initializCustomerDb(){
+    private void initializCustomerRepository(){
         CustomerRepository customerRepository = new CustomerRepository(getApplicationContext());
         customerRepository.connect();
 
@@ -84,15 +85,16 @@ public class LoadingActivity extends AppCompatActivity {
         dbOpenHelper.insertRow("커뮤니티 동","./res/drawable/ic_community_bronze.xml");
     }
 
-    private void initializExercisePrescriptionDb(){
-        ExercisePrescriptionDbOpenHelper dbOpenHelper = new ExercisePrescriptionDbOpenHelper(getApplicationContext());
-        dbOpenHelper.open();
-        dbOpenHelper.create();
+    private void initializExerciseRepository(){
+        ExerciseRepository exerciseRepository = new ExerciseRepository(getApplicationContext());
+        exerciseRepository.connect();
 
-        dbOpenHelper.insertRow("어깨 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/266/266.mp4","1.엎드려 누운 파트너의 양손목을 잡는다./2.양팔을 내회전 하면서 바깥쪽으로 밀어준다.");
-        dbOpenHelper.insertRow("발바닥 치기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/350/350.mp4","1.바르게 선자세에서 제기차기를 하듯 한 발을 올린다./2.반대쪽 손으로 발바닥을 떄린다./3.번갈아가며 반복한다.");
-        dbOpenHelper.insertRow("몸통 비틀기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/278/278.mp4","1.어꺠너비로 선 자세를 잡는다./2.한 손은 의자 위, 다른 손은 머리뒤로 위치한다./3.들고 있는 손의 방향으로 온몸을 돌려 뒤를본다./4.번갈아가며 반복한다");
-        dbOpenHelper.insertRow("종아리 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/277/277.mp4","1.엎드려 누운 파트너의 무릎을 굽혀유지한다./2.한 손으로 파트너의 발바닥을 감싼다./3.발 끝을 무릎방향으로 눌러준다.");
+        exerciseRepository.insert("어깨 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/266/266.mp4","1.엎드려 누운 파트너의 양손목을 잡는다./2.양팔을 내회전 하면서 바깥쪽으로 밀어준다.");
+        exerciseRepository.insert("발바닥 치기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/350/350.mp4","1.바르게 선자세에서 제기차기를 하듯 한 발을 올린다./2.반대쪽 손으로 발바닥을 떄린다./3.번갈아가며 반복한다.");
+        exerciseRepository.insert("몸통 비틀기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/278/278.mp4","1.어꺠너비로 선 자세를 잡는다./2.한 손은 의자 위, 다른 손은 머리뒤로 위치한다./3.들고 있는 손의 방향으로 온몸을 돌려 뒤를본다./4.번갈아가며 반복한다");
+        exerciseRepository.insert("종아리 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/277/277.mp4","1.엎드려 누운 파트너의 무릎을 굽혀유지한다./2.한 손으로 파트너의 발바닥을 감싼다./3.발 끝을 무릎방향으로 눌러준다.");
+
+        exerciseRepository.close();
     }
 
     private void initializBoardDb() {
