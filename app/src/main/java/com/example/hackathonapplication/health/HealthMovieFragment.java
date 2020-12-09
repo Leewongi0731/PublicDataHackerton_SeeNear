@@ -53,7 +53,7 @@ public class HealthMovieFragment extends Fragment {
         TextView healthInfoMainTitle = (TextView)viewGroup.findViewById(R.id.healthInfoMainTitle);
         TextView infoTitle = (TextView)viewGroup.findViewById(R.id.infoTitle);
         healthInfoMainTitle.setText( prescription + " 하는 방법 소개");
-        infoTitle.setText( prescription + " 하는 방법 소개");
+        infoTitle.setText( prescription );
 
         String[] splitContents = contents.split("/");
         TextView infoContents1 = (TextView)viewGroup.findViewById(R.id.infoContents1);
