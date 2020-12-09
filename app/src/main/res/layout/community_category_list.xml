@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:ellipsize="end"
-                    android:maxLines="1"
+                    android:maxLines="5"
                     android:text="내용"
                     android:textSize="25dp" />
             </LinearLayout>

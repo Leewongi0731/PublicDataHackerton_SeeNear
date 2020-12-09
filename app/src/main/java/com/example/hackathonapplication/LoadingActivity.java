@@ -56,8 +56,8 @@ public class LoadingActivity extends AppCompatActivity {
         initializCustomerRepository();
         initializMedalDb();
         initializExerciseRepository();
- //       initializBoardDb();
- //       initializCommentDb();
+        initializBoardDb();
+        initializCommentDb();
     }
 
 
