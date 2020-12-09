@@ -116,10 +116,9 @@ public class CommunityMainFragment extends Fragment {
     }
 
     public void replaceFragment(Fragment fragment) {
-        fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment);
-        transaction.addToBackStack(null);
+        transaction.addToBackStack("Community");
         transaction.commit();
     }
 
@@ -148,6 +147,7 @@ public class CommunityMainFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putString("categoryname", categoryname);
         ccf.setArguments(bundle);
+
         replaceFragment(ccf);
     }
 
