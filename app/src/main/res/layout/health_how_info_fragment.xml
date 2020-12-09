@@ -57,6 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/healthInfoVideo">
 
         <TextView
+            android:id="@+id/infoTitle"
             android:layout_width="match_parent"
             android:layout_height="30dp"
 
@@ -66,32 +67,50 @@
             android:textSize="25sp" />
 
         <TextView
+            android:id="@+id/infoContents1"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
 
             android:layout_marginTop="25dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="1. 오른발을"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/infoContents2"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
 
             android:layout_marginTop="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="2. 오른쪽으로"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/infoContents3"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
 
             android:layout_marginTop="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="3. 찍어버린다"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/infoContents4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
             android:textColor="@color/black"
             android:textSize="20sp" />
 

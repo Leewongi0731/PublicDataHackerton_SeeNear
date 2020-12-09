@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
@@ -33,16 +34,46 @@ public class HealthMovieFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        viewGroup = (ViewGroup) inflater.inflate(R.layout.health_how_info_fragment, container, false);
+        context = container.getContext();
+        fragmentManager = getActivity().getSupportFragmentManager();
+
+
+        String prescription = "";
+        String contents = "";
         String videoPath = "";
+
         Bundle bundle=getArguments();
         if(bundle !=null) {
+            prescription = bundle.getString("prescription");
+            contents = bundle.getString("contents");
             videoPath = bundle.getString("videoPath");
         }
 
-        viewGroup = (ViewGroup) inflater.inflate(R.layout.health_how_info_fragment, container, false);
-        context = container.getContext();
+        TextView healthInfoMainTitle = (TextView)viewGroup.findViewById(R.id.healthInfoMainTitle);
+        TextView infoTitle = (TextView)viewGroup.findViewById(R.id.infoTitle);
+        healthInfoMainTitle.setText( prescription + " 하는 방법 소개");
+        infoTitle.setText( prescription + " 하는 방법 소개");
 
-        fragmentManager = getActivity().getSupportFragmentManager();
+        String[] splitContents = contents.split("/");
+        TextView infoContents1 = (TextView)viewGroup.findViewById(R.id.infoContents1);
+        TextView infoContents2 = (TextView)viewGroup.findViewById(R.id.infoContents2);
+        TextView infoContents3 = (TextView)viewGroup.findViewById(R.id.infoContents3);
+        TextView infoContents4 = (TextView)viewGroup.findViewById(R.id.infoContents4);
+        switch ( splitContents.length ){
+            case 4:
+                infoContents4.setText( splitContents[3] );
+            case 3:
+                infoContents3.setText( splitContents[2] );
+            case 2:
+                infoContents2.setText( splitContents[1] );
+            case 1:
+                infoContents1.setText( splitContents[0] );
+                break;
+            default:
+                break;
+        }
+
 
         healthInfoBackBtn = viewGroup.findViewById(R.id.healthInfoBackBtn);
         healthInfoBackBtn.setOnClickListener(new Button.OnClickListener() {
