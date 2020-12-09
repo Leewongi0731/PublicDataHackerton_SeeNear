@@ -49,35 +49,42 @@
 
                     </ImageView>
 
-                    <TextView
-                        android:id="@+id/tv_writer"
-                        android:layout_width="65dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:ellipsize="end"
-                        android:maxLength="15"
-                        android:text="작성자"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_date"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="150dp"
-                        android:textSize="13dp"
-                        android:layout_marginTop="5dp">
+                        <TextView
+                            android:id="@+id/tv_writer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:ellipsize="end"
+                            android:maxLength="15"
+                            android:text="작성자"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
 
-                    </TextView>
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:text="작성일"
+                           android:textSize="13dp"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
 
-                />
+
 
                 <TextView
                     android:id="@+id/tv_contents"
-                    android:layout_width="341dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:ellipsize="end"

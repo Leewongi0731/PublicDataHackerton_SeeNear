@@ -39,6 +39,7 @@ public class CommunityWriteFragment extends Fragment {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.community_write_fragment, container, false);
         context = container.getContext();
         fragmentManager = getFragmentManager();
+        transaction = fragmentManager.beginTransaction();
         initView();
         return viewGroup;
     }
@@ -80,8 +81,6 @@ public class CommunityWriteFragment extends Fragment {
     }
 
     private void replaceFragment(Fragment fragment) {
-        fragmentManager = getFragmentManager();
-        transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment);
         transaction.addToBackStack(null);
         transaction.commit();                  // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.

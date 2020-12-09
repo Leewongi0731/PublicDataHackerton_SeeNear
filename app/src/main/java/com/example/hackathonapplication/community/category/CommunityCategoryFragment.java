@@ -59,6 +59,7 @@ public class CommunityCategoryFragment extends Fragment {
             categoryName = getArguments().getString("categoryname"); // 전달한 key 값
         }
         fragmentManager = getFragmentManager();
+        transaction = fragmentManager.beginTransaction();
 
         initView();
 
@@ -115,8 +116,6 @@ public class CommunityCategoryFragment extends Fragment {
     }
 
     private void replaceFragment(Fragment fragment) {
-        fragmentManager = getFragmentManager();
-        transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment);
         transaction.addToBackStack(null);
         transaction.commit();

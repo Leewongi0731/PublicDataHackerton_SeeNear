@@ -40,37 +40,42 @@
 
                 </ImageView>
 
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="15dp"
-                    android:id="@+id/tv_writer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLength="15"
-                    android:text="작성자"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_contents"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:text="내용"
-                    android:textSize="17dp"></TextView>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_gravity="center"
+                        android:paddingLeft="15dp"
+                        android:id="@+id/tv_writer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLength="15"
+                        android:text="작성자"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
+                    <TextView
+                        android:id="@+id/tv_contents"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="내용"
+                        android:textSize="17dp"></TextView>
 
-
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="20dp"
@@ -96,11 +101,12 @@
 
                 <TextView
                     android:id="@+id/tv_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="150dp"
-                    android:layout_marginTop="10dp"
-                    tools:layout_editor_absoluteX="330dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="날짜"
+                    android:textAlignment="viewEnd"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp">
                 </TextView>
 
             </LinearLayout>

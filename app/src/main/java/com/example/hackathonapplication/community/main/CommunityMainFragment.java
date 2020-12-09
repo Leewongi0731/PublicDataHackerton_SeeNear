@@ -56,6 +56,7 @@ public class CommunityMainFragment extends Fragment {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.community_main_fragment, container, false);
         context = container.getContext();
         fragmentManager = getFragmentManager();
+        transaction = fragmentManager.beginTransaction();
         initView();
 
         return viewGroup;
@@ -114,8 +115,6 @@ public class CommunityMainFragment extends Fragment {
     }
 
     public void replaceFragment(Fragment fragment,String backstack) {
-        fragmentManager = getFragmentManager();
-        transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment);
         transaction.addToBackStack(backstack);
         transaction.commit();
