@@ -98,7 +98,7 @@ public class LoadingActivity extends AppCompatActivity {
         exerciseRepository.connect();
 
         exerciseRepository.insert("어깨 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/266/266.mp4",
-                "1.엎드려 누운 파트너의 양손목을 잡는다./2.양팔을 내회전 하면서 바깥쪽으로 밀어준다.", "R.drawable.health_example1");
+                "1.엎드려 눕는다./2.파트너의 양손목을 잡는다./3.양팔을 내회전 하면서 바깥쪽으로 밀어준다.", "R.drawable.health_example1");
         exerciseRepository.insert("발바닥 치기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/350/350.mp4",
                 "1.바르게 선자세에서 제기차기를 하듯 한 발을 올린다./2.반대쪽 손으로 발바닥을 떄린다./3.번갈아가며 반복한다.", "R.drawable.health_example1");
         exerciseRepository.insert("몸통 비틀기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/278/278.mp4",

@@ -72,7 +72,9 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
             public void onClick(View v) {
                 // frame간 parameter전달
                 Bundle args = new Bundle();
-                args.putString("videoPath", dataSet.getVideopath()); // key value를 Bundle에 담아서 파라미터로 전송
+                args.putString("prescription", dataSet.getPrescription()); // key value를 Bundle에 담아서 파라미터로 전송
+                args.putString("contents", dataSet.getContents());
+                args.putString("videoPath", dataSet.getVideopath());
 
                 HealthMovieFragment healthMovieFragment = new HealthMovieFragment();
                 healthMovieFragment.setArguments(args);

@@ -47,6 +47,7 @@ public class HealthTestResultFragment extends Fragment {
             public void onClick(View view){
                 //((MainActivity)getActivity()).replaceFragment( new HealthFragment() );    // 새로 불러올 Fragment의 Instance를 Main으로 전달
                 fragmentManager.popBackStackImmediate();
+                fragmentManager.popBackStackImmediate();
             }
         });
 
