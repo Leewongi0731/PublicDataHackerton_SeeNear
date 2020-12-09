@@ -20,23 +20,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hackathonapplication.MainActivity;
 import com.example.hackathonapplication.R;
 import com.example.hackathonapplication.data.MVDataset;
+import com.example.hackathonapplication.model.entity.Exercise;
 import com.example.hackathonapplication.sqlite.ExercisePrescriptionDbOpenHelper;
 
 import java.util.ArrayList;
 
 public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HealthFragmentRecyclerViewAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<MVDataset> MVDataset;
+    private ArrayList<Exercise> exercises;
     private HealthFragment healthFragment;
     private Activity activity;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
-    public HealthFragmentRecyclerViewAdapter(Context context, ArrayList<MVDataset> MVDataset, Activity activity) {
+    public HealthFragmentRecyclerViewAdapter(Context context, ArrayList<Exercise> exercises, Activity activity) {
         this.context = context;
-        this.MVDataset = MVDataset;
+        this.exercises = exercises;
         this.activity = activity;
-        insertDB( this.MVDataset );
     }
 
     @NonNull
@@ -53,23 +53,30 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        MVDataset dataSet = MVDataset.get(position);
+        Exercise dataSet = exercises.get(position);
 
-        holder.healthMVThumbnailImageView.setImageResource( (int)dataSet.getThumbnailPath() );
-        holder.healthMVTitle.setText(dataSet.getExercise());
-        holder.healthMVContent.setText(dataSet.getContent());
+    //    holder.healthMVThumbnailImageView.setImageResource( (int)dataSet.getThumbnailPath() );
+        holder.healthMVThumbnailImageView.setImageResource( R.drawable.health_example1 );
+        holder.healthMVTitle.setText(dataSet.getPrescription());
+
+        String mvContent = dataSet.getContents();
+        if( mvContent.length() > 15 ){
+            holder.healthMVContent.setText(mvContent.substring(0,13) + "..." ) ;
+        }else{
+            holder.healthMVContent.setText(mvContent);
+        }
+
 
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // frame간 parameter전달
                 Bundle args = new Bundle();
-                args.putString("videoPath", dataSet.getVideoPath()); // key value를 Bundle에 담아서 파라미터로 전송
+                args.putString("videoPath", dataSet.getVideopath()); // key value를 Bundle에 담아서 파라미터로 전송
 
                 HealthMovieFragment healthMovieFragment = new HealthMovieFragment();
                 healthMovieFragment.setArguments(args);
-                //((MainActivity) activity).replaceFragment( healthMovieFragment );
-                transaction.replace(R.id.frameLayout, new HealthMovieFragment());
+                transaction.replace(R.id.frameLayout, healthMovieFragment);
                 transaction.addToBackStack("HealthMovie");
                 transaction.commit();
             }
@@ -79,7 +86,7 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
 
     @Override
     public int getItemCount() {
-        return MVDataset.size();
+        return exercises.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -95,17 +102,6 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
             healthMVThumbnailImageView = view.findViewById(R.id.healthMVThumbnailImageView);
             healthMVTitle = view.findViewById(R.id.healthMVTitle);
             healthMVContent = view.findViewById(R.id.healthMVContent);
-        }
-    }
-
-    public void insertDB( ArrayList<MVDataset> MVDataset ){
-        ExercisePrescriptionDbOpenHelper dbOpenHelper = new ExercisePrescriptionDbOpenHelper(context);
-        dbOpenHelper.open();
-        dbOpenHelper.create();
-
-        for( int i = 0 ; i<MVDataset.size() ; i++ ){
-            MVDataset mvDataset = MVDataset.get(i);
-            dbOpenHelper.insertRow( mvDataset.getExercise(), mvDataset.getVideoPath(), mvDataset.getContent());
         }
     }
 }

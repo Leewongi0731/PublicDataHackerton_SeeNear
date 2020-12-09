@@ -29,21 +29,22 @@ public class ExerciseRepository {
         this.database.close();
     }
 
-    public long insert(String prescription, String videopath, String contents) {
+    public long insert(String prescription, String videopath, String contents, String thumbnailPath) {
         ContentValues values = new ContentValues();
 
         values.put(scheme.PRESCRIPTION, prescription);
         values.put(scheme.VIDEOPATH, videopath);
         values.put(scheme.CONTENTS, contents);
+        values.put(scheme.THUMBNAILPATH, thumbnailPath);
 
         return database.insert(scheme.TABLE_NAME, null, values);
     }
 
     public Exercise findByPrescription(String prescription) {
         Cursor c = database.rawQuery(
-                " SELECT * " +
+                " SELECT *" +
                         " FROM " + scheme.TABLE_NAME +
-                        " WHERE " + scheme.PRESCRIPTION + " = " + prescription,
+                        " WHERE " + scheme.PRESCRIPTION + " = '" + prescription + "'",
                 null);
 
         Exercise result = null;
@@ -51,8 +52,11 @@ public class ExerciseRepository {
             // todo conver model here
             String videopath = c.getString(c.getColumnIndex("videopath"));
             String contents = c.getString(c.getColumnIndex("contents"));
-
-            result = new Exercise( prescription, videopath, contents );
+            System.out.println(videopath);
+            System.out.println(contents);
+            String thumbnailPath = "tmptmptmp"; // 자꾸 에러떠서 임의로 넣어둠.
+        //    String thumbnailPath = c.getString(c.getColumnIndex("thumbnailPath"));
+            result = new Exercise( prescription, videopath, contents, thumbnailPath );
         }
 
         c.close();

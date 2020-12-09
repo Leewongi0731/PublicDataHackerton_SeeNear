@@ -17,14 +17,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hackathonapplication.R;
 import com.example.hackathonapplication.data.MVDataset;
+import com.example.hackathonapplication.model.entity.Exercise;
+import com.example.hackathonapplication.sqlite.refactored.ExerciseRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HealthFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private Button todayTestBtn;
-    private ArrayList<MVDataset> mvDataset;
+    private ArrayList<Exercise> exercises;
     private RecyclerView.LayoutManager healthLayoutManager;
     private RecyclerView healthMVRecyclerView;
     private HealthFragmentRecyclerViewAdapter healthAdapter;
@@ -53,21 +56,41 @@ public class HealthFragment extends Fragment {
     }
 
     private void initLayout() {
-        mvDataset = new ArrayList<>();
-        mvDataset.add( new MVDataset( "어깨 스트레칭", "윗몸을 힘껏 일으킨다", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/266/266.mp4" ,R.drawable.health_example1) );
-        mvDataset.add( new MVDataset( "발바닥 치기", "언제쯤 잘 수 있을까", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/350/350.mp4", R.drawable.health_example2 ) );
-        mvDataset.add( new MVDataset( "몸통 비틀기", "아마 못자겠지", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/278/278.mp4", R.drawable.health_example1 ) );
-        mvDataset.add( new MVDataset( "종아리 스트레칭", "엎어져 자면 건강에 좋다.", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/277/277.mp4", R.drawable.health_example2 ) );
+        List<String> prescriptionList = getNewlyPrescription();
+
+        exercises = new ArrayList<>();
+        String prescription = "";
+        ExerciseRepository exerciseRepository = new ExerciseRepository(context);
+        exerciseRepository.connect();
+        for(int i = 0; i < prescriptionList.size() ; i++){
+            prescription = prescriptionList.get(i);
+            Exercise Exercise = exerciseRepository.findByPrescription( prescription );
+            exercises.add( Exercise );
+        }
+        exerciseRepository.close();
 
         healthMVRecyclerView = viewGroup.findViewById(R.id.healthMVRecyclerView);
 
         healthLayoutManager = new LinearLayoutManager(context);
         healthMVRecyclerView.setLayoutManager(healthLayoutManager);
 
-        healthAdapter = new HealthFragmentRecyclerViewAdapter(context, mvDataset, getActivity());
+        healthAdapter = new HealthFragmentRecyclerViewAdapter(context, exercises, getActivity());
         healthMVRecyclerView.setAdapter(healthAdapter);
 
         fragmentManager = getActivity().getSupportFragmentManager();
         transaction = fragmentManager.beginTransaction();
     }
+
+    private List<String> getNewlyPrescription(){
+        // 로그인 유저의 최근 추천운동 이름리스트를 가져옴
+        List<String> prescriptionList = new ArrayList<String>();
+        prescriptionList.add( "어깨 스트레칭" );
+        prescriptionList.add( "발바닥 치기" );
+        prescriptionList.add( "몸통 비틀기" );
+        prescriptionList.add( "종아리 스트레칭" );
+
+        return prescriptionList;
+    }
+
+
 }

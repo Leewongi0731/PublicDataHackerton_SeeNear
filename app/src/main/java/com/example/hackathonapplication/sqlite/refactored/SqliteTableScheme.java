@@ -86,6 +86,7 @@ public class SqliteTableScheme {
         public static final String PRESCRIPTION = "prescription";
         public static final String VIDEOPATH = "videopath";
         public static final String CONTENTS = "contents";
+        public static final String THUMBNAILPATH = "thumbnailPath";
 
         @Override
         public String createTableIfNotExistQuery() {
@@ -93,7 +94,8 @@ public class SqliteTableScheme {
                     + _ID               + " integer primary key autoincrement, "
                     + PRESCRIPTION + " text not null, "
                     + VIDEOPATH + " text not null, "
-                    + CONTENTS          + " text not null);";
+                    + CONTENTS          + " text not null, "
+                    + THUMBNAILPATH    + " text not null);";
         }
 
         @Override
