@@ -63,7 +63,7 @@ public class MyPageFragment extends Fragment {
                     transaction.commit();
                     break;
                 case R.id.myWriteList:
-                    Toast.makeText(context, "myWriteList", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "myWriteList", Toast.LENGTH_SHORT).show();
                     // btn2 동작
                     transaction.replace(R.id.frameLayout, new MyPagePostFragment());
                     transaction.addToBackStack("MyPagePost");
