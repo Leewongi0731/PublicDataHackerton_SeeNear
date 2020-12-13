@@ -173,7 +173,7 @@ public class CommunityCommentFragment extends Fragment {
 
         long now = System.currentTimeMillis();
         Date date = new Date(now);
-        SimpleDateFormat sdfNow = new SimpleDateFormat("yy/MM/dd HH:mm");
+        SimpleDateFormat sdfNow = new SimpleDateFormat("yy/MM/dd HH:mm:ss");
         String commentdate = sdfNow.format(date);
 
         dbOpenHelper.insertColumn(LoadingActivity.LOGIN_USER_EMAIL, id, editTextComment.getText().toString(), commentdate, 0);

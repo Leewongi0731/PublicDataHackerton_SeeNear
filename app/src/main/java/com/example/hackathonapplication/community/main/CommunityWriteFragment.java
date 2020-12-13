@@ -83,7 +83,7 @@ public class CommunityWriteFragment extends Fragment {
     private void replaceFragment(Fragment fragment) {
         transaction.replace(R.id.frameLayout, fragment);
         transaction.addToBackStack(null);
-        transaction.commit();                  // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
+        transaction.commit();
     }
 
     public void writePost() {
@@ -93,7 +93,7 @@ public class CommunityWriteFragment extends Fragment {
 
         long now = System.currentTimeMillis();
         Date date = new Date(now);
-        SimpleDateFormat sdfNow = new SimpleDateFormat("yy/MM/dd HH:mm");
+        SimpleDateFormat sdfNow = new SimpleDateFormat("yy/MM/dd HH:mm:ss");
         String postdate = sdfNow.format(date);
 
         dbOpenHelper.insertColumn("강남구", LoadingActivity.LOGIN_USER_EMAIL, categoryName, contentsEditText.getText().toString(), postdate, 0, 0);
