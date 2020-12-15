@@ -50,6 +50,18 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="운동종목을 클릭하면 측정방법을 볼 수 있어요!"
+            android:textStyle="bold"
+            android:textColor="@color/healthColor"
+            android:textSize="20sp"
+            android:gravity="center"
+            />
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,7 +86,7 @@
                     android:layout_weight="3"
 
                     android:gravity="center"
-                    android:text="윗몸일으키기"
+                    android:text="의자 앉았다 일어서기"
                     android:textStyle="bold"
                     android:textColor="@color/healthColor"
                     android:textSize="20sp" />
@@ -86,9 +98,11 @@
                     android:layout_weight="7"
 
                     android:gravity="center"
-                    android:text="20회"
+                    android:hint="20회"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:inputType="phone"
+                    />
             </LinearLayout>
 
         </LinearLayout>
@@ -118,7 +132,7 @@
                     android:layout_height="match_parent"
 
                     android:gravity="center"
-                    android:text="팔굽혀펴기"
+                    android:text="2분제자리걷기"
                     android:textStyle="bold"
                     android:textColor="@color/healthColor"
                     android:textSize="20sp" />
@@ -130,9 +144,11 @@
                     android:layout_height="match_parent"
 
                     android:gravity="center"
-                    android:text="5회"
+                    android:hint="5회"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:inputType="phone"
+                    />
 
             </LinearLayout>
         </LinearLayout>
@@ -161,7 +177,7 @@
                     android:layout_height="match_parent"
 
                     android:gravity="center"
-                    android:text="스쿼트"
+                    android:text="앉아윗몸앞으로굽히기"
                     android:textStyle="bold"
                     android:textColor="@color/healthColor"
                     android:textSize="20sp" />
@@ -173,12 +189,14 @@
                     android:layout_height="match_parent"
 
                     android:gravity="center"
-                    android:text="8회"
+                    android:hint="8회"
                     android:textColor="@color/black"
                     android:textSize="20sp"
 
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/healthTestEditText2" />
+                    app:layout_constraintTop_toBottomOf="@+id/healthTestEditText2"
+                    android:inputType="phone"
+                    />
 
             </LinearLayout>
 

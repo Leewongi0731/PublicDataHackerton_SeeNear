@@ -74,10 +74,10 @@
                     android:layout_height="match_parent"
 
                     android:gravity="center"
-                    android:text="윗몸일으키기"
+                    android:text="하지 근 기능"
                     android:textStyle="bold"
                     android:textColor="@color/healthColor"
-                    android:textSize="20sp" />
+                    android:textSize="25sp" />
 
                 <ImageView
                     android:layout_weight="7"
@@ -114,10 +114,10 @@
                     android:layout_height="match_parent"
 
                     android:gravity="center"
-                    android:text="팔굽혀펴기"
+                    android:text="심폐지구력"
                     android:textStyle="bold"
                     android:textColor="@color/healthColor"
-                    android:textSize="20sp" />
+                    android:textSize="25sp" />
 
                 <ImageView
                     android:layout_weight="7"
@@ -154,10 +154,10 @@
                     android:layout_height="match_parent"
 
                     android:gravity="center"
-                    android:text="스쿼트"
+                    android:text="유연성"
                     android:textStyle="bold"
                     android:textColor="@color/healthColor"
-                    android:textSize="20sp" />
+                    android:textSize="25sp" />
 
                 <ImageView
                     android:layout_weight="7"
@@ -179,6 +179,7 @@
             android:layout_marginRight="50dp">
 
             <TextView
+                android:id="@+id/healthTestResultScoreTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
