@@ -1,4 +1,4 @@
-package com.example.hackathonapplication.mypage;
+package com.example.hackathonapplication.myhome;
 
 import android.content.Context;
 import android.os.Bundle;

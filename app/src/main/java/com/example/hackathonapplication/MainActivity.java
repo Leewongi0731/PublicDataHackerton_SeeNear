@@ -1,6 +1,7 @@
 package com.example.hackathonapplication;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -15,7 +16,7 @@ import com.example.hackathonapplication.community.main.CommunityMainFragment;
 import com.example.hackathonapplication.edu.EduFragment;
 import com.example.hackathonapplication.health.HealthFragment;
 import com.example.hackathonapplication.job.JobFragment;
-import com.example.hackathonapplication.mypage.MyPageFragment;
+import com.example.hackathonapplication.myhome.MyPageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private FragmentTransaction transaction;
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         initLayout();
         bottomNavigationView.setSelected(false);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setItemIconTintList(null);
+        menu = bottomNavigationView.getMenu(); //곧 지워도 될 부분
     }
 
 
@@ -53,42 +57,63 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         switch (menuItem.getItemId()) {
             case R.id.health_button: {
+//                menuItem.setIcon(R.drawable.ic_attend_bronze);   //선택된아이콘바꾸기
+//                menu.findItem(R.id.edu_button).setIcon(R.drawable.ic_baseline_school_24);
+//                menu.findItem(R.id.job_button).setIcon(R.drawable.ic_baseline_assignment_ind_24);
+//                menu.findItem(R.id.community_button).setIcon(R.drawable.ic_baseline_groups_24);
                 transaction.addToBackStack("Health");
                 transaction.replace(R.id.frameLayout, healthFragment);
                 transaction.commit();
                 return true;
             }
             case R.id.edu_button: {
+//                menuItem.setIcon(R.drawable.ic_attend_bronze);
+//                menu.findItem(R.id.health_button).setIcon(R.drawable.ic_baseline_health_and_safety_24);
+//                menu.findItem(R.id.job_button).setIcon(R.drawable.ic_baseline_assignment_ind_24);
+//                menu.findItem(R.id.community_button).setIcon(R.drawable.ic_baseline_groups_24);
                 transaction.addToBackStack("Edu");
                 transaction.replace(R.id.frameLayout, eduFragment);
                 transaction.commit();
                 return true;
             }
+            case R.id.myhome_button: {
+//                menu.findItem(R.id.health_button).setIcon(R.drawable.ic_baseline_health_and_safety_24);
+//                menu.findItem(R.id.edu_button).setIcon(R.drawable.ic_baseline_school_24);
+//                menu.findItem(R.id.job_button).setIcon(R.drawable.ic_baseline_assignment_ind_24);
+//                menu.findItem(R.id.community_button).setIcon(R.drawable.ic_baseline_groups_24);
+                transaction.addToBackStack("MyPage");
+                transaction.replace(R.id.frameLayout, myPageFragment);
+                transaction.commit();
+                return true;
+            }
             case R.id.job_button: {
+//                menuItem.setIcon(R.drawable.ic_attend_bronze);
+//                menu.findItem(R.id.health_button).setIcon(R.drawable.ic_baseline_health_and_safety_24);
+//                menu.findItem(R.id.edu_button).setIcon(R.drawable.ic_baseline_school_24);
+//                menu.findItem(R.id.community_button).setIcon(R.drawable.ic_baseline_groups_24);
                 transaction.addToBackStack("Job");
                 transaction.replace(R.id.frameLayout, jobFragment);
                 transaction.commit();
                 return true;
             }
             case R.id.community_button: {
+//                menuItem.setIcon(R.drawable.ic_attend_bronze);
+//                menu.findItem(R.id.health_button).setIcon(R.drawable.ic_baseline_health_and_safety_24);
+//                menu.findItem(R.id.edu_button).setIcon(R.drawable.ic_baseline_school_24);
+//                menu.findItem(R.id.job_button).setIcon(R.drawable.ic_baseline_assignment_ind_24);
                 transaction.addToBackStack("Community");
                 transaction.replace(R.id.frameLayout, communityFragment);
                 transaction.commit();
                 return true;
             }
-            case R.id.mypage_button: {
-                transaction.addToBackStack("MyPage");
-                transaction.replace(R.id.frameLayout, myPageFragment);
-                transaction.commit();
-                return true;
-            }
+
         }
         return false;
     }
 
     private void initLayout() {
         fragmentManager = getSupportFragmentManager();
-        fragmentMain = new FragmentMain();
+        fragmentMain = new FragmentMain();                                                          //화면 바꾸면 없어져야 할 메인프레그먼트
         healthFragment = new HealthFragment();
         eduFragment = new EduFragment();
         jobFragment = new JobFragment();
@@ -97,13 +122,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragmentMain).commit();
+//        transaction.replace(R.id.frameLayout, fragmentMain).commit();
+        transaction.replace(R.id.frameLayout, myPageFragment).commit();
     }
 
     public void replaceFragment(Fragment fragment) {
         fragmentManager = getSupportFragmentManager();
         transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragment).commit();               // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
+        transaction.replace(R.id.frameLayout, fragment).commit();
     }
 
     @Override

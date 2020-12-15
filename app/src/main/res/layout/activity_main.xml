@@ -19,7 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@android:color/darker_gray"
-        app:menu="@menu/bottom_navigation_menu" />
+        android:background="@drawable/bottom_navigation_rounded"
+        app:menu="@menu/bottom_navigation_menu"
+        android:elevation="20dp"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

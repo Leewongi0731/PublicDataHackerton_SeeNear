@@ -3,11 +3,16 @@
     <item
         android:id="@+id/health_button"
         android:title="건강"
-        android:icon="@drawable/ic_baseline_local_hospital_24"/>
+        android:icon="@drawable/bottom_navigation_selector"/>
     <item
         android:id="@+id/edu_button"
         android:title="교육"
         android:icon="@drawable/ic_baseline_school_24"/>
+    <item
+        android:id="@+id/myhome_button"
+        android:title="마이홈"
+        android:icon="@drawable/ic_symbol"/>
+
     <item
         android:id="@+id/job_button"
         android:title="일"
@@ -16,8 +21,5 @@
         android:id="@+id/community_button"
         android:title="커뮤니티"
         android:icon="@drawable/ic_baseline_groups_24"/>
-    <item
-        android:id="@+id/mypage_button"
-        android:title="마이페이지"
-        android:icon="@drawable/ic_baseline_person_24"/>
+
 </menu>
