@@ -18,6 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hackathonapplication.R;
 import com.example.hackathonapplication.data.EduDataset;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -31,6 +36,7 @@ public class EduFragment extends Fragment {
     private RecyclerView.LayoutManager eduLayoutManager;
     private EduFragmentRecyclerViewAdapter eduAdapter;
     private ArrayList<EduDataset> eduDataset;
+    private Thread crawlerThread;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -71,12 +77,45 @@ public class EduFragment extends Fragment {
     }
 
     private void initLayout() {
+        crawlerThread = new Thread() {
+            public void run() {
+                Document document;
+                try {
+                    document = Jsoup.connect("https://50plus.or.kr/education.do?page=1&org=swc&").get();
+                    Elements table = document.select("div[class=campus-course-list-table]");
+                    Elements trs = table.select("tr[class=tr-wrapper tr-wrapper--td]");
+
+                    for(Element tr: trs) {
+                        Elements tds = tr.select("td[class=td-normal]");
+
+                        ArrayList<String> tdContents = new ArrayList<>();
+                        for(Element td: tds) {
+                            tdContents.add(td.text());
+                        }
+
+                        String campus = tdContents.get(0);
+                        String isRegister = tdContents.get(8);
+                        String content = tdContents.get(3);
+                        String gatherDate = tdContents.get(4);
+                        String eduDate = tdContents.get(5);
+                        String plusUrl = tdContents.get(0);
+
+                        eduDataset.add(new EduDataset(campus,isRegister,content,gatherDate,eduDate,plusUrl));
+                    }
+                    eduAdapter.notifyDataSetChanged();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        crawlerThread.start();
+
         eduDataset = new ArrayList<>();
-        eduDataset.add(new EduDataset("성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (수익 채널로 만드는 )", "2020.11.09~2020.12.17", "2020.12.18~2020.12.19", "https://50plus.or.kr/education-detail.do?id=10162464"));
-        eduDataset.add(new EduDataset("성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (홍보영상제작의 모든것)", "2020.11.06~2020.12.17", "2020.12.11~2020.12.17", "https://50plus.or.kr/education-detail.do?id=10162219"));
-        eduDataset.add(new EduDataset("성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 29일 매콤 미나리 쌀국수 볶음]", "2020.11.20~2020.12.17", "2020.12.06~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882145"));
-        eduDataset.add(new EduDataset("성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 22일 누룽지 견과 범벅]", "2020.11.18~2020.12.17", "2020.12.05~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882106"));
-        eduDataset.add(new EduDataset("성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 15일 투움바 파스타]", "2020.11.12~2020.12.17", "2020.12.13~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882080"));
+//        eduDataset.add(new EduDataset("성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (수익 채널로 만드는 )", "2020.11.09~2020.12.17", "2020.12.18~2020.12.19", "https://50plus.or.kr/education-detail.do?id=10162464"));
+//        eduDataset.add(new EduDataset("성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (홍보영상제작의 모든것)", "2020.11.06~2020.12.17", "2020.12.11~2020.12.17", "https://50plus.or.kr/education-detail.do?id=10162219"));
+//        eduDataset.add(new EduDataset("성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 29일 매콤 미나리 쌀국수 볶음]", "2020.11.20~2020.12.17", "2020.12.06~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882145"));
+//        eduDataset.add(new EduDataset("성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 22일 누룽지 견과 범벅]", "2020.11.18~2020.12.17", "2020.12.05~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882106"));
+//        eduDataset.add(new EduDataset("성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 15일 투움바 파스타]", "2020.11.12~2020.12.17", "2020.12.13~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882080"));
 
         textViewLocation = viewGroup.findViewById(R.id.textViewLocation);
         spinnerSortList = viewGroup.findViewById(R.id.spinnerSortList);
