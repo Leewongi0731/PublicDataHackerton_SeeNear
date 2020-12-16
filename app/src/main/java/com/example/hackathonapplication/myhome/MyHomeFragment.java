@@ -15,16 +15,25 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hackathonapplication.R;
+import com.example.hackathonapplication.data.CertificatesDataset;
+import com.example.hackathonapplication.health.HealthFragmentRecyclerViewAdapter;
+
+import java.util.ArrayList;
 
 public class MyHomeFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private ImageView myProfile;
     private LinearLayout myLocation;
-    private TextView myWriteList;
     private Object MypageClickListener;
+
+    private RecyclerView.LayoutManager certificatesLayoutManager;
+    private RecyclerView certificatesRecyclerView;
+    private CertificatesRecyclerViewAdapter certificatesAdapter;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
@@ -34,13 +43,13 @@ public class MyHomeFragment extends Fragment {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.mypage_main_fragment, container, false);
         context = container.getContext();
 
+        initLayout();
+
         myProfile = (ImageView) viewGroup.findViewById( R.id.myProfile );
         myLocation = (LinearLayout) viewGroup.findViewById( R.id.myLocation );
-        myWriteList = (TextView) viewGroup.findViewById( R.id.myWriteList );
 
         myProfile.setOnClickListener(this.click);
         myLocation.setOnClickListener(this.click);
-        myWriteList.setOnClickListener(this.click);
 
         fragmentManager = getActivity().getSupportFragmentManager();
         transaction = fragmentManager.beginTransaction();
@@ -62,15 +71,29 @@ public class MyHomeFragment extends Fragment {
                     transaction.addToBackStack("ChangeLocation");
                     transaction.commit();
                     break;
-                case R.id.myWriteList:
-                    //Toast.makeText(context, "myWriteList", Toast.LENGTH_SHORT).show();
-                    // btn2 동작
-                    transaction.replace(R.id.frameLayout, new MyPostFragment());
-                    transaction.addToBackStack("MyPagePost");
-                    transaction.commit();
-                    break;
             }
         }
     };
 
+    private void initLayout(){
+        ArrayList<CertificatesDataset> datasets = new ArrayList<CertificatesDataset>();
+        datasets.add( new CertificatesDataset( "이원기", "###교육", "20.12.12", "20.12.13", "2020년 12월 18일" ) );
+        datasets.add( new CertificatesDataset( "이원기", "!!!!교육", "20.12.16", "20.12.17", "2020년 12월 15일" ) );
+        datasets.add( new CertificatesDataset( "이원기", "????교육", "20.12.20", "20.12.22", "2020년 12월 22일" ) );
+
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+
+        certificatesRecyclerView = viewGroup.findViewById(R.id.certificatesRecyclerView);
+
+        certificatesLayoutManager = new LinearLayoutManager(context);
+        certificatesRecyclerView.setLayoutManager(certificatesLayoutManager);
+        certificatesRecyclerView.setLayoutManager(layoutManager);  // 세로로 나오게 설정
+
+        certificatesAdapter = new CertificatesRecyclerViewAdapter(context, datasets, getActivity());
+        certificatesRecyclerView.setAdapter(certificatesAdapter);
+
+        fragmentManager = getActivity().getSupportFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+    }
 }
