@@ -193,8 +193,6 @@ public class CommunityCommentFragment extends Fragment {
         dbOpenHelper.close();
 
 
-
-
     }
 
 }

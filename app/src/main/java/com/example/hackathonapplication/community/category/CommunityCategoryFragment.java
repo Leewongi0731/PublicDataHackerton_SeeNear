@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import com.example.hackathonapplication.community.board.Post;
 import com.example.hackathonapplication.community.board.PostAdapter;
 import com.example.hackathonapplication.community.main.CommunityMainFragment;
 import com.example.hackathonapplication.community.main.CommunityWriteFragment;
+import com.example.hackathonapplication.myhome.MyPostFragment;
 import com.example.hackathonapplication.sqlite.BoardDbOpenHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -38,10 +41,14 @@ public class CommunityCategoryFragment extends Fragment {
     private ImageButton backButton;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
-    private FloatingActionButton writePostButton;
+    private FloatingActionButton plusButton;
+    private FloatingActionButton writeButton;
+    private FloatingActionButton mypostButton;
     private String categoryName;
     private ImageView categoryImage;
     private TextView categoryNameText;
+    private Animation fab_open, fab_close;
+    private Boolean openFlag = false;
 
     private String id;
     private String like;
@@ -96,10 +103,22 @@ public class CommunityCategoryFragment extends Fragment {
                 categoryImage.setImageResource(R.drawable.im_sample_category5);
                 break;
         }
+
         backButton = viewGroup.findViewById(R.id.ib_back);
-        writePostButton = viewGroup.findViewById(R.id.fab_writeButton);
+        plusButton = viewGroup.findViewById(R.id.fab_plus);
+        writeButton = viewGroup.findViewById(R.id.fab_write);
+        mypostButton = viewGroup.findViewById(R.id.fab_mypost);
         backButton.setOnClickListener(v -> onClick(v));
-        writePostButton.setOnClickListener(v->onClick(v));
+        plusButton.setOnClickListener(v->onClick(v));
+        writeButton.setOnClickListener(v->onClick(v));
+        mypostButton.setOnClickListener(v->onClick(v));
+
+        fab_open = AnimationUtils.loadAnimation(context, R.anim.fab_open);
+        fab_close = AnimationUtils.loadAnimation(context,R.anim.fab_close);
+        writeButton.setVisibility(View.INVISIBLE);
+        mypostButton.setVisibility(View.INVISIBLE);
+        writeButton.setClickable(false);
+        mypostButton.setClickable(false);
 
     }
 
@@ -108,17 +127,42 @@ public class CommunityCategoryFragment extends Fragment {
             case R.id.ib_back:
                 fragmentManager.popBackStackImmediate();
                 break;
-            case R.id.fab_writeButton:
-                replaceFragment(new CommunityWriteFragment());
+            case R.id.fab_plus:
+                anim();
+                break;
+            case R.id.fab_write:
+                anim();
+                replaceFragment(new CommunityWriteFragment(),"2");
+                break;
+            case R.id.fab_mypost:
+                anim();
+                replaceFragment(new MyPostFragment(),"MyPost");
                 break;
         }
 
     }
 
-    private void replaceFragment(Fragment fragment) {
+    public void replaceFragment(Fragment fragment,String backstack) {
         transaction.replace(R.id.frameLayout, fragment);
-        transaction.addToBackStack(null);
+        transaction.addToBackStack(backstack);
         transaction.commit();
+    }
+
+    public void anim() {
+
+        if (openFlag) {
+            writeButton.startAnimation(fab_close);
+            mypostButton.startAnimation(fab_close);
+            writeButton.setClickable(false);
+            mypostButton.setClickable(false);
+            openFlag = false;
+        } else {
+            writeButton.startAnimation(fab_open);
+            mypostButton.startAnimation(fab_open);
+            writeButton.setClickable(true);
+            mypostButton.setClickable(true);
+            openFlag = true;
+        }
     }
 
     public void setDataSet() {
