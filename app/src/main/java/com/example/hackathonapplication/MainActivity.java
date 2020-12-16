@@ -20,7 +20,6 @@ import com.example.hackathonapplication.myhome.MyHomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
-    private FragmentMain fragmentMain;
     private HealthFragment healthFragment;
     private EduFragment eduFragment;
     private JobFragment jobFragment;
@@ -56,50 +55,30 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         switch (menuItem.getItemId()) {
             case R.id.health_button: {
-//                menuItem.setIcon(R.drawable.ic_attend_bronze);   //선택된아이콘바꾸기
-//                menu.findItem(R.id.edu_button).setIcon(R.drawable.ic_baseline_school_24);
-//                menu.findItem(R.id.job_button).setIcon(R.drawable.ic_baseline_assignment_ind_24);
-//                menu.findItem(R.id.community_button).setIcon(R.drawable.ic_baseline_groups_24);
                 transaction.addToBackStack("Health");
                 transaction.replace(R.id.frameLayout, healthFragment);
                 transaction.commit();
                 return true;
             }
             case R.id.edu_button: {
-//                menuItem.setIcon(R.drawable.ic_attend_bronze);
-//                menu.findItem(R.id.health_button).setIcon(R.drawable.ic_baseline_health_and_safety_24);
-//                menu.findItem(R.id.job_button).setIcon(R.drawable.ic_baseline_assignment_ind_24);
-//                menu.findItem(R.id.community_button).setIcon(R.drawable.ic_baseline_groups_24);
                 transaction.addToBackStack("Edu");
                 transaction.replace(R.id.frameLayout, eduFragment);
                 transaction.commit();
                 return true;
             }
             case R.id.myhome_button: {
-//                menu.findItem(R.id.health_button).setIcon(R.drawable.ic_baseline_health_and_safety_24);
-//                menu.findItem(R.id.edu_button).setIcon(R.drawable.ic_baseline_school_24);
-//                menu.findItem(R.id.job_button).setIcon(R.drawable.ic_baseline_assignment_ind_24);
-//                menu.findItem(R.id.community_button).setIcon(R.drawable.ic_baseline_groups_24);
                 transaction.addToBackStack("MyPage");
                 transaction.replace(R.id.frameLayout, myHomeFragment);
                 transaction.commit();
                 return true;
             }
             case R.id.job_button: {
-//                menuItem.setIcon(R.drawable.ic_attend_bronze);
-//                menu.findItem(R.id.health_button).setIcon(R.drawable.ic_baseline_health_and_safety_24);
-//                menu.findItem(R.id.edu_button).setIcon(R.drawable.ic_baseline_school_24);
-//                menu.findItem(R.id.community_button).setIcon(R.drawable.ic_baseline_groups_24);
                 transaction.addToBackStack("Job");
                 transaction.replace(R.id.frameLayout, jobFragment);
                 transaction.commit();
                 return true;
             }
             case R.id.community_button: {
-//                menuItem.setIcon(R.drawable.ic_attend_bronze);
-//                menu.findItem(R.id.health_button).setIcon(R.drawable.ic_baseline_health_and_safety_24);
-//                menu.findItem(R.id.edu_button).setIcon(R.drawable.ic_baseline_school_24);
-//                menu.findItem(R.id.job_button).setIcon(R.drawable.ic_baseline_assignment_ind_24);
                 transaction.addToBackStack("Community");
                 transaction.replace(R.id.frameLayout, communityFragment);
                 transaction.commit();
@@ -112,7 +91,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     private void initLayout() {
         fragmentManager = getSupportFragmentManager();
-        fragmentMain = new FragmentMain();                                                          //화면 바꾸면 없어져야 할 메인프레그먼트
         healthFragment = new HealthFragment();
         eduFragment = new EduFragment();
         jobFragment = new JobFragment();

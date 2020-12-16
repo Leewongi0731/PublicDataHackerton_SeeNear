@@ -23,6 +23,7 @@ import com.example.hackathonapplication.community.board.CommunityCommentFragment
 import com.example.hackathonapplication.community.category.CommunityCategoryFragment;
 import com.example.hackathonapplication.community.board.Post;
 import com.example.hackathonapplication.community.board.PostAdapter;
+import com.example.hackathonapplication.myhome.MyPostFragment;
 import com.example.hackathonapplication.sqlite.BoardDbOpenHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -70,7 +71,6 @@ public class CommunityMainFragment extends Fragment {
 
     private void initView() {
 
-
         setDataSet();
         recyclerView = viewGroup.findViewById(R.id.rv_post);
         adapter = new PostAdapter(context, dataSet,fragmentManager);
@@ -92,8 +92,8 @@ public class CommunityMainFragment extends Fragment {
 
         fab_open = AnimationUtils.loadAnimation(context, R.anim.fab_open);
         fab_close = AnimationUtils.loadAnimation(context,R.anim.fab_close);
-        writeButton.startAnimation(fab_close);
-        mypostButton.startAnimation(fab_close);
+        writeButton.setVisibility(View.INVISIBLE);
+        mypostButton.setVisibility(View.INVISIBLE);
         writeButton.setClickable(false);
         mypostButton.setClickable(false);
 
@@ -129,10 +129,12 @@ public class CommunityMainFragment extends Fragment {
                 anim();
                 break;
             case R.id.fab_write:
+                anim();
                 replaceFragment(new CommunityWriteFragment(),"2");
                 break;
             case R.id.fab_mypost:
                 anim();
+                replaceFragment(new MyPostFragment(),"MyPost");
                 break;
         }
 
