@@ -23,7 +23,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyPagePostFragment extends Fragment {
+public class MyPostFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private ArrayList<Post> dataSet;

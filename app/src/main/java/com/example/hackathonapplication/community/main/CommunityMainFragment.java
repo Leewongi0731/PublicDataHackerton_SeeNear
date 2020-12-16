@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -33,10 +35,14 @@ public class CommunityMainFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private PostAdapter adapter;
-    private FloatingActionButton writePostButton;
+    private FloatingActionButton plusButton;
+    private FloatingActionButton writeButton;
+    private FloatingActionButton mypostButton;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
     private CommunityCategoryFragment ccf;
+    private Animation fab_open, fab_close;
+    private Boolean openFlag = false;
 
     private ImageButton categoryButtonTrot;
     private ImageButton categoryButtonHiking;
@@ -80,13 +86,25 @@ public class CommunityMainFragment extends Fragment {
         categoryButtonPlant= viewGroup.findViewById(R.id.ib_categoryButton_plant);
         categoryButtonExercise = viewGroup.findViewById(R.id.ib_categoryButton_exercise);
         categoryButtonFishing = viewGroup.findViewById(R.id.ib_categoryButton_fishing);
-        writePostButton = viewGroup.findViewById(R.id.fab_writeButton);
+        plusButton = viewGroup.findViewById(R.id.fab_plus);
+        writeButton = viewGroup.findViewById(R.id.fab_write);
+        mypostButton = viewGroup.findViewById(R.id.fab_mypost);
+
+        fab_open = AnimationUtils.loadAnimation(context, R.anim.fab_open);
+        fab_close = AnimationUtils.loadAnimation(context,R.anim.fab_close);
+        writeButton.startAnimation(fab_close);
+        mypostButton.startAnimation(fab_close);
+        writeButton.setClickable(false);
+        mypostButton.setClickable(false);
+
         categoryButtonTrot.setOnClickListener(v->onClick(v));
         categoryButtonHiking.setOnClickListener(v->onClick(v));
         categoryButtonPlant.setOnClickListener(v->onClick(v));
         categoryButtonExercise.setOnClickListener(v->onClick(v));
         categoryButtonFishing.setOnClickListener(v->onClick(v));
-        writePostButton.setOnClickListener(v->onClick(v));
+        plusButton.setOnClickListener(v->onClick(v));
+        writeButton.setOnClickListener(v->onClick(v));
+        mypostButton.setOnClickListener(v->onClick(v));
 
     }
 
@@ -107,8 +125,14 @@ public class CommunityMainFragment extends Fragment {
             case R.id.ib_categoryButton_fishing:
                 replaceBundleFragment(ccf,"낚시");
                 break;
-            case R.id.fab_writeButton:
+            case R.id.fab_plus:
+                anim();
+                break;
+            case R.id.fab_write:
                 replaceFragment(new CommunityWriteFragment(),"2");
+                break;
+            case R.id.fab_mypost:
+                anim();
                 break;
         }
 
@@ -139,6 +163,23 @@ public class CommunityMainFragment extends Fragment {
         }
 
         dbOpenHelper.close();
+    }
+
+    public void anim() {
+
+        if (openFlag) {
+            writeButton.startAnimation(fab_close);
+            mypostButton.startAnimation(fab_close);
+            writeButton.setClickable(false);
+            mypostButton.setClickable(false);
+            openFlag = false;
+        } else {
+            writeButton.startAnimation(fab_open);
+            mypostButton.startAnimation(fab_open);
+            writeButton.setClickable(true);
+            mypostButton.setClickable(true);
+            openFlag = true;
+        }
     }
 
     public void replaceBundleFragment(CommunityCategoryFragment ccf,String categoryname) {

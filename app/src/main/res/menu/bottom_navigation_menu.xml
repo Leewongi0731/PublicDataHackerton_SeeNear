@@ -3,23 +3,23 @@
     <item
         android:id="@+id/health_button"
         android:title="건강"
-        android:icon="@drawable/bottom_navigation_selector"/>
+        android:icon="@drawable/bottom_health_selected"/>
     <item
         android:id="@+id/edu_button"
         android:title="교육"
-        android:icon="@drawable/ic_baseline_school_24"/>
+        android:icon="@drawable/bottom_edu_selected"/>
     <item
         android:id="@+id/myhome_button"
         android:title="마이홈"
-        android:icon="@drawable/ic_symbol"/>
+        android:icon="@drawable/ic_symbol_myhome"/>
 
     <item
         android:id="@+id/job_button"
         android:title="일"
-        android:icon="@drawable/ic_baseline_assignment_ind_24"/>
+        android:icon="@drawable/bottom_job_selected"/>
     <item
         android:id="@+id/community_button"
         android:title="커뮤니티"
-        android:icon="@drawable/ic_baseline_groups_24"/>
+        android:icon="@drawable/bottom_community_selected"/>
 
 </menu>

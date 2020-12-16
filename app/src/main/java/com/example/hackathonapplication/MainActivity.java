@@ -16,7 +16,7 @@ import com.example.hackathonapplication.community.main.CommunityMainFragment;
 import com.example.hackathonapplication.edu.EduFragment;
 import com.example.hackathonapplication.health.HealthFragment;
 import com.example.hackathonapplication.job.JobFragment;
-import com.example.hackathonapplication.myhome.MyPageFragment;
+import com.example.hackathonapplication.myhome.MyHomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -25,13 +25,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private EduFragment eduFragment;
     private JobFragment jobFragment;
     private CommunityMainFragment communityFragment;
-    private MyPageFragment myPageFragment;
+    private MyHomeFragment myHomeFragment;
     private FragmentManager fragmentManager;
     private BottomNavigationView bottomNavigationView;
     private FragmentTransaction transaction;
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
-    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +40,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         actionBar.hide();
         initLayout();
         bottomNavigationView.setSelected(false);
+        bottomNavigationView.getMenu().getItem(2).setChecked(true);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setItemIconTintList(null);
-        menu = bottomNavigationView.getMenu(); //곧 지워도 될 부분
     }
 
 
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //                menu.findItem(R.id.job_button).setIcon(R.drawable.ic_baseline_assignment_ind_24);
 //                menu.findItem(R.id.community_button).setIcon(R.drawable.ic_baseline_groups_24);
                 transaction.addToBackStack("MyPage");
-                transaction.replace(R.id.frameLayout, myPageFragment);
+                transaction.replace(R.id.frameLayout, myHomeFragment);
                 transaction.commit();
                 return true;
             }
@@ -118,12 +117,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         eduFragment = new EduFragment();
         jobFragment = new JobFragment();
         communityFragment = new CommunityMainFragment();
-        myPageFragment = new MyPageFragment();
+        myHomeFragment = new MyHomeFragment();
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         transaction = fragmentManager.beginTransaction();
-//        transaction.replace(R.id.frameLayout, fragmentMain).commit();
-        transaction.replace(R.id.frameLayout, myPageFragment).commit();
+        transaction.replace(R.id.frameLayout, myHomeFragment).commit();
     }
 
     public void replaceFragment(Fragment fragment) {
