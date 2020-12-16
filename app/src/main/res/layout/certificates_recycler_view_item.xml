@@ -31,94 +31,85 @@
             android:elevation="15dp"
             />
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:weightSum="3"
             >
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
 
-            <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이름"
+                    android:textSize="10dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="교육명"
+                    android:textSize="10dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="교육일"
+                    android:textSize="10dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="이름"
-                android:textSize="10dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                />
-            <TextView
-                android:id="@+id/cerificatesNameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="이원기"
-                android:textSize="10dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_weight="2"
-                />
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/cerificatesNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이원기"
+                    android:textSize="10dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_weight="2"
+                    />
+                <TextView
+                    android:id="@+id/cerificatesEduTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="###개발교육"
+                    android:textSize="10dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_weight="2"
+                    />
+                <TextView
+                    android:id="@+id/cerificatesEduPeriod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20.12.12~20.12.13"
+                    android:textSize="10dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_weight="2"
+                    />
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="20dp"
-            android:weightSum="3"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="교육명"
-                android:textSize="10dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                />
-            <TextView
-                android:id="@+id/cerificatesEduTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="###개발교육"
-                android:textSize="10dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_weight="2"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="20dp"
-            android:weightSum="3"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="교육일"
-                android:textSize="10dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                />
-            <TextView
-                android:id="@+id/cerificatesEduPeriod"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20.12.12~20.12.13"
-                android:textSize="10dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_weight="2"
-                />
-        </LinearLayout>
-
 
         <TextView
             android:id="@+id/cerificatesTitleTextView"
