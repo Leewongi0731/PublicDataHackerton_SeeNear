@@ -1,4 +1,4 @@
-package com.example.hackathonapplication.mypage;
+package com.example.hackathonapplication.myhome;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.hackathonapplication.R;
 
-public class MyPageFragment extends Fragment {
+public class MyHomeFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private ImageView myProfile;
@@ -65,7 +65,7 @@ public class MyPageFragment extends Fragment {
                 case R.id.myWriteList:
                     //Toast.makeText(context, "myWriteList", Toast.LENGTH_SHORT).show();
                     // btn2 동작
-                    transaction.replace(R.id.frameLayout, new MyPagePostFragment());
+                    transaction.replace(R.id.frameLayout, new MyPostFragment());
                     transaction.addToBackStack("MyPagePost");
                     transaction.commit();
                     break;

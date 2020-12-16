@@ -1,4 +1,4 @@
-package com.example.hackathonapplication.mypage;
+package com.example.hackathonapplication.myhome;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,15 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.hackathonapplication.LoadingActivity;
 import com.example.hackathonapplication.R;
 import com.example.hackathonapplication.community.board.Post;
 import com.example.hackathonapplication.community.board.PostAdapter;
 import com.example.hackathonapplication.sqlite.BoardDbOpenHelper;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -23,11 +20,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyPagePostFragment extends Fragment {
+public class MyPostFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private ArrayList<Post> dataSet;
