@@ -50,6 +50,8 @@ public class HealthTestFragment extends Fragment {
             healthTestTitle1.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
+                    args.putString( "prescription",  "의자 앉았다 일어서기");
+                    args.putString( "contents",  "1.어쩌구/2.저꺼구");
                     args.putString("videoPath", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/kind4_5/kind4_5.mp4"); // key value를 Bundle에 담아서 파라미터로 전송
                     healthMovieFragment.setArguments(args);
 
@@ -63,6 +65,8 @@ public class HealthTestFragment extends Fragment {
             healthTestTitle2.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
+                    args.putString( "prescription",  "2분 제자리걷기");
+                    args.putString( "contents",  "1.어쩌구/2.저구");
                     args.putString("videoPath", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/kind4_9/kind4_9.mp4"); // key value를 Bundle에 담아서 파라미터로 전송
                     healthMovieFragment.setArguments(args);
 
@@ -76,6 +80,8 @@ public class HealthTestFragment extends Fragment {
             healthTestTitle3.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
+                    args.putString( "prescription",  "앉아윗몸앞으로굽히기");
+                    args.putString( "contents",  "1.어쩌구/2.저꺼구");
                     args.putString("videoPath", "http://nfa.kspo.or.kr/common/site/www/front/movie_zip/kind4_7/kind4_7.mp4"); // key value를 Bundle에 담아서 파라미터로 전송
                     healthMovieFragment.setArguments(args);
 
