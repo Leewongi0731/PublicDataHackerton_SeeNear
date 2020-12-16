@@ -57,6 +57,8 @@ public class CommunityCommentFragment extends Fragment {
     //[게시글데이터]
     private String id;
     private String like;
+    private String writer;
+    private String profile;
     private String comments;
     private String contents;
     private String date;
@@ -111,21 +113,25 @@ public class CommunityCommentFragment extends Fragment {
         textViewCommentCount = viewGroup.findViewById(R.id.tv_commentCount);
 
 
-        imageViewProfile.setImageResource(R.drawable.im_sample_profile); //임시사진
+        //imageViewProfile.setImageResource(R.drawable.im_sample_profile); //임시사진
 
         BoardDbOpenHelper dbOpenHelper = new BoardDbOpenHelper(context);
         dbOpenHelper.open();
         Cursor cursor = dbOpenHelper.searchColumns("_id", id);
         while (cursor.moveToNext()) {
 
+            id = cursor.getString(cursor.getColumnIndex("_id"));
+            profile = cursor.getString(cursor.getColumnIndex("profile"));
+            writer = cursor.getString(cursor.getColumnIndex("writer"));
             contents = cursor.getString(cursor.getColumnIndex("contents"));
             date = cursor.getString(cursor.getColumnIndex("postdate"));
             like = cursor.getString(cursor.getColumnIndex("like"));
             comments = cursor.getString(cursor.getColumnIndex("comment"));
 
-            post = new Post(id, "로그인구현후", "이경배", "뱃지구현후", contents, date, like, comments);
+            post = new Post(id,profile,writer,"이경배",contents,date,like,comments);
         }
         dbOpenHelper.close();
+        imageViewProfile.setImageResource(Integer.valueOf(post.getProfile()));
         textViewContents.setText(post.getContents());
         textViewWriter.setText(post.getWriter());
         textViewDate.setText(post.getDate());

@@ -96,7 +96,7 @@ public class CommunityWriteFragment extends Fragment {
         SimpleDateFormat sdfNow = new SimpleDateFormat("yy/MM/dd HH:mm:ss");
         String postdate = sdfNow.format(date);
 
-        dbOpenHelper.insertColumn("강남구", LoadingActivity.LOGIN_USER_EMAIL, categoryName, contentsEditText.getText().toString(), postdate, 0, 0);
+        dbOpenHelper.insertColumn("강남구",LoadingActivity.LOGIN_USER_EMAIL,String.valueOf(R.drawable.im_sample_profile),"이경배", categoryName, contentsEditText.getText().toString(), postdate, 0, 0);
         dbOpenHelper.close();
     }
 

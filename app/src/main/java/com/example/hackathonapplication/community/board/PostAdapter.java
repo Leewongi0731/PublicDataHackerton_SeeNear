@@ -48,7 +48,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) { // 임시데이터
         Post data = postDataset.get(position);
 
-        holder.iv_profile.setImageResource(R.drawable.im_sample_profile);
+     //   holder.iv_profile.setImageResource(R.drawable.im_sample_profile);
+        holder.iv_profile.setImageResource(Integer.valueOf(data.getProfile()));
         holder.tv_writer.setText(data.getWriter());
         holder.tv_contents.setText(data.getContents());
         holder.tv_date.setText(data.getDate());

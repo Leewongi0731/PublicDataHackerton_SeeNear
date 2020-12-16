@@ -52,6 +52,8 @@ public class CommunityMainFragment extends Fragment {
     private ImageButton categoryButtonExercise;
 
     private String id;
+    private String profile;
+    private String writer;
     private String like;
     private String comment;
     private String contents;
@@ -156,12 +158,14 @@ public class CommunityMainFragment extends Fragment {
         while(cursor.moveToNext()) {
 
             id = cursor.getString(cursor.getColumnIndex("_id"));
+            profile = cursor.getString(cursor.getColumnIndex("profile"));
+            writer = cursor.getString(cursor.getColumnIndex("writer"));
             contents = cursor.getString(cursor.getColumnIndex("contents"));
             date = cursor.getString(cursor.getColumnIndex("postdate"));
             like = cursor.getString(cursor.getColumnIndex("like"));
             comment = cursor.getString(cursor.getColumnIndex("comment"));
 
-            dataSet.add(new Post(id,"로그인구현후","이경배","뱃지구현후",contents,date,like,comment));
+            dataSet.add(new Post(id,profile,writer,"이경배",contents,date,like,comment));
         }
 
         dbOpenHelper.close();

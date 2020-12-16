@@ -6,6 +6,8 @@ public class BoardDB {
     public class CreateDB implements BaseColumns {
         public static final String LOCATION = "location";
         public static final String WRITEREMAIL = "writeremail";
+        public static final String PROFILE = "profile";
+        public static final String WRITER = "writer";
         public static final String CATEGORY = "category";
         public static final String CONTENTS = "contents";
         public static final String POSTDATE = "postdate";
@@ -17,6 +19,8 @@ public class BoardDB {
                         + _ID             + " integer primary key autoincrement, "
                         + LOCATION        + " text not null, "
                         + WRITEREMAIL     + " text not null, "
+                        + PROFILE         + " text not null, "
+                        + WRITER          + " text not null, "
                         + CATEGORY        + " text not null, "
                         + CONTENTS        + " text not null, "
                         + POSTDATE        + " text not null, "

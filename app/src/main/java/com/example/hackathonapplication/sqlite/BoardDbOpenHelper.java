@@ -51,10 +51,12 @@ public class BoardDbOpenHelper {
         sqLiteDatabase.close();
     }
 
-    public long insertColumn(String location, String writeremail, String category, String contents, String postdate, Integer like, Integer comment) {
+    public long insertColumn(String location, String writeremail, String profile, String writer, String category, String contents, String postdate, Integer like, Integer comment) {
         ContentValues values = new ContentValues();
         values.put(BoardDB.CreateDB.LOCATION, location);
         values.put(BoardDB.CreateDB.WRITEREMAIL, writeremail);
+        values.put(BoardDB.CreateDB.PROFILE,profile);
+        values.put(BoardDB.CreateDB.WRITER,writer);
         values.put(BoardDB.CreateDB.CATEGORY, category);
         values.put(BoardDB.CreateDB.LOCATION, location);
         values.put(BoardDB.CreateDB.CONTENTS, contents);

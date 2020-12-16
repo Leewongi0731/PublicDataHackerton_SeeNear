@@ -35,6 +35,8 @@ public class MyPostFragment extends Fragment {
 
     private String id;
     private String like;
+    private String writer;
+    private String profile;
     private String comment;
     private String contents;
     private String date;
@@ -83,12 +85,16 @@ public class MyPostFragment extends Fragment {
         Cursor cursor = dbOpenHelper.searchColumnsDesc("writeremail","'"+ LoadingActivity.LOGIN_USER_EMAIL +"'","postdate");            //categoryName이 한글이라 '' 를 넣어줌
 
         while(cursor.moveToNext()) {
+
             id = cursor.getString(cursor.getColumnIndex("_id"));
+            profile = cursor.getString(cursor.getColumnIndex("profile"));
+            writer = cursor.getString(cursor.getColumnIndex("writer"));
             contents = cursor.getString(cursor.getColumnIndex("contents"));
             date = cursor.getString(cursor.getColumnIndex("postdate"));
             like = cursor.getString(cursor.getColumnIndex("like"));
             comment = cursor.getString(cursor.getColumnIndex("comment"));
-            dataSet.add(new Post(id,"로그인구현후","이경배","뱃지구현후",contents,date,like,comment));
+
+            dataSet.add(new Post(id,profile,writer,"이경배",contents,date,like,comment));
         }
         dbOpenHelper.close();
     }

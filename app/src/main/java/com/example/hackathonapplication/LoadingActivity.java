@@ -114,11 +114,68 @@ public class LoadingActivity extends AppCompatActivity {
         dbOpenHelper.open();
         dbOpenHelper.create();
 
-        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL, "트로트", "나훈아 좋아해요. 콘서트 가실분 댓글주세요", "20/12/01 14:00:01", 12, 0);
-        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL, "등산", "무등산 등산하실 분 없나요?", "20/12/02 11:34:00", 0, 0);
-        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL, "식물", "꽃 좋아하시는분,, 무슨 꽃. 키우세요?", "20/12/03 02:04:00", 3, 0);
-        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL, "낚시", "요즘.낙시를.못.가서.너무.힘듭니다.", "20/12/04 13:24:03", 0, 0);
-        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL, "운동", "운동영상 추천해주실분", "20/12/05 11:11:02", 0, 0);
+        //이경배인 데이터만 이메일 LOGIN_USER_EMAIL 넣고 나머지는 임의 이메일 넣어야 내 글 조회에서 나옴
+        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL,String.valueOf(R.drawable.im_sample_profile), "이경배","트로트", "제사촌이나훈아연락하실분있으시면.말해주세요.", "20/12/01 14:00:01", 12, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile1), "길명근","트로트", "요즘은 나훈아 말고 임영웅이.대세.인가요?", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile2), "강지훈","트로트", "아 ~~,, 테스형 세상이 왜이래", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile3), "임영호","트로트", "가사가 너무.절절합니다", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile4), "김꽂자","트로트", "트로트 신곡 추천 ^^~~ **", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile5), "나순자","트로트", "콘서트에 고구마 들고갈건데 연락주세요. 나눠드릴게요", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile6), "박현우","트로트", "트로트계는.다.죽었다.", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile7), "방정호","트로트", "트로트 들으면....... 잠이 잘 오고...... 여러분도 해보세요....", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile8), "이미자","트로트", "요즘노래랑 차이나죠.. 나훈아도 한물 갔지만 아직 최고입니다.", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile9), "고현숙","트로트", "훈아오빠 보다 남진오빠가 더 좋은거같은데 ~*~* ", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile10), "안경자","트로트", "콘서트 후에 등산가실분 있나요", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile4), "구본식","트로트", "나훈아콘서트가실분구합니다", "20/12/02 11:34:00", 0, 0);
+
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile1), "길명근","등산", "무등산 등산하실 분 없나요?", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL,String.valueOf(R.drawable.im_sample_profile), "이경배","등산", "산은 구봉산이 최고죠. 뒷산에 올라가서 만세외치면 근심.걱정.날아갑니다 ^^~", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile2), "임영호","등산", "mountain is my life ~ ~ ", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile3), "김꽂자","등산", "산공기 숨이 탁! 트이는 이기분!", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile4), "나순자","등산", "주변좋은산정보있으시면댓글로달아주세요", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile5), "박현우","등산", "등산장비 어디가서 사시나요?", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile6), "방정호","등산", "산정상사진 보내주실분", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile7), "이미자","등산", "저번주에 등산갔는데 날씨가 벌써 추워졌어요....", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile8), "고현숙","등산", "핫팩 나눔합니다 ^^* 아차산 아래 정기모임이에요~", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile9), "안경자","등산", "산 정상 뷰~가 너무 좋아요", "20/12/02 11:34:00", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile10), "구본식","등산", "더 나은 내일을 위해 오늘도 등산합니다.......", "20/12/02 11:34:00", 0, 0);
+
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile1), "강미자","식물", "빨간장미의 꽃말은 사랑,욕망,절정,기쁨,아름다움 이라고해요. . .,", "20/12/03 02:04:00", 3, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile2), "임영호","식물", "저 어제 데이지 많이 사서 기분이 좋아요. 여러분은 어느 꽃 좋아하세요?", "20/12/03 02:04:00", 3, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile3), "이영기","식물", "꽃 좋아하시는분,, 무슨 꽃. 키우세요?", "20/12/03 02:04:00", 3, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile4), "이영기","식물", "선인장이.요즘엔.대세. ", "20/12/03 02:04:00", 3, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile5), "유영희","식물", "공기정화되어서 너무좋아요", "20/12/03 02:04:00", 3, 0);
+        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL,String.valueOf(R.drawable.im_sample_profile), "이경배","식물", "www.ccotshop.com 꽃가게 오픈했어요 놀러오세요~", "20/12/03 02:04:00", 3, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile6), "마경숙","식물", "식물도감빌려드려요 저희남편식물박사요", "20/12/03 02:04:00", 3, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile7), "안경자","식물", "식물카테고리 정기모임 날짜 정해봅시다.", "20/12/03 02:04:00", 3, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile8), "박현호","식물", "꽃 키우는거 쉽지 않네요.", "20/12/03 02:04:00", 3, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile9), "김땡초","식물", "저희 딸이 꽃을 정말 좋아해요. 무슨 꽃이냐고 물어봤더니 자기도 모른다고 하더라구요 ㅋㅋ", "20/12/03 02:04:00", 3, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile10), "강한형","식물", "꽃 향 기 너 무 좋 다 ^^~,", "20/12/03 02:04:00", 3, 0);
+
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile1), "고두한","낚시", "미사용.낚시찌.저렴하게.분양합니다.", "20/12/04 13:24:03", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile2), "고두심","낚시", "좋은 낚시터 정보좀 알려주세요. 같이갑시다..", "20/12/04 13:24:03", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile3), "김영자","낚시", "오늘도 월척 !^^", "20/12/04 13:24:03", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile4), "이영지","낚시", "바다가 너무 예뻐서 잠시 생각에 잠겼어요...... 여러분도 명상 많이 해보세요.", "20/12/04 13:24:03", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile5), "한상숙","낚시", "낚시하는 게임도 있더라고요. 저희 아들이 하는건대 재밌어보여.", "20/12/04 13:24:03", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile6), "이상순","낚시", "내일 비가오면.낚시도 못가고 . . . .", "20/12/04 13:24:03", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile7), "이화자","낚시", "눈이 이렇게 째진 물고기는 이름이 뭘까요? ", "20/12/04 13:24:03", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile8), "박현식","낚시", "남해 내항가서 볼락 처무냐?", "20/12/04 13:24:03", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile9), "강경보","낚시", "겨울 물낚시 제철이에요. 용대리 낚시터 아주 조아요.", "20/12/04 13:24:03", 0, 0);
+        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL,String.valueOf(R.drawable.im_sample_profile), "이경배","낚시", "낚시터에서 자리를 잡으면 받침대(받침틀)을 설치하고 받침대의 높이로 낚싯대 끝인 초릿대의 높이를 조절합니다.간혹 초보자 중에는 초릿대를 높이 쳐드는 형상으로 낚싯대를 펴는 것을 자주 볼 수 있는데, 바람이 불면 낚싯대와 낚싯줄의 저항이 커져 찌와 줄이 쉽게 흔들릴 뿐 아니라 정확한 입질을 보기 어렵게 되며, 또한 초릿대 끝의 흔들림에 따라 물 속에 있는 미끼까지 영향을 주게 되어 좋지 않은 낚시대의 설치방법이라고 합니다.", "20/12/04 13:24:03", 0, 0);
+
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile1), "구본주","운동", "운동귀차니즘 극복하는법좀 알려주세요", "20/12/05 11:11:02", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile2), "두보칠","운동", "무릎이 좀. 쑤셔서. 이매정형외과 괜찮은지요.", "20/12/05 11:11:02", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile3), "김영남","운동", "운동을 매일하면 정신도 맑아집니다 ~ 더 나은 훗날을 위하여,, ! ^^", "20/12/05 11:11:02", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile4), "장정남","운동", "날씨가 추워서 머리가 아파요. 운동 오늘은 스탑! ㅋㅋ", "20/12/05 11:11:02", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile5), "김종철","운동", "운동장비 싸게 처분합니다. 010-7776-5120 연락주세요.", "20/12/05 11:11:02", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile6), "나순자","운동", "아들이 엄마 운동 편하게 하라고~~ 난닝머신 하나 줬어요. 착하죠?", "20/12/05 11:11:02", 0, 0);
+        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL,String.valueOf(R.drawable.im_sample_profile), "이경배","운동", "숨쉬기 운동도 운동인가요 ~ ^^; 오늘은 너무 춥내요.", "20/12/05 11:11:02", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile7), "마성호","운동", "근육이 많이 생길라면 고기 먹어야 하잖아요. 그러니까 고기집 추천해주셔요. 땡기네요", "20/12/05 11:11:02", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile8), "두식킴","운동", "오늘 운동장 30분 뛰었어. 심장이 두근두근. 39일째 하니 몸이 조금가벼워진건가?", "20/12/05 11:11:02", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile9), "양미경","운동", "79세.다치지않고.할수.있는운동.뭐가있죠", "20/12/05 11:11:02", 0, 0);
+        dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile10), "한상수","운동", "매일아침일어나서동네한바퀴돌고제친구미란이랑얘기하고하다보면어느새해가뉘엿뉘엿", "20/12/05 11:11:02", 0, 0);
+
+
         dbOpenHelper.close();
     }
 
