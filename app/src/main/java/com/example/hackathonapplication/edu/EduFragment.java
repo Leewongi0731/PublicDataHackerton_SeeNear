@@ -72,11 +72,16 @@ public class EduFragment extends Fragment {
 
     private void initLayout() {
         eduDataset = new ArrayList<>();
-        eduDataset.add(new EduDataset(true,"성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (수익 채널로 만드는 )", "2020.11.09~2020.12.17", "2020.12.18~2020.12.19", "https://50plus.or.kr/education-detail.do?id=10162464"));
-        eduDataset.add(new EduDataset(true,"성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (홍보영상제작의 모든것)", "2020.11.06~2020.12.17", "2020.12.11~2020.12.17", "https://50plus.or.kr/education-detail.do?id=10162219"));
-        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 29일 매콤 미나리 쌀국수 볶음]", "2020.11.20~2020.12.17", "2020.12.06~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882145"));
-        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 22일 누룽지 견과 범벅]", "2020.11.18~2020.12.17", "2020.12.05~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882106"));
-        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 15일 투움바 파스타]", "2020.11.12~2020.12.17", "2020.12.13~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882080"));
+        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (수익 채널로 만드는)", "2020.11.18~2020.12.17", "2020.12.17~2020.12.17", "https://50plus.or.kr/education-detail.do?id=10162464"));
+        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (홍보영상제작의 모든것)", "2020.11.06~2020.12.17", "2020.12.11~2020.12.17", "https://50plus.or.kr/education-detail.do?id=10162219"));
+        eduDataset.add(new EduDataset(true,"성북센터", "수강신청", "[문화조성] 집에서 즐기는 세계 인기 브런치 [12월 29일 매콤 미나리 쌀국수 볶음]", "2020.10.29~2020.12.29", "2020.12.29~2020.12.29", "https://50plus.or.kr/education-detail.do?id=9882145"));
+        eduDataset.add(new EduDataset(true,"성북센터", "수강신청", "[문화조성] 집에서 즐기는 세계 인기 브런치 [12월 22일 누룽지 견과 범벅]", "2020.10.29~2020.12.22", "2020.12.22~2020.12.22", "https://50plus.or.kr/education-detail.do?id=9882106"));
+        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[문화조성] 집에서 즐기는 세계 인기 브런치 [12월 15일 투움바 파스타]", "2020.10.29~2020.12.15", "2020.12.15~2020.12.15", "https://50plus.or.kr/education-detail.do?id=9882080"));
+        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[인생설계-온라인] 나의 버킷리스트 ‘100일간의 세계일주’ (실시간 유튜브 온라인 특강-유럽편)", "2020.10.23~2020.12.10", "2020.12.10~2020.12.10", "https://50plus.or.kr/education-detail.do?id=9811493"));
+        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[인생설계-온라인] 나를 바꾸는 하루공부 (시간을 정리하는 라이프저널)", "2020.12.04~2020.12.23", "2020.12.23~2020.12.23", "https://50plus.or.kr/education-detail.do?id=10367715"));
+        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[전통아카데미-온라인] 한자놀이지도사 양성과정", "2020.12.14~2020.12.16", "2020.12.16~2020.12.31", "https://50plus.or.kr/education-detail.do?id=10434789"));
+        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[전통아카데미-온라인] 역사논술지도사 양성과정", "2020.12.14~2020.12.16", "2020.12.16~2020.12.31", "https://50plus.or.kr/education-detail.do?id=10433466"));
+        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[경력-온라인] ]50+ 1인 크리에이터 전문가 양성", "2020.09.21~2020.10.04", "2020.10.06~2020.11.24", "https://50plus.or.kr/education-detail.do?id=9440244"));
 
         textViewLocation = viewGroup.findViewById(R.id.textViewLocation);
         spinnerSortList = viewGroup.findViewById(R.id.spinnerSortList);
