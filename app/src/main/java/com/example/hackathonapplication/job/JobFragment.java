@@ -72,11 +72,16 @@ public class JobFragment extends Fragment {
 
     private void initLayout() {
         jobDatasets = new ArrayList<>();
-        jobDatasets.add(new JobDataset(true,"경로당 중식도우미(경로당도우미파견활동단)","사회복지법인 영산","서초구","02-622-3012","2020.12.01","2020.12.17","30","모집중","https://seniorro.or.kr:4431/seniorro/main/main.do"));
-        jobDatasets.add(new JobDataset(false,"공원 및 놀이터 안전지킴이","대한노인회 강남구지회","강남구","02-699-1234","2020.12.01","2020.12.18","30","모집중","https://seniorro.or.kr:4431/seniorro/main/main.do"));
-        jobDatasets.add(new JobDataset(true,"경로당청소도우미","사회복지법인 영산","성동구","02-624-5285","2020.11.31","2020.12.11","20","마감","https://seniorro.or.kr:4431/seniorro/main/main.do"));
-        jobDatasets.add(new JobDataset(false,"지하철안전지킴이","강남노인종합복지관","강남구","02-549-7070","2020.11.30","2020.12.14","40","마감","https://seniorro.or.kr:4431/seniorro/main/main.do"));
-        jobDatasets.add(new JobDataset(false,"복지시설 이용자 공익서비스 제공활동(누리선생님)","강남구립논현노인종합복지관","강남구","02-549-7070","2020.12.05","2020.12.15","30","모집중","https://seniorro.or.kr:4431/seniorro/main/main.do"));
+        jobDatasets.add(new JobDataset(false,"『지역 라이프 코디네이터』 참여자 추가 모집","보람일자리사업단","서울시","02-6295-5066","2020-11-02","2020-11-08","12","모집중","https://50plus.or.kr/appView.do?ANN_NO=619&setPageIndex=1"));
+        jobDatasets.add(new JobDataset(false,"[아이돌봄지원단] 참여자 모집 공고","보람일자리사업단","서울시","02-460-5084","2020-11-03","2020-11-09","70","모집중","https://50plus.or.kr/appView.do?ANN_NO=618&setPageIndex=1"));
+        jobDatasets.add(new JobDataset(false,"50+데이터큐레이터 참여자 추가모집","서울문화네트워크","서울시","010-5447-2176","2020-10-15","2020-10-19","1","마감","https://50plus.or.kr/appView.do?ANN_NO=617&setPageIndex=1"));
+        jobDatasets.add(new JobDataset(false,"50+마을활동가 참여자 모집","공생사회적협동조합","서울시","02-326-0301","2020-10-05","2020-10-06","3","마감","https://50plus.or.kr/appView.do?ANN_NO=615&setPageIndex=1"));
+        jobDatasets.add(new JobDataset(false,"[서울시니어클럽] 2021년 노인일자리","서울노원시니어클럽","서울시","02-549-7070","2020.12.01","2020.12.04","20","모집중","http://www.goldenjob.or.kr/job/find-person_view.asp?idx=168&p=1&keyword=&keyfield="));
+        jobDatasets.add(new JobDataset(false,"[서울시니어클럽] 2021년 사회활동지원사업","서울강서시니어클럽","서울시","02-549-7070","2020.11.23","2020.12.18","30","모집중","http://www.goldenjob.or.kr/job/find-person_view.asp?idx=167&p=1&keyword=&keyfield="));
+        jobDatasets.add(new JobDataset(true,"[50+센터] 2021 노인사회활동_시장형","서울강서시니어클럽","서울시","02-549-7070","2020.12.07","2020.12.18","10","모집중","http://www.goldenjob.or.kr/job/find-person_view.asp?idx=164&p=1&keyword=&keyfield="));
+        jobDatasets.add(new JobDataset(true,"[50+센터] 2021 노인사회활동_공익형","서울강서시니어클럽","서울시","02-549-7070","2020.11.23","2020.12.18","5","모집중","http://www.goldenjob.or.kr/job/find-person_view.asp?idx=163&p=1&keyword=&keyfield="));
+        jobDatasets.add(new JobDataset(false,"백상빌딩관리위원회","백상빌딩관리위원회","서대문구","02-6220-8640","2020.12.01","2020.12.13","15","모집중","http://www.goldenjob.or.kr/job/find-person_view.asp?idx=153&p=1&keyword=&keyfield="));
+        jobDatasets.add(new JobDataset(false,"[공공근로] 서울시민 안심일자리 사","서울강서시니어클럽","중구","02-549-7070","2020.11.18","2020.12.04","130","모집중","http://www.goldenjob.or.kr/job/find-person_view.asp?idx=152&p=1&keyword=&keyfield="));
 
         textViewLocation = viewGroup.findViewById(R.id.textViewLocation);
         spinnerSortList = viewGroup.findViewById(R.id.spinnerSortList);
