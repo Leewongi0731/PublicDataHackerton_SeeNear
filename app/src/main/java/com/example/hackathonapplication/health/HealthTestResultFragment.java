@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.hackathonapplication.LoadingActivity;
 import com.example.hackathonapplication.MainActivity;
 import com.example.hackathonapplication.R;
 
@@ -54,6 +55,15 @@ public class HealthTestResultFragment extends Fragment {
        total += setImageView1();
        total += setImageView2();
        total += setImageView3();
+
+       if( total >= 8 ){
+           LoadingActivity.LOGIN_USER_RECOMMEND_KEY = "60대/비만전단계비만/M/금";
+       }else if(  total >= 6  ){
+           LoadingActivity.LOGIN_USER_RECOMMEND_KEY = "60대/비만전단계비만/M/은";
+       }else{
+           LoadingActivity.LOGIN_USER_RECOMMEND_KEY = "60대/비만전단계비만/M/동";
+       }
+
 
        healthTestResultScoreTextView = viewGroup.findViewById(R.id.healthTestResultScoreTextView);
        healthTestResultScoreTextView.setText( Integer.toString(total)  + "점 획득!");

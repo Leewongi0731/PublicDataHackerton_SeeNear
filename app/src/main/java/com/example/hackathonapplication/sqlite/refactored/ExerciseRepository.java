@@ -52,8 +52,6 @@ public class ExerciseRepository {
             // todo conver model here
             String videopath = c.getString(c.getColumnIndex("videopath"));
             String contents = c.getString(c.getColumnIndex("contents"));
-            System.out.println(videopath);
-            System.out.println(contents);
             String thumbnailPath = "tmptmptmp"; // 자꾸 에러떠서 임의로 넣어둠.
         //    String thumbnailPath = c.getString(c.getColumnIndex("thumbnailPath"));
             result = new Exercise( prescription, videopath, contents, thumbnailPath );

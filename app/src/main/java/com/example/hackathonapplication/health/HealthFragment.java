@@ -2,6 +2,7 @@ package com.example.hackathonapplication.health;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hackathonapplication.LoadingActivity;
 import com.example.hackathonapplication.R;
 import com.example.hackathonapplication.data.MVDataset;
 import com.example.hackathonapplication.model.entity.Exercise;
@@ -56,15 +58,16 @@ public class HealthFragment extends Fragment {
     }
 
     private void initLayout() {
-        List<String> prescriptionList = getNewlyPrescription();
+        String[] prescriptionList = getNewlyPrescription();
 
         exercises = new ArrayList<>();
         String prescription = "";
         ExerciseRepository exerciseRepository = new ExerciseRepository(context);
         exerciseRepository.connect();
-        for(int i = 0; i < prescriptionList.size() ; i++){
-            prescription = prescriptionList.get(i);
+        for(int i = 0; i < prescriptionList.length ; i++){
+            prescription = prescriptionList[i];
             Exercise Exercise = exerciseRepository.findByPrescription( prescription );
+
             exercises.add( Exercise );
         }
         exerciseRepository.close();
@@ -81,16 +84,17 @@ public class HealthFragment extends Fragment {
         transaction = fragmentManager.beginTransaction();
     }
 
-    private List<String> getNewlyPrescription(){
-        // 로그인 유저의 최근 추천운동 이름리스트를 가져옴
-        List<String> prescriptionList = new ArrayList<String>();
-        prescriptionList.add( "어깨 스트레칭" );
-        prescriptionList.add( "발바닥 치기" );
-        prescriptionList.add( "몸통 비틀기" );
-        prescriptionList.add( "종아리 스트레칭" );
-
-        return prescriptionList;
+    private String[] getNewlyPrescription(){
+        // 로그인 유저의 최근 추천운동 이름리스트를 가져옴0.
+        if ( LoadingActivity.LOGIN_USER_RECOMMEND_KEY.equals(  "60대/비만전단계비만/M/금" ) ){
+            String[] gold_recommed = { "짐볼에서 윗몸 일으키기","등 대고 대퇴이두근 스트레칭","척추 스트레칭","스텝박스","몸통 비틀기","대퇴이두근 스트레칭","물병 들고 한발 앞으로 내밀고 앉았다 일어서기","가슴/어깨 스트레칭" };
+            return gold_recommed;
+        }else if( LoadingActivity.LOGIN_USER_RECOMMEND_KEY.equals(  "60대/비만전단계비만/M/은" ) ){
+            String[] silver_recommed = { "척추 스트레칭","대퇴사두근 스트레칭","내전근 스트레칭","발등굽힘/발바닥굽힘","몸통 비틀기","대퇴이두근 스트레칭","고관절 스트레칭","물병 들고 한발 앞으로 내밀고 앉았다 일어서기","가슴/어깨 스트레칭" };
+            return silver_recommed;
+        }else{
+            String[] bronze_recommed = { "달리기","척추 스트레칭","대퇴사두근 스트레칭","내전근 스트레칭","몸통 비틀기","대퇴이두근 스트레칭","고관절 스트레칭","물병 들고 한발 앞으로 내밀고 앉았다 일어서기","가슴/어깨 스트레칭" };
+            return bronze_recommed;
+        }
     }
-
-
 }
