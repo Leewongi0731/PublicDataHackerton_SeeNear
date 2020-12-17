@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/mainColor"
-    >
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,12 +20,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:elevation="20dp"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="12dp">
+            android:layout_marginTop="25dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="70dp"
@@ -51,21 +50,39 @@
                 android:gravity="center">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="안녕하세요"
+                    android:textAlignment="textEnd"
                     android:textStyle="normal"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textColor="@color/mainColor"
+                    android:textSize="18sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="이경배 님"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:textSize="30sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textAlignment="textEnd"
+                        android:text="이경배"
+                        android:textStyle="bold"
+                        android:textColor="@color/mainColor"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textAlignment="textEnd"
+                        android:text="님"
+                        android:textColor="@color/white"
+                        android:textSize="26sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
@@ -73,24 +90,55 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="25dp"
+            android:weightSum="3">
 
             <LinearLayout
-                android:id="@+id/myLocation"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:layout_marginRight="10dp"
-                android:onClick="mypageClickListener">
+                android:layout_weight="1">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    app:tint="@color/white"
-                    android:src="@drawable/ic_baseline_location_on_24"/>
+                    app:tint="@color/mainColor"
+                    android:src="@drawable/ic_notification"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="알림사항"
+                    android:textStyle="normal"
+                    android:textColor="@color/mainColor"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/mainColor"/>
+
+            <LinearLayout
+                android:id="@+id/myLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:onClick="mypageClickListener"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:tint="@color/mainColor"
+                    android:src="@drawable/ic_maps_and_flags"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -98,68 +146,48 @@
                     android:layout_marginTop="6dp"
                     android:text="위치설정"
                     android:textStyle="normal"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/mainColor"/>
 
             </LinearLayout>
 
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/mainColor"/>
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:layout_marginRight="10dp">
+                android:layout_weight="1">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    app:tint="@color/white"
-                    android:src="@drawable/ic_baseline_notifications_active_24"/>
+                    app:tint="@color/mainColor"
+                    android:src="@drawable/ic_favourite"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="추천알림"
+                    android:text="추천항목"
                     android:textStyle="normal"
-                    android:textColor="@color/white"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_marginRight="10dp">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:tint="@color/white"
-                    android:src="@drawable/ic_baseline_settings_24"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="환경설정"
-                    android:textStyle="normal"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/mainColor"/>
 
             </LinearLayout>
 
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="15dp"
             android:layout_marginRight="30dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
             android:elevation="20dp"
             android:orientation="vertical">
 
@@ -171,15 +199,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/mainColor"
                     android:textStyle="bold"
                     android:text="받은 훈장"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginTop="18dp"
                     android:orientation="horizontal"
                     android:gravity="center">
 
@@ -218,13 +245,29 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/certificatesRecyclerView"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:scrollbars="horizontal"
-                />
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/mainColor"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="bold"
+                    android:text="이수증"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/certificatesRecyclerView"
+                    android:layout_marginTop="18dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:scrollbars="horizontal"/>
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

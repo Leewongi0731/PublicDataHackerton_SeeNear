@@ -2,6 +2,7 @@ package com.example.hackathonapplication.edu;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hackathonapplication.R;
@@ -38,19 +40,15 @@ public class EduFragmentRecyclerViewAdapter extends RecyclerView.Adapter<EduFrag
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         EduDataset dataSet = eduDataset.get(position);
 
-        holder.textViewCampus.setText(dataSet.getCampus());
-        holder.buttonRegister.setText(dataSet.getIsRegister());
+        if(dataSet.getRecommended()) {
+            holder.cardViewEduInfo.setCardBackgroundColor(Color.parseColor("#ACA4FF"));
+            holder.textViewRecommended.setVisibility(View.VISIBLE);
+        } else {
+            holder.cardViewEduInfo.setCardBackgroundColor(Color.WHITE);
+            holder.textViewRecommended.setVisibility(View.GONE);
+        }
         holder.textViewContents.setText(dataSet.getContent());
         holder.textViewGatherDate.setText("모집기간 : " + dataSet.getGatherDate());
-        holder.textViewEduDate.setText("교육기간 : " + dataSet.getEduDate());
-
-        holder.buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(dataSet.getPlusUrl()));
-                context.startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -59,20 +57,29 @@ public class EduFragmentRecyclerViewAdapter extends RecyclerView.Adapter<EduFrag
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView textViewCampus;
-        private Button buttonRegister;
+        private CardView cardViewEduInfo;
+        private TextView textViewRecommended;
         private TextView textViewContents;
         private TextView textViewGatherDate;
-        private TextView textViewEduDate;
 
         public ViewHolder(View view) {
             super(view);
 
-            textViewCampus = view.findViewById(R.id.textViewCampus);
-            buttonRegister = view.findViewById(R.id.buttonRegister);
+            cardViewEduInfo = view.findViewById(R.id.cardViewEduInfo);
+            textViewRecommended = view.findViewById(R.id.textViewRecommended);
             textViewContents = view.findViewById(R.id.textViewContents);
             textViewGatherDate = view.findViewById(R.id.textViewGatherDate);
-            textViewEduDate = view.findViewById(R.id.textViewEduDate);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(position != RecyclerView.NO_POSITION) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(eduDataset.get(position).getPlusUrl()));
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
     }
 }

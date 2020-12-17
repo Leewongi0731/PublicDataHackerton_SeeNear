@@ -72,11 +72,11 @@ public class JobFragment extends Fragment {
 
     private void initLayout() {
         jobDatasets = new ArrayList<>();
-        jobDatasets.add(new JobDataset("경로당 중식도우미(경로당도우미파견활동단)","사회복지법인 영산","서초구","02-622-3012","2020.12.01","2020.12.17","30","모집중","https://seniorro.or.kr:4431/seniorro/main/main.do"));
-        jobDatasets.add(new JobDataset("공원 및 놀이터 안전지킴이","대한노인회 강남구지회","강남구","02-699-1234","2020.12.01","2020.12.18","30","모집중","https://seniorro.or.kr:4431/seniorro/main/main.do"));
-        jobDatasets.add(new JobDataset("경로당청소도우미","사회복지법인 영산","성동구","02-624-5285","2020.11.31","2020.12.11","20","마감","https://seniorro.or.kr:4431/seniorro/main/main.do"));
-        jobDatasets.add(new JobDataset("지하철안전지킴이","강남노인종합복지관","강남구","02-549-7070","2020.11.30","2020.12.14","40","마감","https://seniorro.or.kr:4431/seniorro/main/main.do"));
-        jobDatasets.add(new JobDataset("복지시설 이용자 공익서비스 제공활동(누리선생님)","강남구립논현노인종합복지관","강남구","02-549-7070","2020.12.05","2020.12.15","30","모집중","https://seniorro.or.kr:4431/seniorro/main/main.do"));
+        jobDatasets.add(new JobDataset(true,"경로당 중식도우미(경로당도우미파견활동단)","사회복지법인 영산","서초구","02-622-3012","2020.12.01","2020.12.17","30","모집중","https://seniorro.or.kr:4431/seniorro/main/main.do"));
+        jobDatasets.add(new JobDataset(false,"공원 및 놀이터 안전지킴이","대한노인회 강남구지회","강남구","02-699-1234","2020.12.01","2020.12.18","30","모집중","https://seniorro.or.kr:4431/seniorro/main/main.do"));
+        jobDatasets.add(new JobDataset(true,"경로당청소도우미","사회복지법인 영산","성동구","02-624-5285","2020.11.31","2020.12.11","20","마감","https://seniorro.or.kr:4431/seniorro/main/main.do"));
+        jobDatasets.add(new JobDataset(false,"지하철안전지킴이","강남노인종합복지관","강남구","02-549-7070","2020.11.30","2020.12.14","40","마감","https://seniorro.or.kr:4431/seniorro/main/main.do"));
+        jobDatasets.add(new JobDataset(false,"복지시설 이용자 공익서비스 제공활동(누리선생님)","강남구립논현노인종합복지관","강남구","02-549-7070","2020.12.05","2020.12.15","30","모집중","https://seniorro.or.kr:4431/seniorro/main/main.do"));
 
         textViewLocation = viewGroup.findViewById(R.id.textViewLocation);
         spinnerSortList = viewGroup.findViewById(R.id.spinnerSortList);
@@ -93,20 +93,32 @@ public class JobFragment extends Fragment {
 class StartDateDescending implements Comparator<JobDataset> {
     @Override
     public int compare(JobDataset o1, JobDataset o2) {
-        return o1.getStartDate().compareTo(o2.getStartDate());
+        if (o1.getRecommended() || o2.getRecommended()) {
+            return o2.getRecommended().compareTo(o1.getRecommended());
+        } else {
+            return o1.getStartDate().compareTo(o2.getStartDate());
+        }
     }
 }
 
 class NameAscending implements Comparator<JobDataset> {
     @Override
     public int compare(JobDataset o1, JobDataset o2) {
-        return o1.getBusinessName().compareTo(o2.getBusinessName());
+        if (o1.getRecommended() || o2.getRecommended()) {
+            return o2.getRecommended().compareTo(o1.getRecommended());
+        } else {
+            return o1.getBusinessName().compareTo(o2.getBusinessName());
+        }
     }
 }
 
 class NumOfPeopleDescending implements Comparator<JobDataset> {
     @Override
     public int compare(JobDataset o1, JobDataset o2) {
-        return o2.getNumOfPeople().compareTo(o1.getNumOfPeople());
+        if (o1.getRecommended() || o2.getRecommended()) {
+            return o2.getRecommended().compareTo(o1.getRecommended());
+        } else {
+            return o2.getNumOfPeople().compareTo(o1.getNumOfPeople());
+        }
     }
 }

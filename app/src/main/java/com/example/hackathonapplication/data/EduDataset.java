@@ -1,6 +1,7 @@
 package com.example.hackathonapplication.data;
 
 public class EduDataset {
+    private Boolean isRecommended;
     private String campus;
     private String isRegister;
     private String content;
@@ -8,13 +9,18 @@ public class EduDataset {
     private String eduDate;
     private String plusUrl;
 
-    public EduDataset(String campus, String isRegister, String content, String gatherDate, String eduDate, String plusUrl) {
+    public EduDataset(Boolean isRecommended, String campus, String isRegister, String content, String gatherDate, String eduDate, String plusUrl) {
+        this.isRecommended = isRecommended;
         this.campus = campus;
         this.isRegister = isRegister;
         this.content = content;
         this.gatherDate = gatherDate;
         this.eduDate = eduDate;
         this.plusUrl = plusUrl;
+    }
+
+    public Boolean getRecommended() {
+        return isRecommended;
     }
 
     public String getIsRegister() {

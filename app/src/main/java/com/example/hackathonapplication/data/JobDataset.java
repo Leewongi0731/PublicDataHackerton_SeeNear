@@ -1,6 +1,7 @@
 package com.example.hackathonapplication.data;
 
 public class JobDataset {
+    private Boolean isRecommended;
     private String title;
     private String businessName;
     private String location;
@@ -11,7 +12,8 @@ public class JobDataset {
     private String isGathering;
     private String pageUrl;
 
-    public JobDataset(String title, String businessName, String location, String phoneNumber, String startDate, String endDate, String numOfPeople, String isGathering, String pageUrl) {
+    public JobDataset(Boolean isRecommended, String title, String businessName, String location, String phoneNumber, String startDate, String endDate, String numOfPeople, String isGathering, String pageUrl) {
+        this.isRecommended = isRecommended;
         this.title = title;
         this.businessName = businessName;
         this.location = location;
@@ -21,6 +23,10 @@ public class JobDataset {
         this.numOfPeople = numOfPeople;
         this.isGathering = isGathering;
         this.pageUrl = pageUrl;
+    }
+
+    public Boolean getRecommended() {
+        return isRecommended;
     }
 
     public String getTitle() {

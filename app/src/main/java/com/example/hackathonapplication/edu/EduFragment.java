@@ -72,11 +72,11 @@ public class EduFragment extends Fragment {
 
     private void initLayout() {
         eduDataset = new ArrayList<>();
-        eduDataset.add(new EduDataset("성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (수익 채널로 만드는 )", "2020.11.09~2020.12.17", "2020.12.18~2020.12.19", "https://50plus.or.kr/education-detail.do?id=10162464"));
-        eduDataset.add(new EduDataset("성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (홍보영상제작의 모든것)", "2020.11.06~2020.12.17", "2020.12.11~2020.12.17", "https://50plus.or.kr/education-detail.do?id=10162219"));
-        eduDataset.add(new EduDataset("성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 29일 매콤 미나리 쌀국수 볶음]", "2020.11.20~2020.12.17", "2020.12.06~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882145"));
-        eduDataset.add(new EduDataset("성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 22일 누룽지 견과 범벅]", "2020.11.18~2020.12.17", "2020.12.05~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882106"));
-        eduDataset.add(new EduDataset("성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 15일 투움바 파스타]", "2020.11.12~2020.12.17", "2020.12.13~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882080"));
+        eduDataset.add(new EduDataset(true,"성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (수익 채널로 만드는 )", "2020.11.09~2020.12.17", "2020.12.18~2020.12.19", "https://50plus.or.kr/education-detail.do?id=10162464"));
+        eduDataset.add(new EduDataset(true,"성북센터", "수강신청", "[인생설계-온라인]나를 바꾸는 하루공부'스마트폰 PRO 유튜버 도전하기 심화과정' (홍보영상제작의 모든것)", "2020.11.06~2020.12.17", "2020.12.11~2020.12.17", "https://50plus.or.kr/education-detail.do?id=10162219"));
+        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 29일 매콤 미나리 쌀국수 볶음]", "2020.11.20~2020.12.17", "2020.12.06~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882145"));
+        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 22일 누룽지 견과 범벅]", "2020.11.18~2020.12.17", "2020.12.05~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882106"));
+        eduDataset.add(new EduDataset(false,"성북센터", "수강신청", "[문화조성] [실시간 온라인] 집에서 즐기는 세계 인기 브런치 [12월 15일 투움바 파스타]", "2020.11.12~2020.12.17", "2020.12.13~2020.12.17", "https://50plus.or.kr/education-detail.do?id=9882080"));
 
         textViewLocation = viewGroup.findViewById(R.id.textViewLocation);
         spinnerSortList = viewGroup.findViewById(R.id.spinnerSortList);
@@ -93,20 +93,32 @@ public class EduFragment extends Fragment {
 class GatherDateDescending implements Comparator<EduDataset> {
     @Override
     public int compare(EduDataset o1, EduDataset o2) {
-        return o2.getGatherDate().compareTo(o1.getGatherDate());
+        if (o1.getRecommended() || o2.getRecommended()) {
+            return o2.getRecommended().compareTo(o1.getRecommended());
+        } else {
+            return o2.getGatherDate().compareTo(o1.getGatherDate());
+        }
     }
 }
 
 class EduDateDescending implements Comparator<EduDataset> {
     @Override
     public int compare(EduDataset o1, EduDataset o2) {
-        return o2.getEduDate().compareTo(o1.getEduDate());
+        if (o1.getRecommended() || o2.getRecommended()) {
+            return o2.getRecommended().compareTo(o1.getRecommended());
+        } else {
+            return o2.getEduDate().compareTo(o1.getEduDate());
+        }
     }
 }
 
 class ContentsDescending implements Comparator<EduDataset> {
     @Override
     public int compare(EduDataset o1, EduDataset o2) {
-        return o2.getContent().compareTo(o1.getContent());
+        if (o1.getRecommended() || o2.getRecommended()) {
+            return o2.getRecommended().compareTo(o1.getRecommended());
+        } else {
+            return o2.getContent().compareTo(o1.getContent());
+        }
     }
 }

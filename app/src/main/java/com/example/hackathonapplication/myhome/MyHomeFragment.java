@@ -77,9 +77,9 @@ public class MyHomeFragment extends Fragment {
 
     private void initLayout(){
         ArrayList<CertificatesDataset> datasets = new ArrayList<CertificatesDataset>();
-        datasets.add( new CertificatesDataset( "이원기", "###교육", "20.12.12", "20.12.13", "2020년 12월 18일" ) );
-        datasets.add( new CertificatesDataset( "이원기", "!!!!교육", "20.12.16", "20.12.17", "2020년 12월 15일" ) );
-        datasets.add( new CertificatesDataset( "이원기", "????교육", "20.12.20", "20.12.22", "2020년 12월 22일" ) );
+        datasets.add( new CertificatesDataset( "이원기", "집에서 즐기는 세계 인기 브런치 교육", "20.12.12", "20.12.13", "2020년 12월 18일" ) );
+        datasets.add( new CertificatesDataset( "이원기", "나를 바꾸는 스마트폰 PRO 교육", "20.12.16", "20.12.17", "2020년 12월 15일" ) );
+        datasets.add( new CertificatesDataset( "이원기", "IT 교육", "20.12.20", "20.12.22", "2020년 12월 22일" ) );
 
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);

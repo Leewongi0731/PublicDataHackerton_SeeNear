@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewJobInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -22,11 +23,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp">
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:paddingLeft="18dp"
+                android:paddingRight="18dp">
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/textViewRecommended"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="12dp"
+                    android:text="추천공고" />
 
                 <TextView
                     android:id="@+id/textViewTitle"
@@ -35,63 +46,10 @@
                     android:layout_weight="1"
                     android:textSize="16dp"
                     android:textStyle="bold"
+                    android:layout_marginTop="12dp"
                     android:textColor="@android:color/background_dark"
                     android:text="일자리 명" />
 
-                <Button
-                    android:id="@+id/buttonRegister"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:textColor="@color/jobColor"
-                    android:layout_marginLeft="6dp"
-                    android:textStyle="bold"
-                    android:text="접수하기" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:orientation="horizontal"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp">
-
-                <TextView
-                    android:id="@+id/textViewBusinessName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="16dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="6dp"
-                    android:text="사업체명" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:orientation="horizontal"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp">
-
-                <TextView
-                    android:id="@+id/textViewLocation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="위치" />
-
-                <TextView
-                    android:id="@+id/textViewNumOfPeople"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="모집인원" />
             </LinearLayout>
 
             <LinearLayout
@@ -100,14 +58,16 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp">
+                android:paddingLeft="18dp"
+                android:paddingRight="18dp">
 
                 <TextView
                     android:id="@+id/textViewGatherDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
                     android:text="접수기간" />
             </LinearLayout>
 
