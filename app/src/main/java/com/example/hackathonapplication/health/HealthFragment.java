@@ -87,13 +87,13 @@ public class HealthFragment extends Fragment {
     private String[] getNewlyPrescription(){
         // 로그인 유저의 최근 추천운동 이름리스트를 가져옴0.
         if ( LoadingActivity.LOGIN_USER_RECOMMEND_KEY.equals(  "60대/비만전단계비만/M/금" ) ){
-            String[] gold_recommed = { "짐볼에서 윗몸 일으키기","등 대고 대퇴이두근 스트레칭","척추 스트레칭","스텝박스","몸통 비틀기","대퇴이두근 스트레칭","물병 들고 한발 앞으로 내밀고 앉았다 일어서기","가슴/어깨 스트레칭" };
+            String[] gold_recommed = { "짐볼에서 윗몸 일으키기","등 대고 스트레칭","척추 스트레칭","스텝박스","몸통 비틀기","대퇴이두근 스트레칭","물병 들고 앉았다 일어서기","가슴/어깨 스트레칭" };
             return gold_recommed;
         }else if( LoadingActivity.LOGIN_USER_RECOMMEND_KEY.equals(  "60대/비만전단계비만/M/은" ) ){
-            String[] silver_recommed = { "척추 스트레칭","대퇴사두근 스트레칭","내전근 스트레칭","발등굽힘/발바닥굽힘","몸통 비틀기","대퇴이두근 스트레칭","고관절 스트레칭","물병 들고 한발 앞으로 내밀고 앉았다 일어서기","가슴/어깨 스트레칭" };
+            String[] silver_recommed = { "척추 스트레칭","대퇴사두근 스트레칭","내전근 스트레칭","발등굽힘/발바닥굽힘","몸통 비틀기","대퇴이두근 스트레칭","고관절 스트레칭","물병 들고 앉았다 일어서기","가슴/어깨 스트레칭" };
             return silver_recommed;
         }else{
-            String[] bronze_recommed = { "달리기","척추 스트레칭","대퇴사두근 스트레칭","내전근 스트레칭","몸통 비틀기","대퇴이두근 스트레칭","고관절 스트레칭","물병 들고 한발 앞으로 내밀고 앉았다 일어서기","가슴/어깨 스트레칭" };
+            String[] bronze_recommed = { "달리기","척추 스트레칭","대퇴사두근 스트레칭","내전근 스트레칭","몸통 비틀기","대퇴이두근 스트레칭","고관절 스트레칭","물병 들고 앉았다 일어서기","가슴/어깨 스트레칭" };
             return bronze_recommed;
         }
     }

@@ -113,11 +113,11 @@ public class LoadingActivity extends AppCompatActivity {
                 "1. 어깨너비로 벌려 선 자세에서 한 손으로 의자를 잡고 시선은 정면을 응시한다./2. 한쪽 발을 손으로 잡아 엉덩이 쪽으로 들어 당겨준다.", "R.drawable.health_example1");
         exerciseRepository.insert("대퇴이두근 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/272/272.mp4",
                 "1. 두 다리를 펴고 앉은 파트너의 허리 하부를 잡는다./2. 허리 하부를 잡고 천천히 앞으로 밀어준다.", "R.drawable.health_example1");
-        exerciseRepository.insert("등 대고 대퇴이두근 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/268/268.mp4",
+        exerciseRepository.insert("등 대고 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/268/268.mp4",
                 "1. 등을 맞대고 앉아 한사람은 무릎을 펴고 상대방은 무릎을 세운다./2. 무릎을 편 파트너의 방향으로 등을 밀어준다.", "R.drawable.health_example1");
         exerciseRepository.insert("몸통 비틀기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/278/278.mp4",
                 "1. 어꺠너비로 선 자세를 잡는다./2.한 손은 의자 위, 다른 손은 머리뒤로 위치한다./3.들고 있는 손의 방향으로 온몸을 돌려 뒤를본다./4.번갈아가며 반복한다", "R.drawable.health_example1");
-        exerciseRepository.insert("물병 들고 한발 앞으로 내밀고 앉았다 일어서기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/212/212.mp4",
+        exerciseRepository.insert("물병 들고 앉았다 일어서기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/212/212.mp4",
                 "1. 물병을 양손에 들고 바르게 선다./2. 허리는 곧게 편 상태를 유지하며 앞뒤 무릎의 각도가 90도 정도 되도록 앉는다.", "R.drawable.health_example1");
         exerciseRepository.insert("스텝박스","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/171/171.mp4",
                 "1. 스텝박스를 이용해 전후,좌우로 활발하게 움직인다./2. 15분 이상 걷기 운동을 실시한다.", "R.drawable.health_example1");
