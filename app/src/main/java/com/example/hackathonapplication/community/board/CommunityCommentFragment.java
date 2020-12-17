@@ -113,8 +113,6 @@ public class CommunityCommentFragment extends Fragment {
         textViewCommentCount = viewGroup.findViewById(R.id.tv_commentCount);
 
 
-        //imageViewProfile.setImageResource(R.drawable.im_sample_profile); //임시사진
-
         BoardDbOpenHelper dbOpenHelper = new BoardDbOpenHelper(context);
         dbOpenHelper.open();
         Cursor cursor = dbOpenHelper.searchColumns("_id", id);
@@ -128,15 +126,15 @@ public class CommunityCommentFragment extends Fragment {
             like = cursor.getString(cursor.getColumnIndex("like"));
             comments = cursor.getString(cursor.getColumnIndex("comment"));
 
-            post = new Post(id,profile,writer,"이경배",contents,date,like,comments);
+            post = new Post(id,profile,writer,"배지",contents,date,like,comments);
         }
         dbOpenHelper.close();
         imageViewProfile.setImageResource(Integer.valueOf(post.getProfile()));
         textViewContents.setText(post.getContents());
         textViewWriter.setText(post.getWriter());
         textViewDate.setText(post.getDate());
-        //textViewPostLike.setText(post.getLike());                                                 //좋아요개수, 댓글개수 연동 오류. nullPointer
-        //textViewCommentCount.setText(post.getComment());
+        textViewPostLike.setText(post.getLike());
+        textViewCommentCount.setText(post.getComment());
 
     }
 
@@ -149,6 +147,9 @@ public class CommunityCommentFragment extends Fragment {
                 writeComment();
                 adapter.notifyDataSetChanged();
                 editTextComment.setText("");
+
+
+
 
         }
 
@@ -167,7 +168,7 @@ public class CommunityCommentFragment extends Fragment {
             c_like = cursor.getString(cursor.getColumnIndex("like"));
             c_date = cursor.getString(cursor.getColumnIndex("commentdate"));
 
-            commentdataSet.add(new Comment(c_id,"임시사진", "이경배", "뱃지", c_contents, c_date, c_like));
+            commentdataSet.add(new Comment(c_id,"임시사진", "이경배", "배지", c_contents, c_date, c_like));
         }
         dbOpenHelper.close();
     }
@@ -194,11 +195,43 @@ public class CommunityCommentFragment extends Fragment {
             c_like = cursor.getString(cursor.getColumnIndex("like"));
             c_date = cursor.getString(cursor.getColumnIndex("commentdate"));
 
-            commentdataSet.add(new Comment(c_id,"임시사진", "이경배", "뱃지", c_contents, c_date, c_like));
+            commentdataSet.add(new Comment(c_id,"임시사진", "이경배", "배지", c_contents, c_date, c_like));
         }
         dbOpenHelper.close();
+
+        //게시글에 연동된 댓글개수 갱신
+        BoardDbOpenHelper bdbOpenHelper = new BoardDbOpenHelper(context);
+        dbOpenHelper.open();
+        Cursor bcursor = dbOpenHelper.searchColumns("_id", id);
+        while (cursor.moveToNext()) {
+
+            like = cursor.getString(cursor.getColumnIndex("like"));
+            comments = cursor.getString(cursor.getColumnIndex("comment"));
+            post.setLike(like);
+            post.setComment(comments);
+
+        }
+        dbOpenHelper.close();
+        textViewPostLike.setText(post.getLike());
+        textViewCommentCount.setText(post.getComment());
 
 
     }
 
+    public void initCount() { //댓글 추가,삭제할 때
+        BoardDbOpenHelper dbOpenHelper = new BoardDbOpenHelper(context);
+        dbOpenHelper.open();
+        Cursor cursor = dbOpenHelper.searchColumns("_id", id);
+        while (cursor.moveToNext()) {
+
+            like = cursor.getString(cursor.getColumnIndex("like"));
+            comments = cursor.getString(cursor.getColumnIndex("comment"));
+            post.setLike(like);
+            post.setComment(comments);
+
+        }
+        dbOpenHelper.close();
+        textViewPostLike.setText(post.getLike());
+        textViewCommentCount.setText(post.getComment());
+    }
 }

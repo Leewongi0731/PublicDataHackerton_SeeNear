@@ -94,7 +94,7 @@ public class MyPostFragment extends Fragment {
             like = cursor.getString(cursor.getColumnIndex("like"));
             comment = cursor.getString(cursor.getColumnIndex("comment"));
 
-            dataSet.add(new Post(id,profile,writer,"이경배",contents,date,like,comment));
+            dataSet.add(new Post(id,profile,writer,"배지",contents,date,like,comment));
         }
         dbOpenHelper.close();
     }
