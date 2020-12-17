@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/healthBackgroundColor">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -17,45 +19,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:background="@drawable/health_rounded"
+            android:orientation="horizontal"
             android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:orientation="horizontal">
+            android:paddingRight="30dp">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/healthTestResultMainTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_weight="10">
-
-                <Button
-                    android:layout_weight="3"
-                    android:id="@+id/healthTestResultBackBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/ic_back_key" />
-
-                <TextView
-                    android:layout_weight="7"
-                    android:id="@+id/healthTestResultMainTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="오늘의 운동측정 결과"
-                    android:textColor="@color/healthColor"
-                    android:textStyle="bold"
-                    android:textSize="24dp"/>
-
-            </LinearLayout>
+                android:gravity="center"
+                android:text="오늘의 운동측정 결과"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/white_round_border"
             android:elevation="20dp"
             android:orientation="horizontal">
@@ -68,22 +56,22 @@
                 android:weightSum="10">
 
                 <TextView
-                    android:layout_weight="3"
                     android:id="@+id/healthTestResultTitle1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="3"
 
                     android:gravity="center"
                     android:text="하지 근 기능"
-                    android:textStyle="bold"
                     android:textColor="@color/healthColor"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
                 <ImageView
-                    android:layout_weight="7"
                     android:id="@+id/healthTestResultImageView1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="7"
                     android:src="@drawable/ic_test_score_4" />
 
             </LinearLayout>
@@ -93,9 +81,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/white_round_border"
             android:elevation="20dp"
             android:orientation="horizontal">
@@ -108,22 +96,22 @@
                 android:weightSum="10">
 
                 <TextView
-                    android:layout_weight="3"
                     android:id="@+id/healthTestResultTitle2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="3"
 
                     android:gravity="center"
                     android:text="심폐지구력"
-                    android:textStyle="bold"
                     android:textColor="@color/healthColor"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
                 <ImageView
-                    android:layout_weight="7"
                     android:id="@+id/healthTestResultImageView2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="7"
                     android:src="@drawable/ic_test_score_3" />
 
             </LinearLayout>
@@ -133,9 +121,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/white_round_border"
             android:elevation="20dp"
             android:orientation="horizontal">
@@ -148,74 +136,99 @@
                 android:weightSum="10">
 
                 <TextView
-                    android:layout_weight="3"
                     android:id="@+id/healthTestResultTitle3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="3"
 
                     android:gravity="center"
                     android:text="유연성"
-                    android:textStyle="bold"
                     android:textColor="@color/healthColor"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
                 <ImageView
-                    android:layout_weight="7"
                     android:id="@+id/healthTestResultImageView3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="7"
                     android:src="@drawable/ic_test_score_1" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="50dp"
             android:layout_marginTop="50dp"
-            android:layout_marginRight="50dp">
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/score_background"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/healthTestResultScoreTextView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:gravity="center"
                 android:text="점수 50점 획득!"
-                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom"
-            android:paddingBottom="20dp">
-
-            <Button
-                android:id="@+id/healthTestReturnBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:backgroundTint="@color/healthColor"
-                android:paddingTop="10dp"
-
-                android:paddingBottom="10dp"
+                android:textSize="25sp"
                 android:textStyle="bold"
-                android:text="건강 페이지로 돌아가기"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                android:textSize="20sp" />
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/healthTestReturnBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="14dp"
+        android:backgroundTint="@color/healthColor"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="건강 페이지로 돌아가기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="@color/healthColor"
+        app:cardCornerRadius="100dp"
+        android:elevation="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/healthTestResultBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/healthColor"
+            app:srcCompat="?attr/homeAsUpIndicator" />
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

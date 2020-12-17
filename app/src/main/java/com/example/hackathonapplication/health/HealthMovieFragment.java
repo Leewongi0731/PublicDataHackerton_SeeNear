@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -24,7 +25,7 @@ import com.example.hackathonapplication.R;
 public class HealthMovieFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
-    private Button healthInfoBackBtn;
+    private ImageButton healthInfoBackBtn;
     private Button healthTestCompleteBtn;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;

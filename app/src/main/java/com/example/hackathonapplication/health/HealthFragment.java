@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,7 +29,7 @@ import java.util.List;
 public class HealthFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
-    private Button todayTestBtn;
+    private TextView todayTestBtn;
     private ArrayList<Exercise> exercises;
     private RecyclerView.LayoutManager healthLayoutManager;
     private RecyclerView healthMVRecyclerView;

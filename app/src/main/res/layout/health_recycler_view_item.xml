@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:padding="8dp"
             >
 
             <ImageView
@@ -41,7 +42,7 @@
                     android:layout_height="wrap_content"
 
                     android:text="운동 이름"
-                    android:textSize="16dp"
+                    android:textSize="18dp"
                     android:textStyle="bold"
                     android:textColor="@color/healthColor"
                     />

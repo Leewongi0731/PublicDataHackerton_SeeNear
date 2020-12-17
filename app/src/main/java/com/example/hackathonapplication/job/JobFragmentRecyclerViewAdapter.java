@@ -44,7 +44,7 @@ public class JobFragmentRecyclerViewAdapter extends RecyclerView.Adapter<JobFrag
         JobDataset jobDataset = jobDatasets.get(position);
 
         if(jobDataset.getRecommended()) {
-            holder.cardViewJobInfo.setCardBackgroundColor(Color.parseColor("#9BFAFF"));
+            holder.cardViewJobInfo.setCardBackgroundColor(Color.parseColor("#04d4d4"));
             holder.textViewRecommended.setVisibility(View.VISIBLE);
         } else {
             holder.cardViewJobInfo.setCardBackgroundColor(Color.WHITE);

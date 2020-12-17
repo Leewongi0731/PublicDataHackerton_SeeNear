@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/healthBackgroundColor">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -17,36 +19,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:orientation="horizontal"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:orientation="horizontal">
+            android:background="@drawable/health_rounded">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/healthTestMainTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_weight="10">
-
-                <Button
-                    android:layout_weight="3"
-                    android:id="@+id/healthTestBackBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/ic_back_key" />
-
-                <TextView
-                    android:layout_weight="7"
-                    android:id="@+id/healthTestMainTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="오늘의 운동측정"
-                    android:textStyle="bold"
-                    android:textColor="@color/healthColor"
-                    android:textSize="24dp"/>
-
-            </LinearLayout>
+                android:gravity="center"
+                android:text="오늘의 운동측정"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -54,21 +42,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="운동종목을 클릭하면\n 측정방법을 볼 수 있어요!"
+            android:gravity="center"
             android:lineSpacingExtra="10dp"
-            android:textStyle="bold"
+            android:text="운동종목을 클릭하면\n 측정방법을 볼 수 있어요!"
             android:textColor="@color/healthColor"
             android:textSize="20sp"
-            android:gravity="center"
-            />
+            android:textStyle="bold" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/white_round_border"
             android:elevation="20dp"
             android:orientation="horizontal">
@@ -88,9 +75,9 @@
 
                     android:gravity="center"
                     android:text="의자 앉았다 일어서기"
-                    android:textStyle="bold"
                     android:textColor="@color/healthColor"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/healthTestEditText1"
@@ -100,10 +87,9 @@
 
                     android:gravity="center"
                     android:hint="20회"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:inputType="phone"
-                    />
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -112,9 +98,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/white_round_border"
             android:elevation="20dp"
             android:orientation="horizontal">
@@ -127,29 +113,28 @@
                 android:weightSum="10">
 
                 <TextView
-                    android:layout_weight="3"
                     android:id="@+id/healthTestTitle2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="3"
 
                     android:gravity="center"
                     android:text="2분제자리걷기"
-                    android:textStyle="bold"
                     android:textColor="@color/healthColor"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <EditText
-                    android:layout_weight="7"
                     android:id="@+id/healthTestEditText2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="7"
 
                     android:gravity="center"
                     android:hint="100회"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:inputType="phone"
-                    />
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
             </LinearLayout>
         </LinearLayout>
@@ -157,9 +142,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/white_round_border"
             android:elevation="20dp"
             android:orientation="horizontal">
@@ -172,57 +157,73 @@
                 android:weightSum="10">
 
                 <TextView
-                    android:layout_weight="3"
                     android:id="@+id/healthTestTitle3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="3"
 
                     android:gravity="center"
                     android:text="앉아윗몸앞으로굽히기"
-                    android:textStyle="bold"
                     android:textColor="@color/healthColor"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <EditText
-                    android:layout_weight="7"
                     android:id="@+id/healthTestEditText3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="7"
 
                     android:gravity="center"
                     android:hint="5cm"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/healthTestEditText2"
                     android:inputType="phone"
-                    />
+                    android:textColor="@color/black"
+
+                    android:textSize="20sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/healthTestEditText2" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingBottom="20dp"
-            android:gravity="bottom">
-
-            <Button
-                android:id="@+id/healthTestCompleteBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:backgroundTint="@color/healthColor"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textStyle="bold"
-                android:text="측정끝내기"
-                android:textSize="20sp" />
-        </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/healthTestCompleteBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="14dp"
+        android:backgroundTint="@color/healthColor"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="측정끝내기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="@color/healthColor"
+        app:cardCornerRadius="100dp"
+        android:elevation="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/healthTestBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/healthColor"
+            app:srcCompat="?attr/homeAsUpIndicator" />
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +23,7 @@ import com.example.hackathonapplication.R;
 public class HealthTestResultFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
-    private Button healthTestResultBackBtn;
+    private ImageButton healthTestResultBackBtn;
     private Button healthTestReturnBtn;
     private ImageView healthTestResultImageView1;
     private ImageView healthTestResultImageView2;

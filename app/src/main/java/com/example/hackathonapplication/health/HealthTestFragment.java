@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,7 +23,7 @@ import com.example.hackathonapplication.R;
 public class HealthTestFragment extends Fragment {
         private ViewGroup viewGroup;
         private Context context;
-        private Button healthTestBackBtn;
+        private ImageButton healthTestBackBtn;
         private Button healthTestCompleteBtn;
         private TextView healthTestTitle1;
         private TextView healthTestTitle2;

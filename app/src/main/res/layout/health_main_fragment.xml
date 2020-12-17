@@ -15,138 +15,119 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/todayTestBtn"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/health_rounded"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/todayTestBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="15dp"
+
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+
+                android:text="오늘의 운동측정 시작하기"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/healthColor"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/healthCardTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
 
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-
-            android:text="오늘의 운동측정 시작하기"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/healthColor"
-            android:elevation="20dp"
-            style="@style/WhiteButton"
-            />
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="김노인의 건강 카드"
+            android:textColor="@color/black" />
 
         <LinearLayout
             android:id="@+id/healthCardLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="20dp"
 
             android:background="@drawable/white_round_border"
             android:elevation="20dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/healthCardTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="10dp"
-
-                android:gravity="center"
-                android:text="김노인의 건강 카드"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/healthCardAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="10dp"
-
-                android:gravity="center"
-                android:text="신체나이 70세"
-                android:textColor="@color/black"
-                android:textSize="23sp" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:gravity="center">
 
                     <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/ic_baseline_health_and_safety_24" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                        android:layout_weight="1"
+                        android:id="@+id/healthAwardImage2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_health_silver" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
                         android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/healthAwardImage1"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/ic_health_bronze" />
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/healthAwardText1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="꾸준"
+                            android:gravity="center"
+                            android:text="신체나이"
+                            android:layout_marginRight="8dp"
                             android:textColor="@color/black"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/healthAwardImage2"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/ic_health_silver" />
+                            android:textSize="23sp" />
 
                         <TextView
-                            android:id="@+id/healthAwardText2"
+                            android:id="@+id/healthCardAge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="활력"
+                            android:gravity="center"
+                            android:text="70"
+                            android:layout_marginRight="4dp"
+                            android:textColor="@color/healthColor"
+                            android:textStyle="bold"
+                            android:textSize="23sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="세"
                             android:textColor="@color/black"
-                            android:textSize="15sp" />
+                            android:textSize="23sp" />
 
                     </LinearLayout>
+
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -156,12 +137,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
 
-            android:background="@drawable/white_round_border"
             android:elevation="20dp"
             android:orientation="vertical">
 
@@ -170,6 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textSize="20dp"
 
                 android:gravity="center"
                 android:textColor="@color/black"
@@ -179,8 +160,8 @@
                 android:id="@+id/healthMVRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:scrollbars="vertical" />
+                android:scrollbars="vertical"
+                android:layout_marginTop="12dp"/>
 
         </LinearLayout>
 
