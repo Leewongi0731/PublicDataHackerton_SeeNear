@@ -15,35 +15,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/communityCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:background="@color/communityLighterColor"
-
-            android:orientation="vertical"
-
-            android:paddingTop="30dp">
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/iv_categoryImage"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:src="@drawable/im_sample_category1" />
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/im_sample_category1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_catecoryTitle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:gravity="center"
+                android:elevation="10dp"
                 android:text="트로트"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_post"
@@ -55,16 +59,26 @@
             android:verticalSpacing="10dp" />
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/ib_back"
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="46dp"
         android:backgroundTint="@color/communityColor"
-        app:srcCompat="?attr/homeAsUpIndicator" />
+        app:cardCornerRadius="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/communityColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?attr/homeAsUpIndicator" />
+
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_plus"
@@ -100,8 +114,8 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/communityColor"
         android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/fab_write"
         android:src="@drawable/ic_baseline_assignment_ind_24"
+        app:layout_constraintBottom_toTopOf="@+id/fab_write"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

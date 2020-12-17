@@ -17,4 +17,6 @@
     <color name="communityColor">#FED737</color>
     <color name="communityLighterColor">#fdedae</color>
     <color name="communityBackgroundColor">#fffbed</color>
+    <color name="communityBackgroundColorBold">#FDEDAE</color>
+    <color name="textGray">#616161</color>
 </resources>

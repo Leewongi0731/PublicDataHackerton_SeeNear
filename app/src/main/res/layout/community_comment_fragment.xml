@@ -144,14 +144,6 @@
                             android:text="0"></TextView>
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_marginRight="7dp"
-                        android:background="#999999" />
-
                 </LinearLayout>
 
 
@@ -161,10 +153,10 @@
                 android:id="@+id/ll_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2"
-
-                >
-
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:columnCount="2">
 
                 <EditText
                     android:id="@+id/et_comment"
@@ -184,7 +176,8 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_columnWeight="1"
-                    android:backgroundTint="@color/communityColor"
+                    android:layout_marginLeft="20dp"
+                    android:backgroundTint="@color/textGray"
                     android:text="입력"
                     android:textStyle="bold"
 
@@ -197,6 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:horizontalSpacing="10dp"
+                android:layout_marginTop="12dp"
                 android:paddingTop="0dp"
                 android:paddingBottom="10dp"
                 android:verticalSpacing="10dp" />
@@ -205,17 +199,23 @@
 
     </ScrollView>
 
-    <ImageButton
-        android:id="@+id/ib_back"
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14dp"
         android:backgroundTint="@color/communityColor"
+        app:cardCornerRadius="100dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/homeAsUpIndicator" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/communityColor"
+            app:srcCompat="?attr/homeAsUpIndicator" />
 
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
