@@ -60,4 +60,6 @@ public class Customer {
     public String getMedaltitle() {
         return medaltitle;
     }
+
+
 }

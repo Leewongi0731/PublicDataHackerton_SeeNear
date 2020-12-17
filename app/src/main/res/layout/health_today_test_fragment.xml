@@ -144,7 +144,7 @@
                     android:layout_height="match_parent"
 
                     android:gravity="center"
-                    android:hint="5회"
+                    android:hint="100회"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:inputType="phone"
@@ -189,7 +189,7 @@
                     android:layout_height="match_parent"
 
                     android:gravity="center"
-                    android:hint="8회"
+                    android:hint="5cm"
                     android:textColor="@color/black"
                     android:textSize="20sp"
 
