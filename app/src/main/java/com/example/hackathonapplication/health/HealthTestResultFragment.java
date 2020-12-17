@@ -59,7 +59,7 @@ public class HealthTestResultFragment extends Fragment {
 
        if( total >= 8 ){
            LoadingActivity.LOGIN_USER_RECOMMEND_KEY = "60대/비만전단계비만/M/금";
-       }else if(  total >= 6  ){
+       }else if(  total >= 5  ){
            LoadingActivity.LOGIN_USER_RECOMMEND_KEY = "60대/비만전단계비만/M/은";
        }else{
            LoadingActivity.LOGIN_USER_RECOMMEND_KEY = "60대/비만전단계비만/M/동";

@@ -23,6 +23,8 @@ import com.example.hackathonapplication.data.MVDataset;
 import com.example.hackathonapplication.model.entity.Exercise;
 import com.example.hackathonapplication.sqlite.refactored.ExerciseRepository;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,7 @@ public class HealthFragment extends Fragment {
     private ViewGroup viewGroup;
     private Context context;
     private TextView todayTestBtn;
+    private TextView healthCardAge;
     private ArrayList<Exercise> exercises;
     private RecyclerView.LayoutManager healthLayoutManager;
     private RecyclerView healthMVRecyclerView;
@@ -43,6 +46,16 @@ public class HealthFragment extends Fragment {
         context = container.getContext();
 
         initLayout();
+
+        healthCardAge = viewGroup.findViewById(R.id.healthCardAge);
+        if( LoadingActivity.LOGIN_USER_RECOMMEND_KEY.equals("60대/비만전단계비만/M/금") ){
+            healthCardAge.setText( "63" );
+        }else if( LoadingActivity.LOGIN_USER_RECOMMEND_KEY.equals("60대/비만전단계비만/M/은" )){
+            healthCardAge.setText( "65" );
+        }else {
+            healthCardAge.setText( "67" );
+        }
+
 
         todayTestBtn = viewGroup.findViewById(R.id.todayTestBtn);
         todayTestBtn.setOnClickListener(new Button.OnClickListener() {

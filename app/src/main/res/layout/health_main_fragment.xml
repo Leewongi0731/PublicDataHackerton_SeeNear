@@ -154,7 +154,7 @@
 
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:text="김노인에게 좋은 운동 리스트" />
+                android:text="이경배에게 좋은 운동 리스트" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/healthMVRecyclerView"

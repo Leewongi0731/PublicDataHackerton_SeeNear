@@ -3,6 +3,7 @@ package com.example.hackathonapplication.health;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hackathonapplication.LoadingActivity;
 import com.example.hackathonapplication.MainActivity;
 import com.example.hackathonapplication.R;
 import com.example.hackathonapplication.data.MVDataset;
@@ -57,7 +59,6 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
         Exercise dataSet = exercises.get(position);
 
         holder.healthMVThumbnailImageView.setImageResource( dataSet.getThumbnailPath() );
-        //holder.healthMVThumbnailImageView.setImageResource( R.drawable.health_example1 );
         holder.healthMVTitle.setText(dataSet.getPrescription());
 
         String mvContent = dataSet.getContents();
@@ -85,6 +86,15 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
             }
         };
         holder.layout.setOnClickListener(clickListener);
+
+
+        if( LoadingActivity.LOGIN_USER_RECOMMEND_KEY.equals("60대/비만전단계비만/M/금") ){
+            holder.layout.setBackgroundColor(Color.parseColor("#FA7900"));
+        }else if( LoadingActivity.LOGIN_USER_RECOMMEND_KEY.equals("60대/비만전단계비만/M/은" )){
+            holder.layout.setBackgroundColor(Color.parseColor("#FFBB7C"));
+        }else {
+            holder.layout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        }
     }
 
     @Override

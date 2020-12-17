@@ -29,7 +29,7 @@ import java.util.HashMap;
 
 public class LoadingActivity extends AppCompatActivity {
     static public final String LOGIN_USER_EMAIL = "test@gmail.com";
-    static public String LOGIN_USER_RECOMMEND_KEY = "60대/비만전단계비만/M/금";
+    static public String LOGIN_USER_RECOMMEND_KEY = "60대/비만전단계비만/M/은";
 
     private ImageView loadingImageView;
     protected void onCreate(Bundle savedInstanceState) {
