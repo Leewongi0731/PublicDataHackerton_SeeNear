@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hackathonapplication.R;
+import com.example.hackathonapplication.sqlite.BoardDbOpenHelper;
 import com.example.hackathonapplication.sqlite.CommentDbOpenHelper;
 
 import java.util.ArrayList;
@@ -89,9 +90,20 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
                     case 1001: //삭제
                         data = commentDataset.get(getAdapterPosition());                            //adapter로 뿌려질 데이터셋도 같이 관리해줘야한다. 뿌려진 곳에서 위치를 연동해 그 데이터를 삭제
                         CommentDbOpenHelper dbOpenHelper = new CommentDbOpenHelper(context);
+                        BoardDbOpenHelper bdbOpenHelper = new BoardDbOpenHelper(context);
                         dbOpenHelper.open();
+                        bdbOpenHelper.open();
                         dbOpenHelper.deleteColumn(Integer.valueOf(data.getId()));
+                        int commentCount = 0;
+                        Cursor bcursor = dbOpenHelper.searchColumns("_id", data.getBoardkey()); //가져오고
+                        while (bcursor.moveToNext()) {
+                            commentCount = Integer.valueOf(bcursor.getString(bcursor.getColumnIndex("comment")));
+                        }
+                        commentCount = commentCount - 1;
+                        bdbOpenHelper.updateColumnInt("_id",data.getId(),"comment",commentCount);
+
                         dbOpenHelper.close();
+                        bdbOpenHelper.close();
                         commentDataset.remove(getAdapterPosition());                                //데이터셋에서도 지워줘야 화면에서 갱신됨. 안그러면 데이터는 지워도 화면에서 안지워짐
                         notifyDataSetChanged();
                         break;

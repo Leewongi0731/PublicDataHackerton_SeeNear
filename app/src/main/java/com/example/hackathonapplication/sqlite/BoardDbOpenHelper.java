@@ -66,21 +66,6 @@ public class BoardDbOpenHelper {
         return sqLiteDatabase.insert(BoardDB.CreateDB._TABLENAME, null, values);
     }
 
-//    public long updateCount(String columnName) {
-//        ContentValues values = new ContentValues();
-//        values.put(BoardDB.CreateDB.LOCATION, location);
-//        values.put(BoardDB.CreateDB.WRITEREMAIL, writeremail);
-//        values.put(BoardDB.CreateDB.PROFILE,profile);
-//        values.put(BoardDB.CreateDB.WRITER,writer);
-//        values.put(BoardDB.CreateDB.CATEGORY, category);
-//        values.put(BoardDB.CreateDB.LOCATION, location);
-//        values.put(BoardDB.CreateDB.CONTENTS, contents);
-//        values.put(BoardDB.CreateDB.POSTDATE, postdate);
-//        values.put(BoardDB.CreateDB.LIKE, like);
-//        values.put(BoardDB.CreateDB.COMMENT, comment);
-//        Cursor cusor = sqLiteDatabase.rawQuery("UPDATE" + BoardDB.CreateDB._TABLENAME +"SET COMMENT"+COMMENT)
-//        return sqLiteDatabase.insert(BoardDB.CreateDB._TABLENAME, null, values);
-//    }
 
 
     public Cursor sortColumn(String sort) {
@@ -110,6 +95,14 @@ public class BoardDbOpenHelper {
 
     public void deleteAllColumns() {
         sqLiteDatabase.delete(BoardDB.CreateDB._TABLENAME, null, null);
+    }
+
+    public void updateColumn(String conditionColumn, String conditionValue, String updateColumn, String columnValue) {
+        sqLiteDatabase.execSQL("UPDATE " + BoardDB.CreateDB._TABLENAME +" SET " + updateColumn + " = "+columnValue + " WHERE " + conditionColumn + " = " + conditionValue + " ; ");
+    }
+
+    public void updateColumnInt(String conditionColumn, String conditionValue, String updateColumn, Integer columnValue) {
+        sqLiteDatabase.execSQL("UPDATE " + BoardDB.CreateDB._TABLENAME +" SET " + updateColumn + " = "+columnValue + " WHERE " + conditionColumn + " = " + conditionValue + " ; ");
     }
 
     public void deleteColumn(Integer id) {

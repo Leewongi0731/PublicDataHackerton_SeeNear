@@ -129,7 +129,7 @@ public class LoadingActivity extends AppCompatActivity {
         dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile4), "구본식","트로트", "나훈아콘서트가실분구합니다", "20/12/04 01:34:05", 5, 0);
 
         dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile1), "길명근","등산", "무등산 등산하실 분 없나요?", "20/12/13 19:57:11", 4, 0);
-        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL,String.valueOf(R.drawable.im_sample_profile), "이경배","등산", "산은 구봉산이 최고죠. 뒷산에 올라가서 만세외치면 근심.걱정.날아갑니다 ^^~", "20/12/17 11:29:16", 8, 0);
+        dbOpenHelper.insertColumn("강남구", LOGIN_USER_EMAIL,String.valueOf(R.drawable.im_sample_profile), "이경배","등산", "산은 구봉산이 최고죠. 뒷산에 올라가서 만세외치면 근심.걱정.날아갑니다 ^^~", "20/12/16 11:29:16", 8, 0);
         dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile2), "임영호","등산", "mountain is my life ~ ~ ", "20/12/13 11:15:00", 5, 0);
         dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile3), "김꽂자","등산", "산공기 숨이 탁! 트이는 이기분!", "20/12/15 10:34:00", 1, 0);
         dbOpenHelper.insertColumn("강남구", "test1@gmail.com",String.valueOf(R.drawable.im_sample_profile4), "나순자","등산", "주변좋은산정보있으시면댓글로달아주세요", "20/12/12 11:34:50", 9, 0);

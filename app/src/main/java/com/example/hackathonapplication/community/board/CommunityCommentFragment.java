@@ -168,7 +168,7 @@ public class CommunityCommentFragment extends Fragment {
             c_like = cursor.getString(cursor.getColumnIndex("like"));
             c_date = cursor.getString(cursor.getColumnIndex("commentdate"));
 
-            commentdataSet.add(new Comment(c_id,"임시사진", "이경배", "배지", c_contents, c_date, c_like));
+            commentdataSet.add(new Comment(c_id,id,"임시사진", "이경배", "배지", c_contents, c_date, c_like));
         }
         dbOpenHelper.close();
     }
@@ -195,25 +195,23 @@ public class CommunityCommentFragment extends Fragment {
             c_like = cursor.getString(cursor.getColumnIndex("like"));
             c_date = cursor.getString(cursor.getColumnIndex("commentdate"));
 
-            commentdataSet.add(new Comment(c_id,"임시사진", "이경배", "배지", c_contents, c_date, c_like));
+            commentdataSet.add(new Comment(c_id,id,"임시사진", "이경배", "배지", c_contents, c_date, c_like));
         }
-        dbOpenHelper.close();
 
         //게시글에 연동된 댓글개수 갱신
         BoardDbOpenHelper bdbOpenHelper = new BoardDbOpenHelper(context);
-        dbOpenHelper.open();
-        Cursor bcursor = dbOpenHelper.searchColumns("_id", id);
-        while (cursor.moveToNext()) {
-
-            like = cursor.getString(cursor.getColumnIndex("like"));
-            comments = cursor.getString(cursor.getColumnIndex("comment"));
-            post.setLike(like);
-            post.setComment(comments);
-
+        bdbOpenHelper.open();
+        int commentCount = 0;
+        Cursor bcursor = dbOpenHelper.searchColumns("_id", id); //가져오고
+        while (bcursor.moveToNext()) {
+            comments = bcursor.getString(bcursor.getColumnIndex("comment"));
         }
+        commentCount = Integer.valueOf(comments) + 1;
+        bdbOpenHelper.updateColumnInt("_id",id,"comment",commentCount);
+
         dbOpenHelper.close();
-        textViewPostLike.setText(post.getLike());
-        textViewCommentCount.setText(post.getComment());
+        bdbOpenHelper.close();
+        textViewCommentCount.setText(String.valueOf(commentCount));
 
 
     }

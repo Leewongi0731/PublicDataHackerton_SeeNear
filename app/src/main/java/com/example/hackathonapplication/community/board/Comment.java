@@ -2,12 +2,21 @@ package com.example.hackathonapplication.community.board;
 
 public class Comment {
     private String id;
+    private String boardkey;
     private String profile;
     private String writer;
     private String badge;
     private String contents;
     private String commentdate;
     private String like;
+
+    public String getBoardkey() {
+        return boardkey;
+    }
+
+    public void setBoardkey(String boardkey) {
+        this.boardkey = boardkey;
+    }
 
     public String getId() {
         return id;
@@ -65,9 +74,10 @@ public class Comment {
         this.like = like;
     }
 
-    public Comment(String id, String profile, String writer, String badge, String contents, String commentdate, String like) {
+    public Comment(String id, String boardkey, String profile, String writer, String badge, String contents, String commentdate, String like) {
         this.id = id;
         this.profile = profile;
+        this.boardkey = boardkey;
         this.writer = writer;
         this.badge = badge;
         this.contents = contents;
