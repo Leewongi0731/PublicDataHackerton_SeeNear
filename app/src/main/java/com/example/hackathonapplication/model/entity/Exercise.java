@@ -12,9 +12,9 @@ public class Exercise {
     String prescription;
     String videopath;
     String contents;
-    String thumbnailPath;
+    int thumbnailPath;
 
-    public Exercise(String prescription, String videopath, String contents, String thumbnailPath) {
+    public Exercise(String prescription, String videopath, String contents, int thumbnailPath) {
         this.prescription = prescription;
         this.videopath = videopath;
         this.contents = contents;
@@ -33,7 +33,7 @@ public class Exercise {
         return contents;
     }
 
-    public String getThumbnailPath() {
+    public int getThumbnailPath() {
         return thumbnailPath;
     }
 }

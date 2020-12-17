@@ -29,7 +29,7 @@ public class ExerciseRepository {
         this.database.close();
     }
 
-    public long insert(String prescription, String videopath, String contents, String thumbnailPath) {
+    public long insert(String prescription, String videopath, String contents, int thumbnailPath) {
         ContentValues values = new ContentValues();
 
         values.put(scheme.PRESCRIPTION, prescription);
@@ -52,8 +52,7 @@ public class ExerciseRepository {
             // todo conver model here
             String videopath = c.getString(c.getColumnIndex("videopath"));
             String contents = c.getString(c.getColumnIndex("contents"));
-            String thumbnailPath = "tmptmptmp"; // 자꾸 에러떠서 임의로 넣어둠.
-        //    String thumbnailPath = c.getString(c.getColumnIndex("thumbnailPath"));
+            int thumbnailPath = c.getInt(c.getColumnIndex("thumbnailPath"));
             result = new Exercise( prescription, videopath, contents, thumbnailPath );
         }
 

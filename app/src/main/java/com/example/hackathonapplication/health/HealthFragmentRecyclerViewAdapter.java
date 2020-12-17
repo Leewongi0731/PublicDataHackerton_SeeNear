@@ -56,8 +56,8 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Exercise dataSet = exercises.get(position);
 
-    //    holder.healthMVThumbnailImageView.setImageResource( (int)dataSet.getThumbnailPath() );
-        holder.healthMVThumbnailImageView.setImageResource( R.drawable.health_example1 );
+        holder.healthMVThumbnailImageView.setImageResource( dataSet.getThumbnailPath() );
+        //holder.healthMVThumbnailImageView.setImageResource( R.drawable.health_example1 );
         holder.healthMVTitle.setText(dataSet.getPrescription());
 
         String mvContent = dataSet.getContents();
@@ -107,4 +107,5 @@ public class HealthFragmentRecyclerViewAdapter extends RecyclerView.Adapter<Heal
             healthMVContent = view.findViewById(R.id.healthMVContent);
         }
     }
+
 }

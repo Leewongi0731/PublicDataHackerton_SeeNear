@@ -95,7 +95,7 @@ public class SqliteTableScheme {
                     + PRESCRIPTION + " text not null, "
                     + VIDEOPATH + " text not null, "
                     + CONTENTS          + " text not null, "
-                    + THUMBNAILPATH    + " text not null);";
+                    + THUMBNAILPATH    + " integer not null);";
         }
 
         @Override

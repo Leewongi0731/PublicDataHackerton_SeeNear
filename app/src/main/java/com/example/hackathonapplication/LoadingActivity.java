@@ -41,6 +41,8 @@ public class LoadingActivity extends AppCompatActivity {
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
+
+
         SharedPreferences pref = getSharedPreferences("checkFirst", Activity.MODE_PRIVATE);
         boolean checkFirst = pref.getBoolean("checkFirst",false);
         if(checkFirst == false){
@@ -108,37 +110,42 @@ public class LoadingActivity extends AppCompatActivity {
         exerciseRepository.connect();
 
         exerciseRepository.insert("가슴/어깨 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/263/263.mp4",
-                "1. 한 사람은 바닥에 엎드려 양손 깍지를 끼고 머리 뒤에 위치시킨다./2. 파트너가 양팔꿈치를 잡고 천천히 위로 당겨준다.", "R.drawable.health_example1");
+                "1. 한 사람은 바닥에 엎드려 양손 깍지를 끼고 머리 뒤에 위치시킨다./2. 파트너가 양팔꿈치를 잡고 천천히 위로 당겨준다.", R.drawable.exercise_1);
         exerciseRepository.insert("고관절 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/271/271.mp4",
-                "1. 엎드려 누운 파트너의 대퇴 앞쪽과 발목을 잡는다./2. 수직 방향으로 무릎을 들어 올린다.", "R.drawable.health_example1");
+                "1. 엎드려 누운 파트너의 대퇴 앞쪽과 발목을 잡는다./2. 수직 방향으로 무릎을 들어 올린다.", R.drawable.exercise_2);
         exerciseRepository.insert("내전근 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/285/285.mp4",
-                "1. 바른 자세로 의자에 앉아 발은 어깨너비보다 넓게 벌리고 양손은 대퇴부에 올려 놓는다./2. 상체를 비틀어 숙이며 한쪽 어깨를 아래쪽으로 밀어 넣는다.", "R.drawable.health_example1");
+                "1. 바른 자세로 의자에 앉아 발은 어깨너비보다 넓게 벌리고 양손은 대퇴부에 올려 놓는다./2. 상체를 비틀어 숙이며 한쪽 어깨를 아래쪽으로 밀어 넣는다.", R.drawable.exercise_3);
         exerciseRepository.insert("달리기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/2/2.mp4",
-                "1. 팔과 다리를 더 힘차게 움직인다./2. 팔꿈치가 너무 벌어지거나 모이지 않게 주의한다.", "R.drawable.health_example1");
+                "1. 팔과 다리를 더 힘차게 움직인다./2. 팔꿈치가 너무 벌어지거나 모이지 않게 주의한다.", R.drawable.exercise_4);
         exerciseRepository.insert("대퇴사두근 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/287/287.mp4",
-                "1. 어깨너비로 벌려 선 자세에서 한 손으로 의자를 잡고 시선은 정면을 응시한다./2. 한쪽 발을 손으로 잡아 엉덩이 쪽으로 들어 당겨준다.", "R.drawable.health_example1");
+                "1. 어깨너비로 벌려 선 자세에서 한 손으로 의자를 잡고 시선은 정면을 응시한다./2. 한쪽 발을 손으로 잡아 엉덩이 쪽으로 들어 당겨준다.", R.drawable.exercise_5);
         exerciseRepository.insert("대퇴이두근 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/272/272.mp4",
-                "1. 두 다리를 펴고 앉은 파트너의 허리 하부를 잡는다./2. 허리 하부를 잡고 천천히 앞으로 밀어준다.", "R.drawable.health_example1");
+                "1. 두 다리를 펴고 앉은 파트너의 허리 하부를 잡는다./2. 허리 하부를 잡고 천천히 앞으로 밀어준다.", R.drawable.exercise_6);
         exerciseRepository.insert("등 대고 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/268/268.mp4",
-                "1. 등을 맞대고 앉아 한사람은 무릎을 펴고 상대방은 무릎을 세운다./2. 무릎을 편 파트너의 방향으로 등을 밀어준다.", "R.drawable.health_example1");
+                "1. 등을 맞대고 앉아 한사람은 무릎을 펴고 상대방은 무릎을 세운다./2. 무릎을 편 파트너의 방향으로 등을 밀어준다.", R.drawable.exercise_7);
         exerciseRepository.insert("몸통 비틀기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/278/278.mp4",
-                "1. 어꺠너비로 선 자세를 잡는다./2.한 손은 의자 위, 다른 손은 머리뒤로 위치한다./3.들고 있는 손의 방향으로 온몸을 돌려 뒤를본다./4.번갈아가며 반복한다", "R.drawable.health_example1");
+                "1. 어꺠너비로 선 자세를 잡는다./2.한 손은 의자 위, 다른 손은 머리뒤로 위치한다./3.들고 있는 손의 방향으로 온몸을 돌려 뒤를본다./4.번갈아가며 반복한다", R.drawable.exercise_8);
         exerciseRepository.insert("물병 들고 앉았다 일어서기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/212/212.mp4",
-                "1. 물병을 양손에 들고 바르게 선다./2. 허리는 곧게 편 상태를 유지하며 앞뒤 무릎의 각도가 90도 정도 되도록 앉는다.", "R.drawable.health_example1");
+                "1. 물병을 양손에 들고 바르게 선다./2. 허리는 곧게 편 상태를 유지하며 앞뒤 무릎의 각도가 90도 정도 되도록 앉는다.", R.drawable.exercise_9);
         exerciseRepository.insert("스텝박스","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/171/171.mp4",
-                "1. 스텝박스를 이용해 전후,좌우로 활발하게 움직인다./2. 15분 이상 걷기 운동을 실시한다.", "R.drawable.health_example1");
+                "1. 스텝박스를 이용해 전후,좌우로 활발하게 움직인다./2. 15분 이상 걷기 운동을 실시한다.", R.drawable.exercise_10);
         exerciseRepository.insert("자전거타기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/452/452.mp4",
-                "1. 본인의 체형에 맞는 자전거를 선택한다./2. 헬멧, 장갑등의 안전장비를 구비하도록 한다.", "R.drawable.health_example1");
+                "1. 본인의 체형에 맞는 자전거를 선택한다./2. 헬멧, 장갑등의 안전장비를 구비하도록 한다.", R.drawable.exercise_11);
         exerciseRepository.insert("발등굽힘/발바닥굽힘","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/72/72.mp4",
-                "1. 무릎 밑에 수건을 대고 안정된 자세로 앉는다./2. 발목을 발바닥쪽으로 굽힌다./3. 운동 할 발을 반대쪽 발목 위에 올려 밴드를 걸고 엄지발가락을 몸 쪽으로 당긴다.", "R.drawable.health_example1");
+                "1. 무릎 밑에 수건을 대고 안정된 자세로 앉는다./2. 발목을 발바닥쪽으로 굽힌다./3. 운동 할 발을 반대쪽 발목 위에 올려 밴드를 걸고 엄지발가락을 몸 쪽으로 당긴다.", R.drawable.exercise_12);
         exerciseRepository.insert("옆구리 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/283/283.mp4",
-                "1. 어깨너비로 벌려 선 자세에서 한 손은 의자를 잡고 다른 한 팔은 위를 항해 곧게 뻗어준다./2. 위를 향하고 있는 팔과 옆구리를 의자 방향으로 굽혀준다.", "R.drawable.health_example1");
+                "1. 어깨너비로 벌려 선 자세에서 한 손은 의자를 잡고 다른 한 팔은 위를 항해 곧게 뻗어준다./2. 위를 향하고 있는 팔과 옆구리를 의자 방향으로 굽혀준다.", R.drawable.exercise_13);
         exerciseRepository.insert("짐볼에서 윗몸 일으키기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/232/232.mp4",
-                "1. 짐볼에 등을 대고 누워 양손은 머리를 잡고 눕는다./2. 무릎을 90도로 굽히고 허리와 엉덩이를 일직선으로 유지한다./3. 견갑골 부분까지만 짐볼에서 떨어질 수 있게 윗몸을 일으켜준다.", "R.drawable.health_example1");
+                "1. 짐볼에 등을 대고 누워 양손은 머리를 잡고 눕는다./2. 무릎을 90도로 굽히고 허리와 엉덩이를 일직선으로 유지한다./3. 견갑골 부분까지만 짐볼에서 떨어질 수 있게 윗몸을 일으켜준다.", R.drawable.exercise_14);
         exerciseRepository.insert("척추 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/302/302.mp4",
-                "1. 폼롤러 위에 균형을 잡고 눕는다./2. 몸을 양옆으로 굴려준다.", "R.drawable.health_example1");
+                "1. 폼롤러 위에 균형을 잡고 눕는다./2. 몸을 양옆으로 굴려준다.", R.drawable.exercise_15);
         exerciseRepository.insert("허리 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/250/250.mp4",
-                "1. 네발기기 자세를 취한다./2. 머리를 앞으로 숙이며 등을 활처럼 둥글게 말아 올린다.", "R.drawable.health_example1");
+                "1. 네발기기 자세를 취한다./2. 머리를 앞으로 숙이며 등을 활처럼 둥글게 말아 올린다.", R.drawable.exercise_16);
+        exerciseRepository.insert("벽에서 팔굽혀 펴기","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/225/225.mp4",
+                "1. 양손을 벽에 대고 상체와 하체가 일직선을 이루도록 준비자세를 취한다./2. 양 팜꿈치를 구부려 벽에 상체를 밀착시킨 후 시작자세로 돌아온다.", R.drawable.exercise_17);
+        exerciseRepository.insert("엉덩이 스트레칭","http://nfa.kspo.or.kr/common/site/www/front/movie_zip/246/246.mp4",
+                "1. 바른 자세로 누워 한 쪽 무릎을 구부려 무릎을 양손으로 감싼다./2. 양손으로 무릎을 자신의 가슴 방향으로 당긴다..", R.drawable.exercise_18);
+
 
         exerciseRepository.close();
     }
