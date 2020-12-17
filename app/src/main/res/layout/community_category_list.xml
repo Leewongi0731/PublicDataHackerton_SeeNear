@@ -72,7 +72,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="15dp"
                             android:text="작성일"
-                           android:textSize="13dp"/>
+                            android:textSize="13dp"/>
 
                     </LinearLayout>
 
@@ -89,9 +89,10 @@
                     android:ellipsize="end"
                     android:maxLines="5"
                     android:text="내용"
-                    android:lineSpacingExtra="10dp"
+                    android:lineSpacingExtra="7dp"
                     android:layout_marginBottom="4dp"
-                    android:textSize="22dp" />
+                    android:textSize="22dp"
+                    />
             </LinearLayout>
 
             <LinearLayout
