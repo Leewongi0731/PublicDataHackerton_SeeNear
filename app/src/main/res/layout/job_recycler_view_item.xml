@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:cardCornerRadius="3dp"
+        android:layout_marginBottom="6dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:cardUseCompatPadding="true">
 
@@ -20,7 +21,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
                 android:orientation="horizontal"
                 android:gravity="center"
@@ -32,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:textStyle="bold"
                     android:textColor="@android:color/background_dark"
                     android:text="일자리 명" />
@@ -43,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:textColor="@color/jobColor"
+                    android:layout_marginLeft="6dp"
                     android:textStyle="bold"
                     android:text="접수하기" />
             </LinearLayout>
@@ -96,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp">

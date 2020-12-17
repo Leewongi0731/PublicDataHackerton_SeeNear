@@ -19,6 +19,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             app:cardCornerRadius="3dp"
             app:cardElevation="5dp"
             app:cardUseCompatPadding="true">
@@ -40,7 +42,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="위치 정보"
-                        android:textColor="@android:color/background_dark"
+                        android:textColor="@android:color/white"
                         android:textSize="20dp"
                         android:textStyle="bold"
                         android:textAlignment="center"
@@ -84,7 +86,9 @@
             android:id="@+id/jobRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="8dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="12dp"
             android:scrollbars="vertical"/>
 
 
