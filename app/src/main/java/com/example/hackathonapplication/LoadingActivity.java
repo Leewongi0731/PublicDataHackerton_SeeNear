@@ -38,11 +38,6 @@ public class LoadingActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
-
-
         SharedPreferences pref = getSharedPreferences("checkFirst", Activity.MODE_PRIVATE);
         boolean checkFirst = pref.getBoolean("checkFirst",false);
         if(checkFirst == false){

@@ -44,12 +44,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        Window window = getWindow();
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
         initLayout();
-
-        constraintLayoutMainActivity.setPadding(0, getStatusBarHeight(), 0, 0);
 
         bottomNavigationView.setSelected(false);
         bottomNavigationView.getMenu().getItem(2).setChecked(true);

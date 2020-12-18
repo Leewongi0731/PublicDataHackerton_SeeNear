@@ -19,4 +19,5 @@
     <color name="communityBackgroundColor">#fffbed</color>
     <color name="communityBackgroundColorBold">#FDEDAE</color>
     <color name="textGray">#616161</color>
+    <color name="statusBar">#d3d3d3</color>
 </resources>
