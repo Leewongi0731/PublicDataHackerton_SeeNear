@@ -46,55 +46,35 @@
 
 1. 메인화면
 
-![main](https://user-images.githubusercontent.com/36183001/102781811-9fa19e00-43db-11eb-82de-0919cc9140b2.png)
+![main](https://user-images.githubusercontent.com/36183001/102785507-74ba4880-43e1-11eb-9327-fc54d0701ccd.png)
 
 > 4가지 기능별 트로피와 이수증 확인 가능
 
 
 2. 건강 메인 / 운동 측정 / 운동 측정 결과 / 추천 운동 강좌
 
-![health1](https://user-images.githubusercontent.com/36183001/102781799-9d3f4400-43db-11eb-9cf1-3d60d46ae7c8.png)
-
-![health2](https://user-images.githubusercontent.com/36183001/102781800-9dd7da80-43db-11eb-8547-2a00927e9122.png)
-
-![health3](https://user-images.githubusercontent.com/36183001/102781802-9e707100-43db-11eb-999c-0d6f404bdc16.png)
-
-![health4](https://user-images.githubusercontent.com/36183001/102781806-9e707100-43db-11eb-99ee-caca49f429fa.png)
+![health](https://user-images.githubusercontent.com/36183001/102785628-9fa49c80-43e1-11eb-8dce-07f05c6df377.png)
 
 > 신체나이와 추천 운동리스트 확인 가능 / 집에서 간단히 할 수 있는 3가지 운동 측정 / 측정 결과에 따른 점수 부여 / 국민체육진흥공단에서 제공하는 운동 정보 제공
 
 
 3. 교육 메인 / 교육 필터 / 리스트 클릭 시 교육 화면이동
 
-![edu1](https://user-images.githubusercontent.com/36183001/102781795-9ca6ad80-43db-11eb-9301-94bf376e38cb.png)
-
-![edu2](https://user-images.githubusercontent.com/36183001/102781797-9d3f4400-43db-11eb-99e8-f925e2b025a3.png)
-
-![edu3](https://user-images.githubusercontent.com/36183001/102783504-60c11780-43de-11eb-9e86-4e57d5fb58f4.png)
+![edu](https://user-images.githubusercontent.com/36183001/102785500-72f08500-43e1-11eb-965b-ae737fe7a18f.png)
 
 > 추천 시스템을 통해 추천된 교육 강좌 / 필터기능을 통해 정렬 가능 / 해당 링크로 이동
 
 
 4. 일자리 메인 / 일자리 필터 / 리스트 클릭 시 일자리 화면이동
 
-![job1](https://user-images.githubusercontent.com/36183001/102781807-9f090780-43db-11eb-8613-5021e626f2f7.png)
-
-![job2](https://user-images.githubusercontent.com/36183001/102781808-9f090780-43db-11eb-93e6-bb5db6514785.png)
-
-![job3](https://user-images.githubusercontent.com/36183001/102783511-61f24480-43de-11eb-8816-fe646eb3416c.png)
+![job](https://user-images.githubusercontent.com/36183001/102785503-7421b200-43e1-11eb-8bca-7ac8d9b2de26.png)
 
 > 추천 시스템을 통해 추천된 일자리 정보 / 필터기능을 통해 정렬 가능 / 해당 링크로 이동
 
 
 5. 커뮤니티 메인 / 커뮤니티 카테고리 / 글쓰기 탭 / 내가 쓴 글 보기
 
-![comm1](https://user-images.githubusercontent.com/36183001/102781788-9a445380-43db-11eb-86ec-9eb73ed60f79.png)
-
-![comm2](https://user-images.githubusercontent.com/36183001/102781790-9b758080-43db-11eb-8004-0849f20f63e5.png)
-
-![comm3](https://user-images.githubusercontent.com/36183001/102781791-9c0e1700-43db-11eb-9903-e96852643136.png)
-
-![comm4](https://user-images.githubusercontent.com/36183001/102781792-9c0e1700-43db-11eb-9317-87afaaf9e5fe.png)
+![comm](https://user-images.githubusercontent.com/36183001/102785505-74ba4880-43e1-11eb-991d-43a24b418e87.png)
 
 > 카테고리 관계없이 모든 글 표시 / 시니어 관심사에 따른 카테고리 표시 / 카테고리에 따른 글쓰기 / 내가 쓴 글 보기
 
