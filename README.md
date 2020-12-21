@@ -30,9 +30,7 @@
 
 - 유사서비스 분석과 FGI(Focus Group Interview) 를 통해 니즈 도출
 
-![유사서비스 분석](https://user-images.githubusercontent.com/36183001/102783236-f7d99f80-43dd-11eb-8fc2-1d09d0c103ff.PNG)
-
-![FGI](https://user-images.githubusercontent.com/36183001/102783647-982fc400-43de-11eb-88bb-74ae8c4c935f.PNG)
+![유사서비스](https://user-images.githubusercontent.com/36183001/102785201-e8a82100-43e0-11eb-8c0b-ffaee49b17bd.png)
 
 > 개인 맞춤형 서비스를 원하는 시니어의 니즈 도출 -> 머신러닝 기술로 니즈 충족
 
