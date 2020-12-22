@@ -10,7 +10,6 @@
 
 ---
 
-<br/>
 
 ## 앱 제안 배경과 필요성
 
@@ -23,7 +22,7 @@
 
 <br/>
 
-1. 페르소나를 통한 사용자의 Pain Point 도출
+**1. 페르소나를 통한 사용자의 Pain Point 도출**
 
 ![페르소나](https://user-images.githubusercontent.com/36183001/102783230-f6a87280-43dd-11eb-94d8-25d990696787.PNG)
 
@@ -31,7 +30,7 @@
 
 ---
 
-2. 유사서비스 분석과 FGI(Focus Group Interview) 를 통해 니즈 도출
+**2. 유사서비스 분석과 FGI(Focus Group Interview) 를 통해 니즈 도출**
 
 ![유사서비스](https://user-images.githubusercontent.com/36183001/102785201-e8a82100-43e0-11eb-8c0b-ffaee49b17bd.png)
 
@@ -39,7 +38,7 @@
 
 ---
 
-3. 어플리케이션의 메뉴구조도
+**3. 어플리케이션의 메뉴구조도**
 
 ![메뉴구조도](https://user-images.githubusercontent.com/36183001/102783237-f7d99f80-43dd-11eb-9801-111fc7a7f69e.PNG)
 
@@ -48,7 +47,7 @@
 
 ## 실제 구동 화면
 
-1. 메인화면
+**1. 메인화면**
 
 ![main](https://user-images.githubusercontent.com/36183001/102785507-74ba4880-43e1-11eb-9327-fc54d0701ccd.png)
 
@@ -56,7 +55,7 @@
 
 ---
 
-2. 건강 메인 / 운동 측정 / 운동 측정 결과 / 추천 운동 강좌
+**2. 건강 메인 / 운동 측정 / 운동 측정 결과 / 추천 운동 강좌**
 
 ![health](https://user-images.githubusercontent.com/36183001/102785628-9fa49c80-43e1-11eb-8dce-07f05c6df377.png)
 
@@ -64,7 +63,7 @@
 
 ---
 
-3. 교육 메인 / 교육 필터 / 리스트 클릭 시 교육 화면이동
+**3. 교육 메인 / 교육 필터 / 리스트 클릭 시 교육 화면이동**
 
 ![edu](https://user-images.githubusercontent.com/36183001/102785500-72f08500-43e1-11eb-965b-ae737fe7a18f.png)
 
@@ -72,7 +71,7 @@
 
 ---
 
-4. 일자리 메인 / 일자리 필터 / 리스트 클릭 시 일자리 화면이동
+**4. 일자리 메인 / 일자리 필터 / 리스트 클릭 시 일자리 화면이동**
 
 ![job](https://user-images.githubusercontent.com/36183001/102785503-7421b200-43e1-11eb-8bca-7ac8d9b2de26.png)
 
@@ -80,7 +79,7 @@
 
 ---
 
-5. 커뮤니티 메인 / 커뮤니티 카테고리 / 글쓰기 탭 / 내가 쓴 글 보기
+**5. 커뮤니티 메인 / 커뮤니티 카테고리 / 글쓰기 탭 / 내가 쓴 글 보기**
 
 ![comm](https://user-images.githubusercontent.com/36183001/102785505-74ba4880-43e1-11eb-991d-43a24b418e87.png)
 
@@ -91,7 +90,7 @@
 
 ## 활용된 머신러닝 기술
 
-1. 운동 추천 머신러닝
+**1. 운동 추천 머신러닝**
 
 ![건강 모델링](https://user-images.githubusercontent.com/36183001/102784352-9e727000-43df-11eb-8aa8-7999d8b27df1.PNG)
 
@@ -99,7 +98,7 @@
 
 ---
 
-2. 일자리/교육 카테고리 표준화 / t-SNE를 사용한 군집별 시각화
+**2. 일자리/교육 카테고리 표준화 / t-SNE를 사용한 군집별 시각화**
 
 ![표준화](https://user-images.githubusercontent.com/36183001/102784353-9f0b0680-43df-11eb-84a3-f488990d4e2d.PNG)
 
@@ -109,7 +108,7 @@
 
 ---
 
-3. 추천 시스템
+**3. 추천 시스템**
 
 ![추천 시스템](https://user-images.githubusercontent.com/36183001/102784355-a03c3380-43df-11eb-97f3-f109249ae280.PNG)
 
